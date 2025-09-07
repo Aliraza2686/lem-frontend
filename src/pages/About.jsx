@@ -153,7 +153,7 @@ export const About = () => {
             <h2 className="text-3xl font-bold text-gray-900 mb-4">Certifications & Quality</h2>
             <p className="text-lg text-gray-600">Our commitment to quality is backed by industry certifications</p>
           </div>
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             <Card className="text-center">
               <CardContent className="p-6">
                 <Badge className="mb-3 bg-green-600">USDA Organic</Badge>
@@ -175,13 +175,13 @@ export const About = () => {
                 <p className="text-sm text-gray-600">Supporting fair wages and sustainable practices</p>
               </CardContent>
             </Card>
-            <Card className="text-center">
+            {/* <Card className="text-center">
               <CardContent className="p-6">
                 <Badge className="mb-3 bg-orange-600">FDA Approved</Badge>
                 <h4 className="font-semibold mb-2">FDA Compliant</h4>
                 <p className="text-sm text-gray-600">All food products meet FDA safety standards</p>
               </CardContent>
-            </Card>
+            </Card> */}
           </div>
         </div>
       </section>
