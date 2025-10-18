@@ -26,7 +26,7 @@ export const Header = () => {
     <div>
      
       <div>
-        <div className="min-h-screen bg-gradient-to-r from-green-600 to-emerald-700">
+        <div className="bg-gradient-to-r from-green-600 to-emerald-700">
           <section className="relative theme-gradient text-white py-24 overflow-hidden">
             <div className="absolute inset-0 bg-black/10"></div>
             <div className="container mx-auto px-4 relative z-10">
