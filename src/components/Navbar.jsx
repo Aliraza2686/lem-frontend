@@ -11,6 +11,7 @@ import { Bars3Icon, BellIcon, XMarkIcon } from "@heroicons/react/24/outline";
 import { Mountain } from "lucide-react";
 import { Link, useLocation } from "react-router-dom";
 import { cn } from "../lib/utills";
+import { Logo } from "./atoms/Logo";
 
 export const Navbar = () => {
   const location = useLocation();
@@ -42,7 +43,8 @@ export const Navbar = () => {
           </div>
           <div className="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
             <div className="flex shrink-0 items-center">
-              <Mountain className="h-10 w-10" />
+              {/* <Mountain className="h-10 w-10" /> */}
+              <Logo  /> 
             </div>
             <div className="hidden sm:ml-6 sm:flex sm:space-x-8">
               {/* Current: "border-indigo-600 text-gray-900", Default: "border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700" */}

@@ -6,7 +6,7 @@ export function cn(...inputs) {
 }
 
 export const PHONE_NUMBER = "+92 306 9302960"
-export const EMAIL = "luminaearthminerals@outlook.com"
+export const EMAIL = "contact@luminaearthminerals.com"
 export const ADDRESS = "Khewra salt mine punjab, pakistan"
 
 export const topSellingProducts = [
