@@ -9,7 +9,7 @@ import {
 import { Clock, Mail, MapPin, Phone } from "lucide-react";
 import { NavLayout } from "../components/layouts/NavLayout";
 import { ContactForm } from "../components/forms/Contactform";
-import { EMAIL, PHONE_NUMBER } from "../lib/utills";
+import { ADDRESS, EMAIL, PHONE_NUMBER } from "../lib/utills";
 
 export const Contact = () => {
   return (
@@ -74,7 +74,7 @@ export const Contact = () => {
                   </CardHeader>
                   <CardContent>
                     <p className="text-lg font-semibold">Khewra Salt Mine</p>
-                    <p className="text-gray-600">Khewra, Punjab, Pakistan</p>
+                    <p className="text-gray-600">{ADDRESS}</p>
                   </CardContent>
                 </Card>
 

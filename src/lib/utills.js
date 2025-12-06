@@ -5,9 +5,9 @@ export function cn(...inputs) {
   return twMerge(clsx(inputs));
 }
 
-export const PHONE_NUMBER = "+92 306 9302960"
+export const PHONE_NUMBER = "+92 3271177788"
 export const EMAIL = "contact@luminaearthminerals.com"
-export const ADDRESS = "Khewra salt mine punjab, pakistan"
+export const ADDRESS = "Main pink salt market Khewra Punjab, Pakistan"
 
 export const topSellingProducts = [
   {

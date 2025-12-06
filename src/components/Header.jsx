@@ -24,7 +24,7 @@ export const Header = () => {
   ];
   return (
     <div>
-     
+
       <div>
         <div className="bg-gradient-to-r from-green-600 to-emerald-700">
           <section className="relative theme-gradient text-white py-24 overflow-hidden">
@@ -46,10 +46,7 @@ export const Header = () => {
                     <span className="text-green-200"> for Your Business</span>
                   </h1>
                   <p className="text-xl mb-8 text-green-100 leading-relaxed">
-                    We are the world's first company to source directly from the
-                    authentic Khewra Salt Mine in Pakistan. Leading wholesale
-                    supplier of genuine Himalayan salt products, premium rice,
-                    wheat, oats, and natural wellness items.
+                    The world’s first company sourcing directly from the Khewra Salt Mine in Pakistan — delivering high-quality Himalayan salt products for global wholesale buyers
                     <strong className="block mt-2 text-white">
                       Bulk quantities only - Quality guaranteed.
                     </strong>
@@ -77,7 +74,7 @@ export const Header = () => {
                   </div>
 
                   {/* Stats */}
-                  <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+                  <div className="grid grid-cols-2 md:grid-cols-4 gap-4 hidden">
                     {stats.map((stat, index) => (
                       <div key={index} className="text-center">
                         <div className="text-2xl font-bold text-white">
