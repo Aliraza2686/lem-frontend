@@ -2,19 +2,16 @@ import React from "react";
 import {
   Mountain,
   Sparkles,
-  Star,
-  Truck,
-  Shield,
-  Users,
-  CheckCircle,
   ArrowRight,
   Package,
   Factory,
 } from "lucide-react";
+import { Link } from "react-router-dom";
+
 import { Button } from "./button";
 import { Badge } from "./badge";
-import { Link } from "react-router-dom";
-import { JumboContact } from "./JumboContact";
+
+
 export const Header = () => {
   const stats = [
     { number: "500+", label: "Business Clients" },
@@ -107,7 +104,7 @@ export const Header = () => {
                           Direct Source Partnership
                         </div>
                         <div className="text-xs text-orange-600 font-medium">
-                          World's First Direct Supplier
+                          World&APOS;s First Direct Supplier
                         </div>
                       </div>
                     </div>

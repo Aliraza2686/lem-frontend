@@ -27,12 +27,12 @@ export const TopSelling = () => {
                       alt={product?.name}
                       className="w-full  h-[400px] object-cover group-hover:scale-105 transition-transform duration-300"
                     />
-                    <Badge className="absolute top-3 left-3 bg-orange-500">Best Seller</Badge>
+                    {/* <Badge className="absolute top-3 left-3 bg-orange-500">Best Seller</Badge> */}
                     <Badge className="absolute top-3 right-3 bg-green-600">Bulk Only</Badge>
                   </div>
                 </CardHeader>
                 <CardContent className="p-6">
-                  <div className="flex items-center gap-1 mb-3">
+                  <div className="flex items-center gap-1 mb-3 hidden">
                     {[...Array(5)].map((_, i) => (
                       <Star
                         key={i}
@@ -49,7 +49,7 @@ export const TopSelling = () => {
                     {/* <span className="font-bold theme-text-primary text-lg">{product.price}</span> */}
                     {/* <span className="text-sm text-gray-500 bg-gray-100 px-2 py-1 rounded">Min: {product.bulkMin}</span> */}
                   </div>
-                  <Link to="/contact">
+                  <Link to={`/contact?id=${product?.id}`}>
                     <Button className="w-full bg-green-600 hover:bg-black text-white">Get a Quote</Button>
                   </Link>
                 </CardContent>

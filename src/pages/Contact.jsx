@@ -110,7 +110,7 @@ export const Contact = () => {
                   <CardHeader>
                     <CardTitle>Send us a Message</CardTitle>
                     <CardDescription>
-                      Fill out the form below and we'll get back to you as soon
+                      Fill out the form below and we&apos;ll get back to you as soon
                       as possible
                     </CardDescription>
                   </CardHeader>

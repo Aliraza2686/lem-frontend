@@ -2,13 +2,8 @@ import {
   Disclosure,
   DisclosureButton,
   DisclosurePanel,
-  Menu,
-  MenuButton,
-  MenuItem,
-  MenuItems,
 } from "@headlessui/react";
-import { Bars3Icon, BellIcon, XMarkIcon } from "@heroicons/react/24/outline";
-import { Mountain } from "lucide-react";
+import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 import { Link, useLocation } from "react-router-dom";
 import { cn } from "../lib/utills";
 import { Logo } from "./atoms/Logo";
@@ -44,7 +39,7 @@ export const Navbar = () => {
           <div className="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
             <div className="flex shrink-0 items-center">
               {/* <Mountain className="h-10 w-10" /> */}
-              <Logo  /> 
+              <Logo />
             </div>
             <div className="hidden sm:ml-6 sm:flex sm:space-x-8">
               {/* Current: "border-indigo-600 text-gray-900", Default: "border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700" */}
@@ -84,13 +79,22 @@ export const Navbar = () => {
               >
                 Contact Us
               </Link>
+                 <Link
+                to="/faq"
+                className={cn(
+                  getCurrentActive("/faq"),
+                  "inline-flex items-center border-b-2 px-1 pt-1 text-sm font-medium"
+                )}
+              >
+                FAQ
+              </Link>
             </div>
           </div>
-          <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
+          <div className="absolute inset-y-0 right-0 flex items-center pr-4 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
             <Link to="/contact">
               <button
                 type="button"
-                className="relative rounded-lg p-2 px-4 bg-green-600 text-white hover:bg-black focus:outline-2 focus:outline-offset-2 focus:outline-indigo-600"
+                className="relative text-sm md:text-md  rounded-lg p-2 px-1 md:px-4 bg-green-600 text-white hover:bg-black focus:outline-2 focus:outline-offset-2 focus:outline-indigo-600"
               >
                 Get A Quote
                 <span className="absolute -inset-1.5" />
