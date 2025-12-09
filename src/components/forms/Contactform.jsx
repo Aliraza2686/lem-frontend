@@ -5,6 +5,7 @@ import { countries } from "../../lib/utills";
 import api from "../../api";
 import Loader from "../loader";
 import { useSearchParams } from "react-router-dom";
+import LexicalEditorComponent from "../atoms/editor/LexicalEditorComponent";
 //change
 export const ContactForm = () => {
   const [formData, setFormData] = useState({
@@ -138,7 +139,7 @@ export const ContactForm = () => {
 
   return (
     <div className="max-w-4xl mx-auto p-6 bg-white">
-         <Loader show={isLoading} />
+      <Loader show={isLoading} />
       <div className="mb-8 text-center">
         <h1 className="text-3xl font-bold text-gray-900 mb-2">Contact Us</h1>
         <p className="text-gray-600">
@@ -164,9 +165,8 @@ export const ContactForm = () => {
                 name="name"
                 value={formData.name}
                 onChange={handleInputChange}
-                className={`w-full px-3 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent ${
-                  errors.name ? "border-red-500" : "border-gray-300"
-                }`}
+                className={`w-full px-3 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent ${errors.name ? "border-red-500" : "border-gray-300"
+                  }`}
                 placeholder="Enter your full name"
               />
               {errors.name && (
@@ -184,9 +184,8 @@ export const ContactForm = () => {
                   name="email"
                   value={formData.email}
                   onChange={handleInputChange}
-                  className={`w-full px-3 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent ${
-                    errors.email ? "border-red-500" : "border-gray-300"
-                  }`}
+                  className={`w-full px-3 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent ${errors.email ? "border-red-500" : "border-gray-300"
+                    }`}
                   placeholder="your.email@company.com"
                 />
                 {errors.email && (
@@ -203,9 +202,8 @@ export const ContactForm = () => {
                   name="phone"
                   value={formData.phone}
                   onChange={handleInputChange}
-                  className={`w-full px-3 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent ${
-                    errors.phone ? "border-red-500" : "border-gray-300"
-                  }`}
+                  className={`w-full px-3 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent ${errors.phone ? "border-red-500" : "border-gray-300"
+                    }`}
                   placeholder="+1 (555) 123-4567"
                 />
                 {errors.phone && (
@@ -222,9 +220,8 @@ export const ContactForm = () => {
                 name="country"
                 value={formData.country}
                 onChange={handleInputChange}
-                className={`w-full px-3 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent ${
-                  errors.country ? "border-red-500" : "border-gray-300"
-                }`}
+                className={`w-full px-3 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent ${errors.country ? "border-red-500" : "border-gray-300"
+                  }`}
               >
                 <option value="">Select your country</option>
                 {countries.map((country) => (
@@ -251,7 +248,16 @@ export const ContactForm = () => {
             <label className="block text-sm font-medium text-gray-700 mb-1">
               Message *
             </label>
-            <textarea
+            <LexicalEditorComponent
+              defaultValue={formData?.json}
+              onChange={(val) =>
+                setFormData((prev) => ({
+                  ...prev,
+                  message: val,
+                }))
+              }
+            />
+            {/* <textarea
               name="message"
               value={formData.message}
               onChange={handleInputChange}
@@ -260,7 +266,7 @@ export const ContactForm = () => {
                 errors.message ? "border-red-500" : "border-gray-300"
               }`}
               placeholder="Tell us about your bulk order requirements, product specifications, quantity needed, or any other details..."
-            />
+            /> */}
             {errors.message && (
               <p className="text-red-500 text-sm mt-1">{errors.message}</p>
             )}
