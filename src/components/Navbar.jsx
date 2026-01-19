@@ -79,7 +79,7 @@ export const Navbar = () => {
               >
                 Contact Us
               </Link>
-                 <Link
+              <Link
                 to="/faq"
                 className={cn(
                   getCurrentActive("/faq"),
@@ -88,20 +88,20 @@ export const Navbar = () => {
               >
                 FAQ
               </Link>
-                 <Link
+              <Link
                 to="/workspace-images"
                 className={cn(
                   getCurrentActive("/workspace-images"),
-                  "inline-flex items-center border-b-2 px-1 pt-1 text-sm font-medium"  
+                  "inline-flex items-center border-b-2 px-1 pt-1 text-sm font-medium"
                 )}
               >
                 Gallery
               </Link>
-                 <Link
+              <Link
                 to="/private-label"
                 className={cn(
                   getCurrentActive("/private-label"),
-                  "inline-flex items-center border-b-2 px-1 pt-1 text-sm font-medium"  
+                  "inline-flex items-center border-b-2 px-1 pt-1 text-sm font-medium"
                 )}
               >
                 Private Labeling
@@ -153,6 +153,27 @@ export const Navbar = () => {
             className="block border-l-4 border-transparent py-2 pr-4 pl-3 text-base font-medium text-gray-500 hover:border-gray-300 hover:bg-gray-50 hover:text-gray-700"
           >
             Contact
+          </DisclosureButton>
+          <DisclosureButton
+            as="a"
+            href="/faq"
+            className="block border-l-4 border-transparent py-2 pr-4 pl-3 text-base font-medium text-gray-500 hover:border-gray-300 hover:bg-gray-50 hover:text-gray-700"
+          >
+            FAQ
+          </DisclosureButton>
+          <DisclosureButton
+            as="a"
+            href="/workspace-images"
+            className="block border-l-4 border-transparent py-2 pr-4 pl-3 text-base font-medium text-gray-500 hover:border-gray-300 hover:bg-gray-50 hover:text-gray-700"
+          >
+            Gallery
+          </DisclosureButton>
+          <DisclosureButton
+            as="a"
+            href="/private-label"
+            className="block border-l-4 border-transparent py-2 pr-4 pl-3 text-base font-medium text-gray-500 hover:border-gray-300 hover:bg-gray-50 hover:text-gray-700"
+          >
+            Private Labeling
           </DisclosureButton>
         </div>
       </DisclosurePanel>
