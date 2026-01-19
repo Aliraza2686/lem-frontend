@@ -1,125 +1,145 @@
 import { useState } from 'react';
-import { ChevronDown, Package, Shield, Globe, Truck, Award, DollarSign } from 'lucide-react';
+import { ChevronDown, Package, Shield, Globe, Truck, Award, DollarSign, Tag } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 export default function FAQ({ isHome = false }) {
   const [openIndex, setOpenIndex] = useState(null);
   const [searchQuery, setSearchQuery] = useState('');
-
   const faqCategories = [
     {
       category: "Products & Services",
       icon: Package,
       questions: [
         {
-          q: "What Himalayan salt products does Lumina Earth Minerals LLP offer?",
-          a: "We specialize in bulk exports of premium Himalayan salt products including edible pink salt (various grain sizes), decorative salt lamps, livestock lick salt blocks, and pink salt grains for industrial and culinary applications. All products are sourced from authentic Himalayan salt mines."
+          q: "What salt products does Lumina Earth Minerals offer?",
+          a: "We supply export-quality Himalayan salt products including edible food-grade salts (pink, white, and black), salt grains in various sizes, animal salt lick blocks, salt lamps, and salt bricks. Products are available for bulk supply and private label packaging."
         },
         {
-          q: "Do you sell retail quantities or only bulk orders?",
-          a: "Lumina Earth Minerals LLP exclusively handles bulk wholesale orders for B2B clients, distributors, and large-scale businesses. We do not offer retail or small quantity sales, ensuring competitive pricing for volume purchases."
+          q: "Do you sell retail quantities?",
+          a: "No, we work exclusively with B2B clients. However, we support smaller bulk orders for new brands and private label customers, starting from lower minimum quantities depending on the product."
         },
         {
-          q: "What makes your Himalayan salt authentic?",
-          a: "Our salt is sourced directly from the Khewra Salt Mine in Pakistan, one of the world's oldest and largest salt mines. Each batch comes with certificates of authenticity, mineral analysis reports, and documentation proving its genuine Himalayan origin."
+          q: "Where is your Himalayan salt sourced from?",
+          a: "Our salt is sourced from the Himalayan salt region in Punjab, Pakistan, including the Khewra salt belt, and supplied through established local partners."
         },
         {
           q: "What grain sizes are available for edible salt?",
-          a: "We offer multiple grain sizes including fine powder, medium grains (1-3mm), coarse grains (3-5mm), and extra coarse (5-8mm). Custom grain specifications can be arranged for large orders to meet your specific requirements."
+          a: "We offer fine, medium, and coarse grain sizes suitable for cooking, seasoning, and food processing. Grain size availability may vary depending on order volume."
         }
       ]
     },
+
+    {
+      category: "Private Labeling",
+      icon: Tag,
+      questions: [
+        {
+          q: "Do you offer private labeling services?",
+          a: "Yes. We offer private label packaging services using plain pouches or bags with buyer-provided sticker or label designs. This service is ideal for brands starting or testing the market."
+        },
+        {
+          q: "What products are available for private labeling?",
+          a: "Private labeling is available for edible salts, salt grains, animal salt lick blocks, salt lamps (packaging only), and salt bricks or tiles (outer packaging only)."
+        },
+        {
+          q: "Do you provide printed packaging?",
+          a: "Currently, private labeling is offered through plain packaging with sticker labeling. Printed packaging may be discussed for larger or repeat orders."
+        },
+        {
+          q: "Do you provide samples before order?",
+          a: "No, samples are not provided for initial private label orders. Detailed product images, specifications, and packaging details are shared for confirmation before production."
+        }
+      ]
+    },
+
     {
       category: "Ordering & Pricing",
       icon: DollarSign,
       questions: [
         {
           q: "What is the minimum order quantity (MOQ)?",
-          a: "Our MOQ varies by product type: Edible salt starts at 5 metric tons, salt lamps at 1000 pieces, and lick salt blocks at 2 metric tons. Contact our sales team for specific product MOQs and volume-based pricing tiers."
+          a: "MOQ typically starts from 100 kg for edible salt products and varies by product type and packaging. Exact MOQ is confirmed during quotation."
         },
         {
           q: "How do I request a quote?",
-          a: "Simply contact us via email or phone with your product requirements, desired quantity, and shipping destination. Our team will provide a detailed quote within 24-48 hours including product pricing, packaging options, and shipping estimates."
+          a: "You can contact us with product type, required quantity, packaging preference, and destination country. We will respond with pricing and lead time details."
         },
         {
-          q: "What payment terms do you offer?",
-          a: "We accept various payment methods including wire transfer, Letter of Credit (L/C), and other internationally recognized payment instruments. Payment terms are negotiable based on order volume and client relationship."
+          q: "How is pricing calculated?",
+          a: "Pricing depends on product type, quantity, packaging, labeling requirements, and destination. Private labeling costs are calculated separately from product pricing."
         },
         {
-          q: "Are there discounts for large orders?",
-          a: "Yes, we offer tiered pricing with significant discounts for larger volume orders. Long-term contracts and repeat customers receive preferential pricing. Contact us to discuss custom pricing for your specific needs."
+          q: "What payment methods do you accept?",
+          a: "Payments are accepted via international bank transfer. Payment terms are confirmed during order confirmation."
         }
       ]
     },
+
     {
       category: "Shipping & Logistics",
       icon: Truck,
       questions: [
         {
           q: "Which countries do you ship to?",
-          a: "Lumina Earth Minerals LLP ships worldwide to all major markets including North America, Europe, Asia, Middle East, and Australia. We have extensive experience with international customs and documentation requirements."
+          a: "We support international shipments worldwide, subject to local import regulations and logistics feasibility."
         },
         {
-          q: "What are the typical shipping times?",
-          a: "Shipping times depend on destination and shipping method. Sea freight typically takes 20-45 days, while air freight takes 5-10 days. We provide detailed shipping timelines with every quote and offer tracking for all shipments."
+          q: "What shipping methods are available?",
+          a: "Shipping options include air freight and sea freight (LCL or FCL), depending on order size and destination."
         },
         {
-          q: "Who handles customs clearance?",
-          a: "We can arrange delivery on various Incoterms (FOB, CIF, DDP, etc.). We provide all necessary export documentation and can assist with customs clearance procedures. Our logistics team ensures smooth international shipping."
+          q: "How long does order processing take?",
+          a: "Orders are typically packed and ready for dispatch within 7–15 working days after label and order confirmation."
         },
         {
-          q: "How is the salt packaged for shipping?",
-          a: "Products are packed in food-grade PP bags, jute bags, or custom packaging as per client requirements. Salt lamps are individually wrapped and boxed. All packaging meets international shipping standards and ensures product integrity."
+          q: "Do you provide export documentation?",
+          a: "Yes. We provide standard export documents such as commercial invoice, packing list, and certificate of origin when required."
         }
       ]
     },
+
     {
-      category: "Quality & Certification",
+      category: "Quality & Compliance",
       icon: Shield,
       questions: [
         {
-          q: "What certifications does your company hold?",
-          a: "Lumina Earth Minerals LLP is a registered and certified company with all necessary export licenses. Our products meet international food safety standards including HACCP, ISO, and we provide COA (Certificate of Analysis) with each shipment."
-        },
-        {
           q: "How do you ensure product quality?",
-          a: "We implement strict quality control at every stage from mining to packaging. Each batch undergoes laboratory testing for purity, mineral content, and contaminants. Third-party testing is available upon request."
+          a: "We ensure quality through careful sourcing, clean handling, accurate weight control, and proper packaging suitable for export."
         },
         {
-          q: "Can you provide sample shipments?",
-          a: "Yes, we offer product samples for quality evaluation. Sample costs and shipping are typically borne by the buyer but may be adjusted against future bulk orders. Contact us to arrange sample shipment."
+          q: "Do you provide laboratory testing or certifications?",
+          a: "Third-party testing and certifications can be arranged upon buyer request, subject to additional cost and feasibility."
         },
         {
-          q: "What is your return and refund policy?",
-          a: "We stand behind our product quality. If products do not meet agreed specifications, we will work with you to resolve the issue through replacement or refund. All claims must be made within 7 days of delivery with supporting documentation."
+          q: "Is your salt food-grade?",
+          a: "Yes, edible salt supplied for food use is food-grade and suitable for culinary applications."
         }
       ]
     },
+
     {
       category: "Company Information",
       icon: Award,
       questions: [
         {
-          q: "How long has Lumina Earth Minerals LLP been in business?",
-          a: "Lumina Earth Minerals LLP is an established, registered company specializing in Himalayan salt exports. We have built strong relationships with miners, manufacturers, and international clients, ensuring reliable supply chains and consistent quality."
+          q: "What type of clients do you work with?",
+          a: "We work with importers, distributors, wholesalers, and brand owners looking for reliable salt supply and private label packaging."
         },
         {
-          q: "Why should I choose Lumina Earth Minerals LLP?",
-          a: "We offer authentic Himalayan salt products, competitive bulk pricing, reliable delivery, comprehensive documentation, and exceptional customer service. As a registered and reliable company, we prioritize long-term partnerships and customer satisfaction."
-        },
+          q: "Why choose Lumina Earth Minerals?",
+          a: "Lumina Earth Minerals is based in Khewra, Pakistan, home to the world-famous Himalayan salt mines. Operating directly from the source allows us close access to authentic Himalayan salt, better supply control, and reliable quality for export and private label orders."
+        }
+
+        ,
         {
-          q: "Do you offer private labeling or custom packaging?",
-          a: "Yes, we provide private labeling and custom packaging solutions for bulk orders. This includes custom bag designs, logos, and product information printed in your preferred language. Minimum quantities apply for custom packaging."
-        },
-        {
-          q: "How can I contact your sales team?",
-          a: "You can reach our dedicated sales team via email, phone, or through our website contact form. We respond to all inquiries within 24 hours and are happy to discuss your specific requirements and arrange video calls if needed."
+          q: "How can I contact you?",
+          a: "You can contact us via email, phone, or through the website contact form. We aim to respond to all inquiries promptly."
         }
       ]
     }
   ];
 
-  const allQuestions = faqCategories.flatMap((cat, catIdx) => 
+  const allQuestions = faqCategories.flatMap((cat, catIdx) =>
     cat.questions.map((q, qIdx) => ({
       ...q,
       category: cat.category,
@@ -129,11 +149,11 @@ export default function FAQ({ isHome = false }) {
   );
 
   const filteredQuestions = searchQuery
-    ? allQuestions.filter(item => 
-        item.q.toLowerCase().includes(searchQuery.toLowerCase()) ||
-        item.a.toLowerCase().includes(searchQuery.toLowerCase()) ||
-        item.category.toLowerCase().includes(searchQuery.toLowerCase())
-      )
+    ? allQuestions.filter(item =>
+      item.q.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      item.a.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      item.category.toLowerCase().includes(searchQuery.toLowerCase())
+    )
     : allQuestions;
 
   const displayedQuestions = isHome ? filteredQuestions.slice(0, 5) : filteredQuestions;
@@ -200,7 +220,7 @@ export default function FAQ({ isHome = false }) {
             displayedQuestions.map((item) => {
               const IconComponent = item.icon;
               const isOpen = openIndex === item.index;
-              
+
               return (
                 <div
                   key={item.index}
@@ -216,7 +236,7 @@ export default function FAQ({ isHome = false }) {
                         <IconComponent className="w-5 h-5 text-white" />
                       </div>
                     </div>
-                    
+
                     <div className="flex-grow min-w-0">
                       <div className="flex items-start justify-between gap-4">
                         <div>
@@ -228,20 +248,18 @@ export default function FAQ({ isHome = false }) {
                           </h3>
                         </div>
                         <div className="flex-shrink-0">
-                          <ChevronDown 
-                            className={`w-6 h-6 text-orange-600 transition-transform duration-300 ${
-                              isOpen ? 'transform rotate-180' : ''
-                            }`}
+                          <ChevronDown
+                            className={`w-6 h-6 text-orange-600 transition-transform duration-300 ${isOpen ? 'transform rotate-180' : ''
+                              }`}
                           />
                         </div>
                       </div>
                     </div>
                   </button>
-                  
+
                   <div
-                    className={`overflow-hidden transition-all duration-300 ease-in-out ${
-                      isOpen ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'
-                    }`}
+                    className={`overflow-hidden transition-all duration-300 ease-in-out ${isOpen ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'
+                      }`}
                   >
                     <div className="px-6 pb-6 pl-20">
                       <p className="text-gray-700 leading-relaxed">
@@ -287,7 +305,7 @@ export default function FAQ({ isHome = false }) {
               <Link to="/contact" className="px-8 py-3 bg-white text-orange-600 font-semibold rounded-xl hover:bg-orange-50 transform hover:scale-105 transition-all duration-300 shadow-lg">
                 Request Quote
               </Link>
-                {/* <Link to="/contact" className="px-8 py-3 bg-orange-700 text-white font-semibold rounded-xl hover:bg-orange-800 transform hover:scale-105 transition-all duration-300 shadow-lg">
+              {/* <Link to="/contact" className="px-8 py-3 bg-orange-700 text-white font-semibold rounded-xl hover:bg-orange-800 transform hover:scale-105 transition-all duration-300 shadow-lg">
                 Request Quote
               </Link> */}
             </div>

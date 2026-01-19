@@ -27,9 +27,12 @@ export default function Footer() {
               Quality guaranteed, bulk quantities available.
             </p>
             <div className="flex gap-4">
-              <Facebook className="h-5 w-5 text-gray-400 hover:text-green-400 cursor-pointer" />
-              <Twitter className="h-5 w-5 text-gray-400 hover:text-green-400 cursor-pointer" />
+              <Link to="https://web.facebook.com/LuminaEarthMineralsLLP" target="_blank"><Facebook className="h-5 w-5 text-gray-400 hover:text-green-400 cursor-pointer" /></Link>
+            
+             <Link to="https://www.instagram.com/luminaearthminerals" target="_blank">
               <Instagram className="h-5 w-5 text-gray-400 hover:text-green-400 cursor-pointer" />
+             </Link> 
+            <Twitter className="h-5 w-5 text-gray-400 hover:text-green-400 cursor-pointer" />
               <Linkedin className="h-5 w-5 text-gray-400 hover:text-green-400 cursor-pointer" />
             </div>
           </div>

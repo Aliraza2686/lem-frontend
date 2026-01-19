@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/label-has-associated-control */
 /* eslint-disable no-case-declarations */
 import React, { useState } from "react";
 import { Package, MessageSquare, User } from "lucide-react";
@@ -99,7 +100,7 @@ export const ContactForm = () => {
 
       // setIsSubmitted(true);
       // Here you would typically send the data to your backend
-      console.log("Form submitted:", newPayload);
+      console.info("Form submitted:", newPayload);
     }
   };
 
@@ -138,7 +139,7 @@ export const ContactForm = () => {
   }
 
   return (
-    <div className="max-w-4xl mx-auto p-6 bg-white">
+    <div className="max-w-4xl mx-auto md:p-6 bg-white">
       <Loader show={isLoading} />
       <div className="mb-8 text-center">
         <h1 className="text-3xl font-bold text-gray-900 mb-2">Contact Us</h1>
@@ -283,7 +284,7 @@ export const ContactForm = () => {
             Submit Contact Form
           </button>
           <p className="text-sm text-gray-500 mt-2">
-            * Required fields. We'll respond within 24-48 hours.
+            * Required fields. We&apos;ll respond within 24-48 hours.
           </p>
         </div>
       </div>

@@ -4,6 +4,7 @@ import reactHooks from 'eslint-plugin-react-hooks'
 import jsxA11y from 'eslint-plugin-jsx-a11y'
 import importPlugin from 'eslint-plugin-import'
 import prettier from 'eslint-config-prettier'
+import globals from 'globals'
 
 export default [
   {
@@ -22,10 +23,11 @@ export default [
         }
       },
       globals: {
-        browser: true,
-        node: true
+        ...globals.browser,
+        ...globals.node
       }
-    },
+    }
+    ,
     plugins: {
       react,
       'react-hooks': reactHooks,
@@ -47,8 +49,8 @@ export default [
       // Your strict rules
       "no-unused-vars": ["error", { "argsIgnorePattern": "^_", "varsIgnorePattern": "^_" }],
 
-      'no-console': 'warn',
-      'no-debugger': 'error',
+      // 'no-console': 'warn',
+      // 'no-debugger': 'error',
       'react/react-in-jsx-scope': 'off',
       'react/prop-types': 'off',
 

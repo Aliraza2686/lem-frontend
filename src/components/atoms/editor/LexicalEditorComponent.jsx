@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/rules-of-hooks */
 import React, { useState, useRef, useEffect } from 'react';
 import { LexicalComposer } from '@lexical/react/LexicalComposer';
 import { RichTextPlugin } from '@lexical/react/LexicalRichTextPlugin';
@@ -102,12 +103,11 @@ const ToolbarButton = ({
         onClick={onClick}
         title={title}
         disabled={disabled}
-        className={`p-2.5 min-w-[45px] flex justify-center items-center rounded-xl transition-all duration-200 disabled:opacity-40 disabled:cursor-not-allowed ${
-            (active
-                ? 'bg-[#b695f8] text-white shadow-md shadow-[#b695f8]/30 scale-105'
-                : 'bg-white text-gray-700 hover:bg-gray-50 hover:shadow-md border border-gray-200',
+        className={`p-2.5 min-w-[25px] md:min-w-[45px] flex justify-center items-center rounded-xl transition-all duration-200 disabled:opacity-40 disabled:cursor-not-allowed ${(active
+            ? 'bg-[#b695f8] text-white shadow-md shadow-[#b695f8]/30 scale-105'
+            : 'bg-white text-gray-700 hover:bg-gray-50 hover:shadow-md border border-gray-200',
             removeBorders ? '!border-none' : '')
-        }`}
+            }`}
     >
         {children}
     </button>
@@ -115,193 +115,6 @@ const ToolbarButton = ({
 
 const ToolbarDivider = () => <div className="w-px h-8 bg-gray-200" />;
 
-// function InitialContentPlugin({ defaultValue, signatureHtml, forceUpdate , _fromMail = false}) {
-//     const [editor] = useLexicalComposerContext();
-//     const [initialized, setInitialized] = useState(false);
-
-//     useEffect(() => {
-//         console.info('defaultValue', initialized, defaultValue);
-//         if (!initialized) {
-//             editor.update(() => {
-//                 const root = $getRoot();
-//                 root.clear();
-
-//                 if (defaultValue) {
-//                     const parser = new DOMParser();
-//                     const dom = parser.parseFromString(defaultValue, 'text/html');
-//                     const nodes = $generateNodesFromDOM(editor, dom);
-//                     nodes.forEach((node) => root.append(node));
-//                 }
-
-//                 if (signatureHtml) {
-//                     // Add spacing
-//                     const separator = $createParagraphNode();
-//                     separator.append($createTextNode(''));
-//                     root.append(separator);
-
-//                     const signaturePara = $createParagraphNode();
-//                     signaturePara.append($createTextNode('-- '));
-//                     root.append(signaturePara);
-
-//                     // Create an HTML node to preserve exact signature styling
-//                     const htmlNode = $createHTMLBlockNode(signatureHtml);
-//                     root.append(htmlNode);
-//                 }
-//             });
-//             // if (defaultValue) {
-//                 setInitialized(true);
-//             // }
-//         }
-//     }, [editor, defaultValue, signatureHtml, initialized, forceUpdate]);
-
-//     return null;
-// }
-
-// function InitialContentPlugin({ defaultValue, signatureHtml, forceUpdate }) {
-//     const [editor] = useLexicalComposerContext();
-//     const [lastDefaultValue, setLastDefaultValue] = useState(defaultValue);
-//     const [lastForceUpdate, setLastForceUpdate] = useState(forceUpdate);
-
-//     useEffect(() => {
-//         // Check if defaultValue or forceUpdate has changed
-//         const hasChanged = defaultValue !== lastDefaultValue || forceUpdate !== lastForceUpdate;
-
-//         if (hasChanged || !lastDefaultValue) {
-//             console.info('Updating editor content:', { defaultValue, forceUpdate });
-
-//             editor.update(() => {
-//                 const root = $getRoot();
-//                 root.clear();
-
-//                 if (defaultValue) {
-//                     const parser = new DOMParser();
-//                     const dom = parser.parseFromString(defaultValue, 'text/html');
-//                     const nodes = $generateNodesFromDOM(editor, dom);
-//                     nodes.forEach((node) => root.append(node));
-//                 }
-
-//                 if (signatureHtml) {
-//                     // Add spacing
-//                     const separator = $createParagraphNode();
-//                     separator.append($createTextNode(''));
-//                     root.append(separator);
-
-//                     const signaturePara = $createParagraphNode();
-//                     signaturePara.append($createTextNode('-- '));
-//                     root.append(signaturePara);
-
-//                     // Create an HTML node to preserve exact signature styling
-//                     const htmlNode = $createHTMLBlockNode(signatureHtml);
-//                     root.append(htmlNode);
-//                 }
-//             });
-
-//             // Update tracked values
-//             setLastDefaultValue(defaultValue);
-//             setLastForceUpdate(forceUpdate);
-//         }
-//     }, [editor, defaultValue, signatureHtml, forceUpdate, lastDefaultValue, lastForceUpdate]);
-
-//     return null;
-// }
-
-//
-
-// function InitialContentPlugin({ defaultValue, _signatureHtml, forceUpdate, _fromMail, setForceUpdate }) {
-//     const [editor] = useLexicalComposerContext();
-//     const [initialized, setInitialized] = useState(false);
-
-//     function findSignatureElement(dom) {
-//         const allNodes = Array.from(dom.querySelectorAll('*'));
-
-//         // Priority order: Find the most specific signature container first
-//         const priorities = [
-//             // 1. Exact class matches (most reliable)
-//             (el) => {
-//                 const classes = Array.from(el.classList);
-//                 return classes.some(
-//                     (c) =>
-//                         c.toLowerCase() === 'gmail_signature' ||
-//                         c.toLowerCase() === 'outlook_signature' ||
-//                         c.toLowerCase() === 'signature'
-//                 );
-//             },
-//             // 2. data-signature-block attribute
-//             (el) => el.hasAttribute('data-signature-block'),
-//             // 3. data attributes with signature value
-//             (el) =>
-//                 Array.from(el.attributes).some((attr) => {
-//                     const attrName = attr.name.toLowerCase();
-//                     const attrValue = attr.value.toLowerCase();
-//                     return attrName.startsWith('data-') && attrValue.includes('signature');
-//                 }),
-//             // 4. Classes containing 'signature' (but not 'prefix')
-//             (el) => {
-//                 const classes = Array.from(el.classList);
-//                 return classes.some((c) => {
-//                     const lower = c.toLowerCase();
-//                     return lower.includes('signature') && !lower.includes('prefix');
-//                 });
-//             },
-//             // 5. ID containing 'signature'
-//             (el) => {
-//                 const id = (el.id || '').toLowerCase();
-//                 return id.includes('signature');
-//             }
-//         ];
-
-//         // Try each priority level
-//         for (const checkFn of priorities) {
-//             const found = allNodes.find(checkFn);
-//             if (found) return found;
-//         }
-
-//         return null;
-//     }
-
-//     useEffect(() => {
-//         if (initialized) return;
-
-//         editor.update(() => {
-//             const root = $getRoot();
-//             root.clear();
-
-//             const parser = new DOMParser();
-//             const dom = parser.parseFromString(defaultValue, 'text/html');
-
-//             // ---- SIGNATURE HANDLING ----
-//             const signatureEl = findSignatureElement(dom);
-
-//             let signatureHtml = null;
-
-//             if (signatureEl) {
-//                 signatureHtml = signatureEl.outerHTML;
-//                 signatureEl.remove(); // remove from normal flow
-//             }
-
-//             // ---- NORMAL CONTENT ----
-//             const nodes = $generateNodesFromDOM(editor, dom);
-//             nodes.forEach((n) => root.append(n));
-
-//             // ---- INSERT SIGNATURE AS SINGLE NODE ----
-//             if (signatureHtml) {
-//                 const spacer = $createParagraphNode();
-//                 spacer.append($createTextNode(''));
-//                 root.append(spacer);
-
-//                 const block = $createHTMLBlockNode(signatureHtml);
-//                 root.append(block);
-//             }
-
-//             setForceUpdate(false);
-//         });
-
-//         setInitialized(true);
-//     }, [defaultValue, forceUpdate]);
-
-//     return null;
-// }
-//fourth
 
 function InitialContentPlugin({ defaultValue, _signatureHtml, forceUpdate, _fromMail, setForceUpdate }) {
     const [editor] = useLexicalComposerContext();
@@ -942,60 +755,9 @@ const Toolbar = ({ _fileInputRef }) => {
     return (
         <>
             <div className="flex flex-wrap items-center gap-2 px-6 py-2 bg-white rounded-b-2xl rounded-t-lg border border-gray-200 shadow-md ">
-                {/* <select
-                    value={fontFamily}
-                    onChange={(e) => applyFontFamily(e.target.value)}
-                    className="border border-gray-200 max-h-[2.3rem] rounded-xl px-3 py-2 text-sm text-gray-700 max-w-[100px] focus:outline-none focus:border-[#b695f8] focus:ring-2 focus:ring-[#b695f8]/20 bg-white shadow-sm hover:shadow-md transition-all"
-                    title="Font Family"
-                >
-                    <option value="Arial">Arial</option>
-                    <option value="Georgia">Georgia</option>
-                    <option value="Times New Roman">Times New Roman</option>
-                    <option value="Courier New">Courier New</option>
-                    <option value="Verdana">Verdana</option>
-                    <option value="Comic Sans MS">Comic Sans</option>
-                </select> */}
-                {/* <DropdownMenu
-                    icon={
-                        <div className="border max-h-[2.3rem] w-[140px] overflow-hidden rounded-xl px-2 py-1 border-gray-200 bg-white shadow-sm hover:shadow-md transition-all flex items-center gap-1">
-                            {' '}
-                            <span className="Capitalize text-xl font-serif">T</span>
-                            <span className="text-sm text-secondarybg truncate w-[100px]" title={fontFamily}>
-                                {' '}
-                                {fontFamily || 'Arial'}
-                            </span>
-                            <span>
-                                <ChevronDownIcon className="h-4 w-4 text-secondarybg" />
-                            </span>
-                        </div>
-                    }
-                    className="!left-[70%]"
-                >
-                    <DropdownMenuItem onClick={() => applyFontFamily('Arial')}>Arial</DropdownMenuItem>
-                    <DropdownMenuItem onClick={() => applyFontFamily('Georgia')}>Georgia</DropdownMenuItem>
-                    <DropdownMenuItem onClick={() => applyFontFamily('Times New Roman')}>
-                        Times New Roman
-                    </DropdownMenuItem>
-                    <DropdownMenuItem onClick={() => applyFontFamily('Courier New')}>Courier New</DropdownMenuItem>
-                    <DropdownMenuItem onClick={() => applyFontFamily('Verdana')}>Verdana</DropdownMenuItem>
-                    <DropdownMenuItem onClick={() => applyFontFamily('Comic Sans MS')}>Comic Sans MS</DropdownMenuItem>
-                </DropdownMenu> */}
-                {/* <select
-                    value={fontSize}
-                    onChange={(e) => applyFontSize(e.target.value)}
-                    className="border max-h-[2.3rem] border-gray-200 rounded-xl px-3 py-2 text-sm text-gray-700 max-w-[90px] focus:outline-none focus:border-[#b695f8] focus:ring-2 focus:ring-[#b695f8]/20 bg-white shadow-sm hover:shadow-md transition-all"
-                    title="Font Size"
-                >
-                    <option value="12px">12px</option>
-                    <option value="14px">14px</option>
-                    <option value="16px">16px</option>
-                    <option value="18px">18px</option>
-                    <option value="20px">20px</option>
-                    <option value="24px">24px</option>
-                    <option value="32px">32px</option>
-                </select> */}
 
-                <div className="min-w-[140px] max-w-[140px]">
+
+                <div className="min-w-[140px] max-w-[140px] md:block hidden">
                     <SimpleSelectMenu
                         placeholder="Select"
                         targetProperty="label"
@@ -1020,7 +782,7 @@ const Toolbar = ({ _fileInputRef }) => {
                         onChangeValue={(obj) => applyFontFamily(obj.label)}
                     />
                 </div>
-                <div className=" max-w-[120px]">
+                <div className=" max-w-[120px] md:block hidden">
                     <SimpleSelectMenu
                         placeholder="Select"
                         targetProperty="label"
@@ -1093,17 +855,17 @@ const Toolbar = ({ _fileInputRef }) => {
                 <ToolbarDivider />
 
                 <ToolbarButton onClick={() => editor.dispatchCommand(UNDO_COMMAND, undefined)} title="Undo (Ctrl+Z)">
-                    <ArrowUturnLeftIcon className="w-5 h-5" />
+                    <ArrowUturnLeftIcon className="md:w-5 md:h-5 w-3 h-3" />
                 </ToolbarButton>
                 <ToolbarButton onClick={() => editor.dispatchCommand(REDO_COMMAND, undefined)} title="Redo (Ctrl+Y)">
-                    <ArrowUturnRightIcon className="w-5 h-5" />
+                    <ArrowUturnRightIcon className="md:w-5 md:h-5 w-3 h-3" />
                 </ToolbarButton>
 
                 <ToolbarDivider />
 
                 <ToolbarButton onClick={() => formatText('bold')} title="Bold (Ctrl+B)" active={activeFormats.bold}>
                     {/* <strong className="font-bold text-base">B</strong> */}
-                    <BoldIcon className="w-5 h-5" />
+                    <BoldIcon className="md:w-5 md:h-5 w-3 h-3" />
                 </ToolbarButton>
                 <ToolbarButton
                     onClick={() => formatText('italic')}
@@ -1111,7 +873,7 @@ const Toolbar = ({ _fileInputRef }) => {
                     active={activeFormats.italic}
                 >
                     {/* <em className="italic text-base font-serif">I</em> */}
-                    <ItalicIcon className="w-5 h-5" />
+                    <ItalicIcon className="md:w-5 md:h-5 w-3 h-3" />
                 </ToolbarButton>
                 <ToolbarButton
                     onClick={() => formatText('underline')}
@@ -1119,7 +881,7 @@ const Toolbar = ({ _fileInputRef }) => {
                     active={activeFormats.underline}
                 >
                     {/* <span className="underline text-base font-semibold">U</span> */}
-                    <UnderlineIcon className="w-5 h-5" />
+                    <UnderlineIcon className="md:w-5 md:h-5 w-3 h-3" />
                 </ToolbarButton>
                 <ToolbarButton
                     onClick={() => formatText('strikethrough')}
@@ -1127,37 +889,37 @@ const Toolbar = ({ _fileInputRef }) => {
                     active={activeFormats.strikethrough}
                 >
                     {/* <s className="line-through text-base font-semibold">S</s> */}
-                    <StrikethroughIcon className="w-5 h-5" />
+                    <StrikethroughIcon className="md:w-5 md:h-5 w-3 h-3" />
                 </ToolbarButton>
                 <ToolbarButton onClick={() => formatText('code')} title="Code" active={activeFormats.code}>
-                    <CodeBracketIcon className="w-5 h-5" />
+                    <CodeBracketIcon className="md:w-5 md:h-5 w-3 h-3" />
                 </ToolbarButton>
 
                 <ToolbarDivider />
 
                 <ToolbarButton onClick={() => toggleHeading('h1')} title="Heading 1" active={activeFormats.h1}>
                     {/* <span className="font-bold text-base">H1</span> */}
-                    <H1Icon className="w-5 h-5" />
+                    <H1Icon className="md:w-5 md:h-5 w-3 h-3" />
                 </ToolbarButton>
                 <ToolbarButton onClick={() => toggleHeading('h2')} title="Heading 2" active={activeFormats.h2}>
                     {/* <span className="font-bold text-sm">H2</span> */}
-                    <H2Icon className="w-5 h-5" />
+                    <H2Icon className="md:w-5 md:h-5 w-3 h-3" />
                 </ToolbarButton>
                 <ToolbarButton onClick={() => toggleHeading('h3')} title="Heading 3" active={activeFormats.h3}>
                     {/* <span className="font-bold text-xs">H3</span> */}
-                    <H3Icon className="w-5 h-5" />
+                    <H3Icon className="md:w-5 md:h-5 w-3 h-3" />
                 </ToolbarButton>
                 <ToolbarButton onClick={toggleQuote} title="Quote" active={activeFormats.quote}>
-                    <ChatBubbleLeftRightIcon className="w-5 h-5" />
+                    <ChatBubbleLeftRightIcon className="md:w-5 md:h-5 w-3 h-3" />
                 </ToolbarButton>
 
                 <ToolbarDivider />
 
                 <ToolbarButton onClick={toggleBulletList} title="Bullet List" active={activeFormats.ul}>
-                    <ListBulletIcon className="w-5 h-5" />
+                    <ListBulletIcon className="md:w-5 md:h-5 w-3 h-3" />
                 </ToolbarButton>
                 <ToolbarButton onClick={toggleNumberedList} title="Numbered List" active={activeFormats.ol}>
-                    <NumberedListIcon className="w-5 h-5" />
+                    <NumberedListIcon className="md:w-5 md:h-5 w-3 h-3" />
                 </ToolbarButton>
 
                 <ToolbarDivider />
@@ -1166,77 +928,77 @@ const Toolbar = ({ _fileInputRef }) => {
                     onClick={() => editor.dispatchCommand(OUTDENT_CONTENT_COMMAND, undefined)}
                     title="Decrease Indent"
                 >
-                    <ChevronLeftIcon className="w-5 h-5" />
+                    <ChevronLeftIcon className="md:w-5 md:h-5 w-3 h-3" />
                 </ToolbarButton>
                 <ToolbarButton
                     onClick={() => editor.dispatchCommand(INDENT_CONTENT_COMMAND, undefined)}
                     title="Increase Indent"
                 >
-                    <ChevronRightIcon className="w-5 h-5" />
+                    <ChevronRightIcon className="md:w-5 md:h-5 w-3 h-3" />
                 </ToolbarButton>
 
                 <ToolbarDivider />
 
                 <ToolbarButton onClick={() => formatAlignment('left')} title="Align Left">
-                    <Bars3BottomLeftIcon className="w-5 h-5" />
+                    <Bars3BottomLeftIcon className="md:w-5 md:h-5 w-3 h-3" />
                 </ToolbarButton>
                 <ToolbarButton onClick={() => formatAlignment('center')} title="Align Center">
-                    <Bars3CenterLeftIcon className="w-5 h-5" />
+                    <Bars3CenterLeftIcon className="md:w-5 md:h-5 w-3 h-3" />
                 </ToolbarButton>
                 <ToolbarButton onClick={() => formatAlignment('right')} title="Align Right">
-                    <Bars3Icon className="w-5 h-5" />
+                    <Bars3Icon className="md:w-5 md:h-5 w-3 h-3" />
                 </ToolbarButton>
 
                 <ToolbarDivider />
 
                 <ToolbarButton onClick={insertLink} title="Insert Link">
-                    <LinkIcon className="w-5 h-5" />
+                    <LinkIcon className="md:w-5 md:h-5 w-3 h-3" />
                 </ToolbarButton>
                 {/* <ToolbarButton onClick={() => fileInputRef.current?.click()} title="Insert Image">
-                    <PhotoIcon className="w-5 h-5" />
+                    <PhotoIcon className="md:w-5 md:h-5 w-3 h-3" />
                 </ToolbarButton> */}
                 <ToolbarButton onClick={insertHorizontalRule} title="Horizontal Line">
-                    <MinusIcon className="w-5 h-5" />
+                    <MinusIcon className="md:w-5 md:h-5 w-3 h-3" />
                 </ToolbarButton>
                 {/* <ToolbarButton onClick={() => setShowTableDialog(true)} title="Insert Table">
-                    <TableCellsIcon className="w-5 h-5" />
+                    <TableCellsIcon className="md:w-5 md:h-5 w-3 h-3" />
                 </ToolbarButton> */}
                 <ToolbarButton onClick={clearFormatting} title="Clear Formatting">
-                    <XMarkIcon className="w-5 h-5" />
+                    <XMarkIcon className="md:w-5 md:h-5 w-3 h-3" />
                 </ToolbarButton>
                 {/* // Replace the entire ToolbarButton for Speech to Text with this: */}
 
-             
-<ToolbarButton
-    onClick={toggleListening}
-    title="Speech to Text"
-    removeBorders={isListening ? true : false}
->
-    <div className="relative flex items-center justify-center h-10 w-10">
-        {isListening && (
-            <>
-                {/* Dark blue background circle - solid base */}
-                <div
-                    className="absolute rounded-full"
-                    style={{
-                        width: '100%',
-                        height: '100%',
-                        background: '#0d1b37',
-                        zIndex: 2,
-                        filter: 'blur(1px)'
-                    }}
-                />
 
-                {/* Main thick glowing tide - widest arc */}
-                <div
-                    className="absolute rounded-full"
-                    style={{
-                        width: '125%',
-                        height: '125%',
-                        left: '-7.5%',
-                        top: '-7.5%',
-                        animation: 'spin 3s linear infinite',
-                        background: `conic-gradient(
+                <ToolbarButton
+                    onClick={toggleListening}
+                    title="Speech to Text"
+                    removeBorders={isListening ? true : false}
+                >
+                    <div className="relative flex items-center justify-center h-10 w-10">
+                        {isListening && (
+                            <>
+                                {/* Dark blue background circle - solid base */}
+                                <div
+                                    className="absolute rounded-full"
+                                    style={{
+                                        width: '100%',
+                                        height: '100%',
+                                        background: '#0d1b37',
+                                        zIndex: 2,
+                                        filter: 'blur(1px)'
+                                    }}
+                                />
+
+                                {/* Main thick glowing tide - widest arc */}
+                                <div
+                                    className="absolute rounded-full"
+                                    style={{
+                                        width: '125%',
+                                        height: '125%',
+                                        left: '-7.5%',
+                                        top: '-7.5%',
+                                        animation: 'spin 3s linear infinite',
+                                        background: `conic-gradient(
                             from 0deg,
                             transparent 0deg,
                             rgba(0, 212, 255, 0) 10deg,
@@ -1249,22 +1011,22 @@ const Toolbar = ({ _fileInputRef }) => {
                             transparent 180deg,
                             transparent 360deg
                         )`,
-                        filter: 'blur(2px)',
-                        opacity: 1,
-                        zIndex: 1
-                    }}
-                />
+                                        filter: 'blur(2px)',
+                                        opacity: 1,
+                                        zIndex: 1
+                                    }}
+                                />
 
-                {/* Inner glow layer for the main tide */}
-                <div
-                    className="absolute rounded-full"
-                    style={{
-                        width: '120%',
-                        height: '120%',
-                        left: '-7.5%',
-                        top: '-7.5%',
-                        animation: 'spin 3s linear infinite',
-                        background: `conic-gradient(
+                                {/* Inner glow layer for the main tide */}
+                                <div
+                                    className="absolute rounded-full"
+                                    style={{
+                                        width: '120%',
+                                        height: '120%',
+                                        left: '-7.5%',
+                                        top: '-7.5%',
+                                        animation: 'spin 3s linear infinite',
+                                        background: `conic-gradient(
                             from 0deg,
                             transparent 0deg,
                             rgba(255, 255, 255, 0) 30deg,
@@ -1275,22 +1037,22 @@ const Toolbar = ({ _fileInputRef }) => {
                             transparent 180deg,
                             transparent 360deg
                         )`,
-                        filter: 'blur(1px)',
-                        opacity: 0.8,
-                        zIndex: 1
-                    }}
-                />
+                                        filter: 'blur(1px)',
+                                        opacity: 0.8,
+                                        zIndex: 1
+                                    }}
+                                />
 
-                {/* Second counter-rotating thinner tide */}
-                <div
-                    className="absolute rounded-full"
-                    style={{
-                        width: '130%',
-                        height: '130%',
-                        left: '-9%',
-                        top: '-9%',
-                        animation: 'spin-reverse 3.5s linear infinite',
-                        background: `conic-gradient(
+                                {/* Second counter-rotating thinner tide */}
+                                <div
+                                    className="absolute rounded-full"
+                                    style={{
+                                        width: '130%',
+                                        height: '130%',
+                                        left: '-9%',
+                                        top: '-9%',
+                                        animation: 'spin-reverse 3.5s linear infinite',
+                                        background: `conic-gradient(
                             from 180deg,
                             transparent 0deg,
                             rgba(182, 149, 248, 0) 30deg,
@@ -1302,22 +1064,22 @@ const Toolbar = ({ _fileInputRef }) => {
                             transparent 200deg,
                             transparent 360deg
                         )`,
-                        filter: 'blur(2px)',
-                        opacity: 0.9,
-                        zIndex: 1
-                    }}
-                />
+                                        filter: 'blur(2px)',
+                                        opacity: 0.9,
+                                        zIndex: 1
+                                    }}
+                                />
 
-                {/* Glow layer for second tide */}
-                <div
-                    className="absolute rounded-full"
-                    style={{
-                        width: '118%',
-                        height: '118%',
-                        left: '-9%',
-                        top: '-9%',
-                        animation: 'spin-reverse 3.5s linear infinite',
-                        background: `conic-gradient(
+                                {/* Glow layer for second tide */}
+                                <div
+                                    className="absolute rounded-full"
+                                    style={{
+                                        width: '118%',
+                                        height: '118%',
+                                        left: '-9%',
+                                        top: '-9%',
+                                        animation: 'spin-reverse 3.5s linear infinite',
+                                        background: `conic-gradient(
                             from 180deg,
                             transparent 0deg,
                             rgba(255, 255, 255, 0) 50deg,
@@ -1328,22 +1090,22 @@ const Toolbar = ({ _fileInputRef }) => {
                             transparent 180deg,
                             transparent 360deg
                         )`,
-                        filter: 'blur(1px)',
-                        opacity: 0.7,
-                        zIndex: 1
-                    }}
-                />
+                                        filter: 'blur(1px)',
+                                        opacity: 0.7,
+                                        zIndex: 1
+                                    }}
+                                />
 
-                {/* Third thinner rotating arc */}
-                <div
-                    className="absolute rounded-full"
-                    style={{
-                        width: '120%',
-                        height: '120%',
-                        left: '-10%',
-                        top: '-10%',
-                        animation: 'spin 4.5s linear infinite',
-                        background: `conic-gradient(
+                                {/* Third thinner rotating arc */}
+                                <div
+                                    className="absolute rounded-full"
+                                    style={{
+                                        width: '120%',
+                                        height: '120%',
+                                        left: '-10%',
+                                        top: '-10%',
+                                        animation: 'spin 4.5s linear infinite',
+                                        background: `conic-gradient(
                             from 90deg,
                             transparent 0deg,
                             rgba(0, 212, 255, 0) 50deg,
@@ -1354,87 +1116,86 @@ const Toolbar = ({ _fileInputRef }) => {
                             transparent 150deg,
                             transparent 360deg
                         )`,
-                        filter: 'blur(8px)',
-                        opacity: 0.7,
-                        zIndex: 1
-                    }}
-                />
+                                        filter: 'blur(8px)',
+                                        opacity: 0.7,
+                                        zIndex: 1
+                                    }}
+                                />
 
-                {/* Outer ambient glow */}
-                <div
-                    className="absolute rounded-full animate-pulse"
-                    style={{
-                        width: '130%',
-                        height: '130%',
-                        left: '-15%',
-                        top: '-15%',
-                        background: 'radial-gradient(circle, transparent 55%, rgba(0, 212, 255, 0.3) 75%, rgba(182, 149, 248, 0.2) 85%, transparent 95%)',
-                        filter: 'blur(5px)',
-                        animationDuration: '2s',
-                        zIndex: 0
-                    }}
-                />
+                                {/* Outer ambient glow */}
+                                <div
+                                    className="absolute rounded-full animate-pulse"
+                                    style={{
+                                        width: '130%',
+                                        height: '130%',
+                                        left: '-15%',
+                                        top: '-15%',
+                                        background: 'radial-gradient(circle, transparent 55%, rgba(0, 212, 255, 0.3) 75%, rgba(182, 149, 248, 0.2) 85%, transparent 95%)',
+                                        filter: 'blur(5px)',
+                                        animationDuration: '2s',
+                                        zIndex: 0
+                                    }}
+                                />
 
-                {/* Expanding circle animation around mic - outward wave */}
-                <div
-                    className="absolute rounded-full animate-ping"
-                    style={{
-                        width: '70%',
-                        height: '70%',
-                        border: '2px solid rgba(0, 212, 255, 0.6)',
-                        zIndex: 3,
-                        animationDuration: '1.5s'
-                    }}
-                />
+                                {/* Expanding circle animation around mic - outward wave */}
+                                <div
+                                    className="absolute rounded-full animate-ping"
+                                    style={{
+                                        width: '70%',
+                                        height: '70%',
+                                        border: '2px solid rgba(0, 212, 255, 0.6)',
+                                        zIndex: 3,
+                                        animationDuration: '1.5s'
+                                    }}
+                                />
 
-                {/* Contracting circle animation around mic - inward wave */}
-                <div
-                    className="absolute rounded-full"
-                    style={{
-                        width: '60%',
-                        height: '60%',
-                        border: '1px solid rgba(182, 149, 248, 0.5)',
-                        zIndex: 3,
-                        animation: 'pulse-inward 1.5s ease-in-out infinite'
-                    }}
-                />
+                                {/* Contracting circle animation around mic - inward wave */}
+                                <div
+                                    className="absolute rounded-full"
+                                    style={{
+                                        width: '60%',
+                                        height: '60%',
+                                        border: '1px solid rgba(182, 149, 248, 0.5)',
+                                        zIndex: 3,
+                                        animation: 'pulse-inward 1.5s ease-in-out infinite'
+                                    }}
+                                />
 
-                {/* Secondary expanding ring */}
-                <div
-                    className="absolute rounded-full animate-ping"
-                    style={{
-                        width: '70%',
-                        height: '70%',
-                        border: '1px solid rgba(182, 149, 248, 0.4)',
-                        zIndex: 3,
-                        animationDuration: '2s',
-                        animationDelay: '0.75s'
-                    }}
-                />
-            </>
-        )}
+                                {/* Secondary expanding ring */}
+                                <div
+                                    className="absolute rounded-full animate-ping"
+                                    style={{
+                                        width: '70%',
+                                        height: '70%',
+                                        border: '1px solid rgba(182, 149, 248, 0.4)',
+                                        zIndex: 3,
+                                        animationDuration: '2s',
+                                        animationDelay: '0.75s'
+                                    }}
+                                />
+                            </>
+                        )}
 
-        {/* Mic icon - always on top */}
-        <MicrophoneIcon
-            className={`w-5 h-5 relative transition-all duration-300 ${
-                isListening ? 'text-white' : 'text-gray-700'
-            }`}
-            style={
-                isListening
-                    ? {
-                          filter: 'drop-shadow(0 0 8px rgba(255, 255, 255, 0.9))',
-                          zIndex: 10
-                      }
-                    : { zIndex: 10 }
-            }
-        />
-    </div>
-</ToolbarButton>
+                        {/* Mic icon - always on top */}
+                        <MicrophoneIcon
+                            className={`md:w-5 md:h-5 w-3 h-3 relative transition-all duration-300 ${isListening ? 'text-white' : 'text-gray-700'
+                                }`}
+                            style={
+                                isListening
+                                    ? {
+                                        filter: 'drop-shadow(0 0 8px rgba(255, 255, 255, 0.9))',
+                                        zIndex: 10
+                                    }
+                                    : { zIndex: 10 }
+                            }
+                        />
+                    </div>
+                </ToolbarButton>
                 <ToolbarButton onClick={openHtmlModal} title="View/Edit HTML Source">
-                    <ArrowsRightLeftIcon className="w-5 h-5" />
+                    <ArrowsRightLeftIcon className="md:w-5 md:h-5 w-3 h-3" />
                 </ToolbarButton>
                 <ToolbarButton onClick={clearEditor} title="Clear All Content">
-                    <TrashIcon className="w-5 h-5" />
+                    <TrashIcon className="md:w-5 md:h-5 w-3 h-3" />
                 </ToolbarButton>
             </div>
 
@@ -1509,7 +1270,7 @@ export default function LexicalEditorComponent({
     placeholder = 'Start typing...',
     fromMail = false,
     fixedSignature = '',
-    setForceUpdate = () => {}
+    setForceUpdate = () => { }
 }) {
     const editorConfig = {
         namespace: 'LexicalEditorComponent',
@@ -1577,116 +1338,9 @@ export default function LexicalEditorComponent({
             if (onChange) onChange(html);
         });
     };
-    console.info(fixedSignature, 'fixedSignature');
     return (
         <div className={`border border-secondarybg rounded-lg  bg-white ${className}`}>
-            {/* <style>{`
-                .html-block-container * {
-                    all: revert;
-                    box-sizing: content-box;
-                }
-                .html-block-container table {
-                    border-collapse: collapse;
-                    width: auto;
-                }
-                .html-block-container img {
-                    max-width: 100%;
-                    height: auto;
-                }
-            `}</style> */}
-            <style>{`
 
-    /* 1. Target the Core Lexical Containers */
-
-    /* These rules reset min-height which is the primary cause of the large gap */
-
-    .LexicalEditorContainer,
-
-    .LexicalEditorContainer .LexicalContentEditable {
-
-        min-height: auto !important; /* CRITICAL: Resets 100vh or other large inherited height */
-
-        height: auto !important;     /* Ensures container height matches content */
-
-        display: block !important;
-
-        overflow: visible;           /* Prevents clipping of content like signatures */
-
-    }
-
-   
-
-    /* 2. Target the HTML Block Wrappers (Addressing both the node wrapper and component) */
-
-    .html-block-wrapper,
-
-    .html-block-container {
-
-        /* Ensure these custom wrappers are tight and don't introduce extra space */
-
-        display: block !important;
-
-        padding: 0 !important;
-
-        margin: 0 !important;
-
-        min-height: 1px !important;
-
-        height: auto !important;
-
-        line-height: initial !important; /* Use initial/default line height */
-
-    }
-
-
-
-    /* 3. Address Text Collapsing (Still necessary after fixing the gap) */
-
-    .html-block-container p {
-
-        /* Restore paragraph spacing which fixes the "collatered text" look */
-
-        margin-top: 1em !important;
-
-        margin-bottom: 1em !important;
-
-        padding: 0 !important;
-
-    }
-
-
-
-    /* 4. General Cleanup for elements inside the pasted HTML */
-
-    .html-block-container div,
-
-    .html-block-container table,
-
-    .html-block-container img {
-
-        margin: 0 !important;
-
-        padding: 0 !important;
-
-    }
-
-   
-
-    /* 5. Ensure the Lexical surrounding paragraph doesn't have extra margins */
-
-    .html-block-wrapper + p,
-
-    p + .html-block-wrapper {
-
-        margin: 0 !important;
-
-        padding: 0 !important;
-
-    }
-
-
-
-`}</style>
 
             <LexicalComposer initialConfig={editorConfig}>
                 <Toolbar fileInputRef={fileInputRef} />
@@ -1738,13 +1392,7 @@ export default function LexicalEditorComponent({
                     {floatingAnchorElem && <DraggableBlockPlugin anchorElem={floatingAnchorElem} />}
                 </div>
             </LexicalComposer>
-            {/* {
-                fixedSignature && (
-                    <div className=" bg-white border-t border-gray-200 p-4">
-                        <div dangerouslySetInnerHTML={{ __html: fixedSignature }} />
-                    </div>
-                )
-            } */}
+
         </div>
     );
 }

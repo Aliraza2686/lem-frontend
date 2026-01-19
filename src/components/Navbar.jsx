@@ -37,10 +37,10 @@ export const Navbar = () => {
             </DisclosureButton>
           </div>
           <div className="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
-            <div className="flex shrink-0 items-center">
+            <Link to="/" className="flex shrink-0 items-center">
               {/* <Mountain className="h-10 w-10" /> */}
               <Logo />
-            </div>
+            </Link>
             <div className="hidden sm:ml-6 sm:flex sm:space-x-8">
               {/* Current: "border-indigo-600 text-gray-900", Default: "border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700" */}
               <Link
@@ -88,6 +88,24 @@ export const Navbar = () => {
               >
                 FAQ
               </Link>
+                 <Link
+                to="/workspace-images"
+                className={cn(
+                  getCurrentActive("/workspace-images"),
+                  "inline-flex items-center border-b-2 px-1 pt-1 text-sm font-medium"  
+                )}
+              >
+                Gallery
+              </Link>
+                 <Link
+                to="/private-label"
+                className={cn(
+                  getCurrentActive("/private-label"),
+                  "inline-flex items-center border-b-2 px-1 pt-1 text-sm font-medium"  
+                )}
+              >
+                Private Labeling
+              </Link>
             </div>
           </div>
           <div className="absolute inset-y-0 right-0 flex items-center pr-4 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
@@ -96,7 +114,7 @@ export const Navbar = () => {
                 type="button"
                 className="relative text-sm md:text-md  rounded-lg p-2 px-1 md:px-4 bg-green-600 text-white hover:bg-black focus:outline-2 focus:outline-offset-2 focus:outline-indigo-600"
               >
-                Get A Quote
+                Contact Us
                 <span className="absolute -inset-1.5" />
                 <span className="sr-only">View notifications</span>
               </button>

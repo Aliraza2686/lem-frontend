@@ -104,7 +104,7 @@ export const Header = () => {
                           Direct Source Partnership
                         </div>
                         <div className="text-xs text-orange-600 font-medium">
-                          World&APOS;s First Direct Supplier
+                          World&apos;s First Direct Supplier
                         </div>
                       </div>
                     </div>
