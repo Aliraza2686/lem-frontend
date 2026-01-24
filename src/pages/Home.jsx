@@ -16,9 +16,7 @@ export const Home = () => {
       <Features />
       <Story />
       <FAQ isHome={true} />
-
       </NavLayout>
-
     </>
   )
 }
