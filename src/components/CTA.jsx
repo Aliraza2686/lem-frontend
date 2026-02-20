@@ -1,36 +1,157 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
-import { Button } from './button'
-import { ArrowRight, Sparkles } from 'lucide-react'
+import React from "react";
+import { Link } from "react-router-dom";
+import { ArrowRight, Sparkles } from "lucide-react";
 
 export const CTA = () => {
   return (
-    <section className="py-20 bg-gray-900 text-white">
-    <div className="container mx-auto px-4 text-center">
-      <h2 className="text-4xl font-bold mb-6">Ready to Place a Bulk Order?</h2>
-      <p className="text-xl mb-8 text-gray-300 max-w-2xl mx-auto">
-        Join hundreds of businesses who trust us for their natural product needs. From authentic Himalayan salt to
-        premium grains, contact our team for custom pricing and bulk discounts.
-      </p>
-      <div className="flex flex-col sm:flex-row gap-6 justify-center">
-        <Link to="/contact">
-          <Button size="lg" className="theme-bg-primary theme-hover-primary cursor-pointer text-lg px-8 py-4">
-            <Sparkles className="mr-2 h-5 w-5" />
-            Request Custom Quote
-          </Button>
-        </Link>
-        <Link to="/products">
-          <Button
-            size="lg"
-            variant="outline"
-            className="border-white text-white hover:bg-white hover:text-gray-900 text-lg px-8 py-4"
-          >
-            Browse Products
-            <ArrowRight className="ml-2 h-5 w-5" />
-          </Button>
-        </Link>
-      </div>
-    </div>
-  </section>
-  )
-}
+    <>
+      <style>{`
+        @import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Mono:wght@300;400;500&display=swap');
+
+        .cta-section {
+          background: #f0f7f2;
+          font-family: 'Syne', sans-serif;
+          padding: 80px 32px;
+          position: relative;
+          overflow: hidden;
+        }
+
+        /* subtle grid */
+        .cta-section::before {
+          content: '';
+          position: absolute; inset: 0;
+          background-image:
+            linear-gradient(rgba(22,163,74,0.05) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(22,163,74,0.05) 1px, transparent 1px);
+          background-size: 48px 48px;
+          pointer-events: none;
+        }
+
+        /* top/bottom accent lines */
+        .cta-section::after {
+          content: '';
+          position: absolute; top: 0; left: 0; right: 0; height: 3px;
+          background: linear-gradient(90deg, transparent, rgba(22,163,74,0.35), transparent);
+        }
+
+        .cta-bottom-line {
+          position: absolute; bottom: 0; left: 0; right: 0; height: 3px;
+          background: linear-gradient(90deg, transparent, rgba(22,163,74,0.35), transparent);
+        }
+
+        /* radial glow */
+        .cta-glow {
+          position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
+          width: 700px; height: 400px;
+          background: radial-gradient(ellipse, rgba(22,163,74,0.08) 0%, transparent 70%);
+          pointer-events: none;
+        }
+
+        .cta-inner {
+          position: relative; z-index: 2;
+          max-width: 700px; margin: 0 auto; text-align: center;
+        }
+
+        .cta-eyebrow {
+          display: inline-flex; align-items: center; gap: 8px;
+          font-family: 'DM Mono', monospace; font-size: 11px;
+          letter-spacing: 0.15em; color: #16a34a;
+          text-transform: uppercase; margin-bottom: 20px;
+        }
+        .cta-eyebrow-dot {
+          width: 6px; height: 6px; border-radius: 50%; background: #16a34a;
+          animation: ctadot 2s ease-in-out infinite;
+        }
+        @keyframes ctadot {
+          0%,100% { opacity:1; transform:scale(1); }
+          50% { opacity:0.4; transform:scale(0.7); }
+        }
+
+        .cta-title {
+          font-size: clamp(28px, 4.5vw, 46px);
+          font-weight: 800; color: #0f2318;
+          letter-spacing: -0.02em; line-height: 1.1;
+          margin: 0 0 16px;
+        }
+        .cta-title span { color: #16a34a; }
+
+        .cta-desc {
+          font-family: 'DM Mono', monospace; font-size: 14px; font-weight: 300;
+          color: #4b7060; line-height: 1.75;
+          max-width: 540px; margin: 0 auto 36px;
+        }
+
+        .cta-btns {
+          display: flex; align-items: center; justify-content: center;
+          gap: 14px; flex-wrap: wrap;
+        }
+
+        .cta-btn-primary {
+          display: inline-flex; align-items: center; gap: 8px;
+          font-family: 'Syne', sans-serif; font-size: 14px; font-weight: 700;
+          letter-spacing: 0.05em;
+          background: linear-gradient(135deg, #16a34a, #15803d);
+          color: white; border: 1px solid rgba(22,163,74,0.4);
+          padding: 13px 30px; border-radius: 4px;
+          text-decoration: none; transition: all 0.25s ease;
+        }
+        .cta-btn-primary:hover {
+          background: linear-gradient(135deg, #15803d, #166534);
+          box-shadow: 0 8px 28px rgba(22,163,74,0.25);
+          transform: translateY(-1px);
+        }
+
+        .cta-btn-outline {
+          display: inline-flex; align-items: center; gap: 8px;
+          font-family: 'Syne', sans-serif; font-size: 14px; font-weight: 700;
+          letter-spacing: 0.05em;
+          background: transparent;
+          color: #16a34a; border: 1px solid rgba(22,163,74,0.35);
+          padding: 13px 30px; border-radius: 4px;
+          text-decoration: none; transition: all 0.25s ease;
+        }
+        .cta-btn-outline:hover {
+          background: rgba(22,163,74,0.06);
+          border-color: rgba(22,163,74,0.6);
+          color: #15803d;
+          transform: translateY(-1px);
+        }
+
+        @media (max-width: 560px) {
+          .cta-section { padding: 60px 20px; }
+          .cta-btns { flex-direction: column; }
+          .cta-btn-primary, .cta-btn-outline { width: 100%; justify-content: center; }
+        }
+      `}</style>
+
+      <section className="cta-section">
+        <div className="cta-bottom-line" />
+        <div className="cta-glow" />
+
+        <div className="cta-inner">
+          <div className="cta-eyebrow">
+            <div className="cta-eyebrow-dot" />
+            Wholesale Inquiries
+          </div>
+          <h2 className="cta-title">
+            Ready to Place a <span>Bulk Order?</span>
+          </h2>
+          <p className="cta-desc">
+            Join hundreds of businesses who trust us for their natural product needs. From authentic
+            Himalayan salt to premium grains — contact our team for custom pricing and bulk discounts.
+          </p>
+          <div className="cta-btns">
+            <Link to="/contact" className="cta-btn-primary">
+              <Sparkles size={16} />
+              Request Custom Quote
+            </Link>
+            <Link to="/products" className="cta-btn-outline">
+              Browse Products
+              <ArrowRight size={16} />
+            </Link>
+          </div>
+        </div>
+      </section>
+    </>
+  );
+};

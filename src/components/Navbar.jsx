@@ -1,8 +1,4 @@
-import {
-  Disclosure,
-  DisclosureButton,
-  DisclosurePanel,
-} from "@headlessui/react";
+import { useEffect, useRef, useState } from "react";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 import { Link, useLocation } from "react-router-dom";
 import { cn } from "../lib/utills";
@@ -11,172 +7,269 @@ import { Logo } from "./atoms/Logo";
 export const Navbar = () => {
   const location = useLocation();
   const currentPath = location.pathname;
+  const [menuOpen, setMenuOpen] = useState(false);
+  const menuRef = useRef(null);
 
-  const getCurrentActive = (path) => {
-    return path === currentPath
-      ? "border-green-600 text-gray-900 "
-      : "border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700";
-  };
+  const navLinks = [
+    { to: "/", label: "Home" },
+    { to: "/products", label: "Products" },
+    { to: "/about", label: "About Us" },
+    { to: "/contact", label: "Contact Us" },
+    { to: "/faq", label: "FAQ" },
+    { to: "/workspace-images", label: "Gallery" },
+    { to: "/private-label", label: "Private Labeling" },
+  ];
+
+  const isActive = (path) => path === currentPath;
+
+  // Close on outside click
+  useEffect(() => {
+    const handleClickOutside = (e) => {
+      if (menuRef.current && !menuRef.current.contains(e.target)) {
+        setMenuOpen(false);
+      }
+    };
+    if (menuOpen) document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, [menuOpen]);
+
+  // Close on route change
+  useEffect(() => {
+    setMenuOpen(false);
+  }, [location.pathname]);
+
   return (
-    <Disclosure as="nav" className="relative bg-white shadow-sm">
-      <div className=" w-full mx-5 px-2 sm:px-6 lg:px-8">
-        <div className="relative flex h-16 justify-between">
-          <div className="absolute inset-y-0 left-0 flex items-center sm:hidden">
-            {/* Mobile menu button */}
-            <DisclosureButton className="group relative inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:bg-gray-100 hover:text-gray-500 focus:ring-2 focus:ring-indigo-600 focus:outline-hidden focus:ring-inset">
-              <span className="absolute -inset-0.5" />
-              <span className="sr-only">Open main menu</span>
-              <Bars3Icon
-                aria-hidden="true"
-                className="block size-6 group-data-open:hidden"
-              />
-              <XMarkIcon
-                aria-hidden="true"
-                className="hidden size-6 group-data-open:block"
-              />
-            </DisclosureButton>
-          </div>
-          <div className="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
-            <Link to="/" className="flex shrink-0 items-center">
-              {/* <Mountain className="h-10 w-10" /> */}
-              <Logo />
-            </Link>
-            <div className="hidden sm:ml-6 sm:flex sm:space-x-8">
-              {/* Current: "border-indigo-600 text-gray-900", Default: "border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700" */}
-              <Link
-                to="/"
-                className={cn(
-                  getCurrentActive("/"),
-                  "inline-flex items-center border-b-2 px-1 pt-1 text-sm font-medium"
-                )}
-              >
-                Home
-              </Link>
-              <Link
-                to="/products"
-                className={cn(
-                  getCurrentActive("/products"),
-                  "inline-flex items-center border-b-2 px-1 pt-1 text-sm font-medium"
-                )}
-              >
-                Products
-              </Link>
-              <Link
-                to="/about"
-                className={cn(
-                  getCurrentActive("/about"),
-                  "inline-flex items-center border-b-2 px-1 pt-1 text-sm font-medium"
-                )}
-              >
-                About Us
-              </Link>
-              <Link
-                to="/contact"
-                className={cn(
-                  getCurrentActive("/contact"),
-                  "inline-flex items-center border-b-2 px-1 pt-1 text-sm font-medium"
-                )}
-              >
-                Contact Us
-              </Link>
-              <Link
-                to="/faq"
-                className={cn(
-                  getCurrentActive("/faq"),
-                  "inline-flex items-center border-b-2 px-1 pt-1 text-sm font-medium"
-                )}
-              >
-                FAQ
-              </Link>
-              <Link
-                to="/workspace-images"
-                className={cn(
-                  getCurrentActive("/workspace-images"),
-                  "inline-flex items-center border-b-2 px-1 pt-1 text-sm font-medium"
-                )}
-              >
-                Gallery
-              </Link>
-              <Link
-                to="/private-label"
-                className={cn(
-                  getCurrentActive("/private-label"),
-                  "inline-flex items-center border-b-2 px-1 pt-1 text-sm font-medium"
-                )}
-              >
-                Private Labeling
-              </Link>
-            </div>
-          </div>
-          <div className="absolute inset-y-0 right-0 flex items-center pr-4 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
-            <Link to="/contact">
-              <button
-                type="button"
-                className="relative text-sm md:text-md  rounded-lg p-2 px-1 md:px-4 bg-green-600 text-white hover:bg-black focus:outline-2 focus:outline-offset-2 focus:outline-indigo-600"
-              >
-                Contact Us
-                <span className="absolute -inset-1.5" />
-                <span className="sr-only">View notifications</span>
-              </button>
-            </Link>
-          </div>
-        </div>
-      </div>
+    <>
+      <style>{`
+        @import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700&family=DM+Mono:wght@400;500&display=swap');
 
-      <DisclosurePanel className="sm:hidden">
-        <div className="space-y-1 pt-2 pb-4">
-          {/* Current: "bg-indigo-50 border-indigo-600 text-indigo-700", Default: "border-transparent text-gray-500 hover:border-gray-300 hover:bg-gray-50 hover:text-gray-700" */}
-          <DisclosureButton
-            as="a"
-            href="/"
-            className="block border-l-4 border-indigo-600 bg-indigo-50 py-2 pr-4 pl-3 text-base font-medium text-indigo-700"
+        .futuristic-nav {
+          background: rgba(2, 12, 6, 0.97);
+          border-bottom: 1px solid rgba(74, 222, 128, 0.12);
+          backdrop-filter: blur(20px);
+          position: sticky;
+          top: 0;
+          z-index: 100;
+          font-family: 'Syne', sans-serif;
+        }
+
+        /* ── Desktop bar ── */
+        .nav-inner {
+          width: 100%;
+          max-width: 1280px;
+          margin: 0 auto;
+          padding: 0 24px;
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          height: 64px;
+          gap: 8px;
+        }
+
+        .nav-logo-wrap {
+          display: flex;
+          align-items: center;
+          text-decoration: none;
+          flex-shrink: 0;
+        }
+
+        .desktop-links {
+          display: flex;
+          align-items: center;
+          gap: 2px;
+          flex: 1;
+          justify-content: center;
+          padding: 0 8px;
+        }
+
+        .nav-link {
+          font-family: 'Syne', sans-serif;
+          font-size: 13px;
+          font-weight: 600;
+          letter-spacing: 0.04em;
+          color: rgba(134, 239, 172, 0.55);
+          text-decoration: none;
+          padding: 6px 10px;
+          border-radius: 4px;
+          border-bottom: 2px solid transparent;
+          transition: all 0.2s ease;
+          white-space: nowrap;
+        }
+        .nav-link:hover { color: #4ade80; background: rgba(74,222,128,0.06); }
+        .nav-link.active { color: #4ade80; border-bottom: 2px solid #16a34a; background: rgba(74,222,128,0.05); }
+
+        .nav-cta {
+          font-family: 'Syne', sans-serif;
+          font-size: 13px;
+          font-weight: 700;
+          letter-spacing: 0.06em;
+          background: linear-gradient(135deg, #16a34a, #15803d);
+          color: white;
+          border: 1px solid rgba(74,222,128,0.35);
+          padding: 8px 20px;
+          border-radius: 4px;
+          text-decoration: none;
+          transition: all 0.25s ease;
+          white-space: nowrap;
+          flex-shrink: 0;
+        }
+        .nav-cta:hover {
+          background: linear-gradient(135deg, #15803d, #166534);
+          box-shadow: 0 0 20px rgba(74,222,128,0.3);
+          transform: translateY(-1px);
+        }
+
+        /* hamburger — hidden on desktop */
+        .mobile-toggle {
+          display: none;
+          background: transparent;
+          border: 1px solid rgba(74,222,128,0.2);
+          border-radius: 6px;
+          padding: 6px;
+          color: rgba(134,239,172,0.7);
+          cursor: pointer;
+          transition: all 0.2s ease;
+          flex-shrink: 0;
+        }
+        .mobile-toggle:hover {
+          background: rgba(74,222,128,0.08);
+          border-color: rgba(74,222,128,0.4);
+          color: #4ade80;
+        }
+
+        /* ── Mobile dropdown ── */
+        .mobile-panel {
+          display: none;
+          border-top: 1px solid rgba(74,222,128,0.08);
+          background: rgba(2,12,6,0.99);
+          padding: 12px 16px 20px;
+        }
+        .mobile-panel.open { display: block; }
+
+        .mobile-link {
+          display: block;
+          font-family: 'Syne', sans-serif;
+          font-size: 14px;
+          font-weight: 600;
+          letter-spacing: 0.04em;
+          color: rgba(134,239,172,0.6);
+          text-decoration: none;
+          padding: 12px 16px;
+          border-left: 3px solid transparent;
+          border-radius: 0 4px 4px 0;
+          transition: all 0.2s ease;
+          margin-bottom: 2px;
+        }
+        .mobile-link:hover { color: #4ade80; background: rgba(74,222,128,0.06); border-left-color: rgba(74,222,128,0.4); }
+        .mobile-link.active { color: #4ade80; background: rgba(74,222,128,0.07); border-left-color: #16a34a; }
+
+        .mobile-cta {
+          display: block;
+          font-family: 'Syne', sans-serif;
+          font-size: 14px;
+          font-weight: 700;
+          letter-spacing: 0.06em;
+          background: linear-gradient(135deg, #16a34a, #15803d);
+          color: white;
+          border: 1px solid rgba(74,222,128,0.3);
+          padding: 12px 20px;
+          border-radius: 4px;
+          text-decoration: none;
+          text-align: center;
+          margin-top: 12px;
+          transition: all 0.25s ease;
+        }
+        .mobile-cta:hover { box-shadow: 0 0 20px rgba(74,222,128,0.25); }
+
+        /* ── Tablet: shrink font ── */
+        @media (max-width: 1024px) {
+          .nav-link { font-size: 12px; padding: 6px 7px; }
+        }
+
+        /* ── Mobile ≤768px ── */
+        @media (max-width: 768px) {
+          /* hide desktop items */
+          .desktop-links { display: none !important; }
+          .nav-cta { display: none !important; }
+
+          /* show hamburger */
+          .mobile-toggle {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+          }
+
+          /* 3-column grid: [hamburger] [logo] [spacer] */
+          .nav-inner {
+            display: grid;
+            grid-template-columns: 40px 1fr 40px;
+            padding: 0 16px;
+          }
+          .nav-logo-wrap {
+            justify-content: center;
+          }
+          .mobile-toggle {
+            grid-column: 1;
+            grid-row: 1;
+          }
+        }
+      `}</style>
+
+      <nav className="futuristic-nav" ref={menuRef}>
+        <div className="nav-inner">
+          {/* Hamburger — left slot on mobile */}
+          <button
+            className="mobile-toggle"
+            onClick={() => setMenuOpen((o) => !o)}
+            aria-label="Toggle menu"
           >
-            Home
-          </DisclosureButton>
-          <DisclosureButton
-            as="a"
-            href="/products"
-            className="block border-l-4 border-transparent py-2 pr-4 pl-3 text-base font-medium text-gray-500 hover:border-gray-300 hover:bg-gray-50 hover:text-gray-700"
-          >
-            Products
-          </DisclosureButton>
-          <DisclosureButton
-            as="a"
-            href="/about"
-            className="block border-l-4 border-transparent py-2 pr-4 pl-3 text-base font-medium text-gray-500 hover:border-gray-300 hover:bg-gray-50 hover:text-gray-700"
-          >
-            About Us
-          </DisclosureButton>
-          <DisclosureButton
-            as="a"
-            href="/contact"
-            className="block border-l-4 border-transparent py-2 pr-4 pl-3 text-base font-medium text-gray-500 hover:border-gray-300 hover:bg-gray-50 hover:text-gray-700"
-          >
-            Contact
-          </DisclosureButton>
-          <DisclosureButton
-            as="a"
-            href="/faq"
-            className="block border-l-4 border-transparent py-2 pr-4 pl-3 text-base font-medium text-gray-500 hover:border-gray-300 hover:bg-gray-50 hover:text-gray-700"
-          >
-            FAQ
-          </DisclosureButton>
-          <DisclosureButton
-            as="a"
-            href="/workspace-images"
-            className="block border-l-4 border-transparent py-2 pr-4 pl-3 text-base font-medium text-gray-500 hover:border-gray-300 hover:bg-gray-50 hover:text-gray-700"
-          >
-            Gallery
-          </DisclosureButton>
-          <DisclosureButton
-            as="a"
-            href="/private-label"
-            className="block border-l-4 border-transparent py-2 pr-4 pl-3 text-base font-medium text-gray-500 hover:border-gray-300 hover:bg-gray-50 hover:text-gray-700"
-          >
-            Private Labeling
-          </DisclosureButton>
+            {menuOpen
+              ? <XMarkIcon className="size-5" aria-hidden="true" />
+              : <Bars3Icon className="size-5" aria-hidden="true" />
+            }
+          </button>
+
+          {/* Logo — center on mobile via grid */}
+          <Link to="/" className="nav-logo-wrap">
+            <Logo />
+          </Link>
+
+          {/* Desktop links */}
+          <div className="desktop-links">
+            {navLinks.map((link) => (
+              <Link
+                key={link.to}
+                to={link.to}
+                className={cn("nav-link", isActive(link.to) && "active")}
+              >
+                {link.label}
+              </Link>
+            ))}
+          </div>
+
+          {/* Desktop CTA */}
+          <Link to="/contact" className="nav-cta">
+            Get a Quote
+          </Link>
         </div>
-      </DisclosurePanel>
-    </Disclosure>
+
+        {/* Mobile dropdown */}
+        <div className={cn("mobile-panel", menuOpen && "open")}>
+          {navLinks.map((link) => (
+            <Link
+              key={link.to}
+              to={link.to}
+              className={cn("mobile-link", isActive(link.to) && "active")}
+              onClick={() => setMenuOpen(false)}
+            >
+              {link.label}
+            </Link>
+          ))}
+          <Link to="/contact" className="mobile-cta" onClick={() => setMenuOpen(false)}>
+            Get a Quote
+          </Link>
+        </div>
+      </nav>
+    </>
   );
 };
