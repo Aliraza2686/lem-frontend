@@ -6,12 +6,12 @@ import { NavLayout } from "../components/layouts/NavLayout";
 import { Link } from "react-router-dom";
 
 const packagingSamples = [
-  { id: 1, src: "https://res.cloudinary.com/dptmeakuy/image/upload/v1771607946/ChatGPT_Image_Feb_20_2026_10_16_13_PM_xlkl2p.png", label: "Himalayan Pink Salt – Retail Pouch", tag: "Retail" },
-  { id: 2, src: "https://res.cloudinary.com/dptmeakuy/image/upload/v1771607943/ChatGPT_Image_Feb_20_2026_10_15_58_PM_izansz.png", label: "White Salt – Eco Kraft Bag", tag: "Eco" },
-  { id: 3, src: "https://res.cloudinary.com/dptmeakuy/image/upload/v1771607946/ChatGPT_Image_Feb_20_2026_10_15_49_PM_jvuwsa.png", label: "Black Salt – Stand-Up Pouch", tag: "Premium" },
-  { id: 4, src: "https://res.cloudinary.com/dptmeakuy/image/upload/v1771607941/ChatGPT_Image_Feb_20_2026_10_15_41_PM_wf6mop.png", label: "Animal Salt Lick – Branded Box", tag: "Bulk" },
+  { id: 1, src: "https://res.cloudinary.com/dptmeakuy/image/upload/v1772107073/ChatGPT_Image_Feb_23_2026_09_40_58_AM_j4lpth.png", label: "Himalayan Pink Salt ", tag: "" },
+  { id: 2, src: "https://res.cloudinary.com/dptmeakuy/image/upload/v1772106872/Gemini_Generated_Image_t1p2cmt1p2cmt1p2_izj2bf.png", label: "White Salt", tag: "Eco" },
+  { id: 3, src: "https://res.cloudinary.com/dptmeakuy/image/upload/v1772107048/ChatGPT_Image_Feb_22_2026_05_50_30_PM_lruseq.png", label: "Stand-Up Pouch", tag: "Premium" },
+  { id: 4, src: "https://res.cloudinary.com/dptmeakuy/image/upload/v1772107041/ChatGPT_Image_Feb_22_2026_05_45_34_PM_e14jk0.png", label: "Salt Lamp – Branded Box", tag: "Bulk" },
   { id: 5, src: "https://res.cloudinary.com/dptmeakuy/image/upload/v1771607940/ChatGPT_Image_Feb_20_2026_10_15_52_PM_ue9gpp.png", label: "Salt Lamp – Gift Box", tag: "Gift" },
-  { id: 6, src: "https://res.cloudinary.com/dptmeakuy/image/upload/v1771608046/ChatGPT_Image_Feb_20_2026_10_20_21_PM_zapwfr.png", label: "Salt Bricks – Export Carton", tag: "Export" },
+  { id: 6, src: "https://res.cloudinary.com/dptmeakuy/image/upload/v1772107040/ChatGPT_Image_Feb_22_2026_05_32_17_PM_ivnw1e.png", label: "Salt Bricks – Export Carton", tag: "Export" },
 ];
 
 const products = [
