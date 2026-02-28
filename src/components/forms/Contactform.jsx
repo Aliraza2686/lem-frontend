@@ -139,7 +139,7 @@ export const ContactForm = () => {
   }
 
   return (
-    <div className="max-w-4xl mx-auto md:p-6 bg-white">
+    <div className="max-w-4xl mx-auto md:p-2 bg-white">
       <Loader show={isLoading} />
       <div className="mb-8 text-center">
         <h1 className="text-3xl font-bold text-gray-900 mb-2">Contact Us</h1>
@@ -150,7 +150,7 @@ export const ContactForm = () => {
 
       <div className="space-y-6">
         {/* Contact Information */}
-        <div className="bg-gray-50 rounded-lg p-6">
+        <div className="">
           <h2 className="text-xl font-semibold text-gray-800 mb-4 flex items-center">
             <User className="w-5 h-5 mr-2" />
             Your Information
@@ -239,7 +239,7 @@ export const ContactForm = () => {
         </div>
 
         {/* Message */}
-        <div className="bg-gray-50 rounded-lg p-6">
+        <div className="">
           <h2 className="text-xl font-semibold text-gray-800 mb-4 flex items-center">
             <MessageSquare className="w-5 h-5 mr-2" />
             Your Message
