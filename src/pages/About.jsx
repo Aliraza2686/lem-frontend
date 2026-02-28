@@ -36,7 +36,7 @@ export const About = () => {
   ];
 
   const stats = [
-{ number: "10+", label: "Years of Expertise" },
+    { number: "500+", label: "Happy Clients" },
     { number: "50+", label: "Product Lines" },
     { number: "15+", label: "Countries Served" },
     { number: "2015", label: "Founded" },
@@ -162,8 +162,25 @@ export const About = () => {
           text-transform: uppercase;
         }
 
+        /* ── Light lower half ── */
+        .about-light {
+          background: #f8faf8;
+          position: relative;
+          overflow: hidden;
+        }
+        .about-light::before {
+          content: '';
+          position: absolute; inset: 0;
+          background-image:
+            linear-gradient(rgba(22,163,74,0.05) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(22,163,74,0.05) 1px, transparent 1px);
+          background-size: 48px 48px;
+          pointer-events: none;
+        }
+
         /* ── Story section ── */
         .story-section {
+          position: relative; z-index: 2;
           max-width: 1280px;
           margin: 0 auto;
           padding: 80px 32px;
@@ -176,7 +193,7 @@ export const About = () => {
           font-family: 'DM Mono', monospace;
           font-size: 11px;
           letter-spacing: 0.15em;
-          color: #4ade80;
+          color: #16a34a;
           text-transform: uppercase;
           margin-bottom: 16px;
           display: flex;
@@ -187,114 +204,82 @@ export const About = () => {
           content: '';
           display: inline-block;
           width: 32px; height: 1px;
-          background: #4ade80;
+          background: #16a34a;
         }
         .story-section h2 {
           font-size: clamp(28px, 3.5vw, 42px);
           font-weight: 800;
-          color: #fff;
+          color: #0f2318;
           letter-spacing: -0.02em;
           margin: 0 0 24px;
           line-height: 1.15;
         }
-        .story-section h2 span {
-          background: linear-gradient(135deg, #4ade80, #86efac);
-          -webkit-background-clip: text;
-          -webkit-text-fill-color: transparent;
-          background-clip: text;
-        }
+        .story-section h2 span { color: #16a34a; }
         .story-p {
           font-family: 'DM Mono', monospace;
-          font-size: 14px;
+          font-size: 13px;
           font-weight: 300;
-          color: rgba(134,239,172,0.6);
-          line-height: 1.8;
-          margin-bottom: 20px;
+          color: #4b7060;
+          line-height: 1.85;
+          margin-bottom: 16px;
         }
         .story-p:last-of-type { margin-bottom: 0; }
+        .story-p strong { color: #0f2318; font-weight: 500; }
 
         .story-img-wrap {
           position: relative;
           border-radius: 8px;
           overflow: hidden;
-          border: 1px solid rgba(74,222,128,0.12);
-          box-shadow: 0 40px 80px rgba(0,0,0,0.6), 0 0 40px rgba(22,163,74,0.08);
+          border: 1px solid rgba(22,163,74,0.2);
+          box-shadow: 0 32px 64px rgba(0,0,0,0.1), 0 0 30px rgba(22,163,74,0.06);
         }
         .story-img-wrap img {
           width: 100%;
           height: 440px;
           object-fit: cover;
           display: block;
-          filter: brightness(0.88) saturate(1.1);
+          filter: brightness(0.95) saturate(1.05);
         }
         .story-img-wrap::after {
           content: '';
-          position: absolute;
-          inset: 0;
-          background: linear-gradient(0deg, rgba(2,12,6,0.5) 0%, transparent 60%);
+          position: absolute; inset: 0;
+          background: linear-gradient(0deg, rgba(15,35,24,0.2) 0%, transparent 50%);
         }
-        /* corner accents */
         .img-corner {
-          position: absolute;
-          width: 20px; height: 20px;
-          z-index: 5;
+          position: absolute; width: 20px; height: 20px; z-index: 5;
         }
-        .img-corner-tl { top: 10px; left: 10px; border-top: 2px solid #4ade80; border-left: 2px solid #4ade80; border-radius: 3px 0 0 0; }
-        .img-corner-tr { top: 10px; right: 10px; border-top: 2px solid #4ade80; border-right: 2px solid #4ade80; border-radius: 0 3px 0 0; }
-        .img-corner-bl { bottom: 10px; left: 10px; border-bottom: 2px solid #4ade80; border-left: 2px solid #4ade80; border-radius: 0 0 0 3px; }
-        .img-corner-br { bottom: 10px; right: 10px; border-bottom: 2px solid #4ade80; border-right: 2px solid #4ade80; border-radius: 0 0 3px 0; }
+        .img-corner-tl { top: 10px; left: 10px; border-top: 2px solid #16a34a; border-left: 2px solid #16a34a; border-radius: 3px 0 0 0; }
+        .img-corner-tr { top: 10px; right: 10px; border-top: 2px solid #16a34a; border-right: 2px solid #16a34a; border-radius: 0 3px 0 0; }
+        .img-corner-bl { bottom: 10px; left: 10px; border-bottom: 2px solid #16a34a; border-left: 2px solid #16a34a; border-radius: 0 0 0 3px; }
+        .img-corner-br { bottom: 10px; right: 10px; border-bottom: 2px solid #16a34a; border-right: 2px solid #16a34a; border-radius: 0 0 3px 0; }
 
         /* ── Values section ── */
         .values-section {
-          border-top: 1px solid rgba(74,222,128,0.08);
+          border-top: 1px solid rgba(22,163,74,0.1);
           padding: 80px 32px;
           position: relative;
-          overflow: hidden;
         }
-        .values-section::before {
-          content: '';
-          position: absolute;
-          inset: 0;
-          background-image: linear-gradient(rgba(74,222,128,0.02) 1px, transparent 1px),
-                            linear-gradient(90deg, rgba(74,222,128,0.02) 1px, transparent 1px);
-          background-size: 60px 60px;
-        }
-        .values-glow {
-          position: absolute;
-          bottom: -100px; right: -100px;
-          width: 500px; height: 500px;
-          background: radial-gradient(circle, rgba(4,120,87,0.08) 0%, transparent 70%);
-          pointer-events: none;
-        }
+        .values-glow { display: none; }
         .values-inner {
-          position: relative;
-          z-index: 2;
-          max-width: 1280px;
-          margin: 0 auto;
+          position: relative; z-index: 2;
+          max-width: 1280px; margin: 0 auto;
         }
         .values-header {
-          text-align: center;
-          margin-bottom: 56px;
+          text-align: center; margin-bottom: 56px;
         }
         .values-header h2 {
           font-size: clamp(28px, 3.5vw, 42px);
-          font-weight: 800;
-          color: #fff;
-          letter-spacing: -0.02em;
-          margin: 12px 0 16px;
+          font-weight: 800; color: #0f2318;
+          letter-spacing: -0.02em; margin: 12px 0 16px;
         }
-        .values-header h2 span {
-          background: linear-gradient(135deg, #4ade80, #86efac);
-          -webkit-background-clip: text;
-          -webkit-text-fill-color: transparent;
-          background-clip: text;
-        }
+        .values-header h2 span { color: #16a34a; }
         .values-header p {
-          font-family: 'DM Mono', monospace;
-          font-size: 14px;
-          color: rgba(134,239,172,0.5);
-          font-weight: 300;
+          font-family: 'DM Mono', monospace; font-size: 14px;
+          color: #4b7060; font-weight: 300;
         }
+        /* override eyebrow dot color inside light section */
+        .about-light .eyebrow-dot { background: #16a34a; }
+        .about-light .about-eyebrow { color: #16a34a; }
 
         .values-grid {
           display: grid;
@@ -302,59 +287,47 @@ export const About = () => {
           gap: 20px;
         }
         .value-card {
-          background: rgba(4,20,10,0.6);
-          border: 1px solid rgba(74,222,128,0.1);
+          background: #fff;
+          border: 1px solid rgba(22,163,74,0.15);
           border-radius: 8px;
           padding: 32px 28px;
           transition: all 0.3s ease;
           position: relative;
           overflow: hidden;
+          box-shadow: 0 2px 12px rgba(0,0,0,0.04);
         }
         .value-card::before {
           content: '';
-          position: absolute;
-          top: 0; left: 0; right: 0;
-          height: 2px;
-          background: linear-gradient(90deg, transparent, rgba(74,222,128,0.4), transparent);
+          position: absolute; top: 0; left: 0; right: 0; height: 2px;
+          background: linear-gradient(90deg, transparent, #16a34a, transparent);
           transform: scaleX(0);
           transition: transform 0.3s ease;
         }
         .value-card:hover {
-          border-color: rgba(74,222,128,0.25);
-          box-shadow: 0 20px 50px rgba(0,0,0,0.4), 0 0 20px rgba(22,163,74,0.06);
+          border-color: rgba(22,163,74,0.35);
+          box-shadow: 0 16px 48px rgba(0,0,0,0.08), 0 0 20px rgba(22,163,74,0.06);
           transform: translateY(-3px);
         }
         .value-card:hover::before { transform: scaleX(1); }
 
         .value-icon-wrap {
-          width: 48px; height: 48px;
-          border-radius: 10px;
-          background: rgba(22,163,74,0.1);
-          border: 1px solid rgba(74,222,128,0.2);
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          margin-bottom: 20px;
-          transition: all 0.3s ease;
+          width: 48px; height: 48px; border-radius: 10px;
+          background: rgba(22,163,74,0.07);
+          border: 1px solid rgba(22,163,74,0.18);
+          display: flex; align-items: center; justify-content: center;
+          margin-bottom: 20px; transition: all 0.3s ease;
         }
         .value-card:hover .value-icon-wrap {
-          background: rgba(22,163,74,0.18);
-          box-shadow: 0 0 20px rgba(74,222,128,0.15);
+          background: rgba(22,163,74,0.13);
+          box-shadow: 0 0 18px rgba(22,163,74,0.12);
         }
         .value-card h3 {
-          font-size: 17px;
-          font-weight: 700;
-          color: #fff;
-          margin: 0 0 10px;
-          letter-spacing: -0.01em;
+          font-size: 17px; font-weight: 700; color: #0f2318;
+          margin: 0 0 10px; letter-spacing: -0.01em;
         }
         .value-card p {
-          font-family: 'DM Mono', monospace;
-          font-size: 13px;
-          font-weight: 300;
-          color: rgba(134,239,172,0.5);
-          line-height: 1.7;
-          margin: 0;
+          font-family: 'DM Mono', monospace; font-size: 13px;
+          font-weight: 300; color: #4b7060; line-height: 1.7; margin: 0;
         }
 
         /* ── Responsive ── */
@@ -410,30 +383,43 @@ export const About = () => {
           </div>
         </div>
 
+        {/* ── Story + Values on light bg ── */}
+        <div className="about-light">
+
         {/* ── Story ── */}
         <div className="story-section">
-          <div>
-            <div className="story-eyebrow">Our Story</div>
-            <h2>From a Family <span>Mission</span> to a Global Brand</h2>
-            <p className="story-p">
-              We are proud to build direct relationships with the legendary Khewra Salt Mine in Pakistan.
-              This 700-million-year-old mine, discovered by Alexander the Great&apos;s army in 326 BC,
-              produces the world&apos;s finest pink Himalayan salt, known for its purity, rich mineral content,
-              and natural beauty.
-            </p>
+        <div>
+  <div className="story-eyebrow">Our Story</div>
+  <h2>Rooted in Heritage <span>Driven by Global Vision</span></h2>
 
-            <p className="story-p">
-              Our founder, inspired by a visit to the mine in 2015, recognized the opportunity to bring
-              authentic Himalayan salt directly to global markets without middlemen. What started as a
-              passion for genuine salt products has grown into a specialized salt export company offering
-              edible salt, industrial salt, salt lamps, cooking slabs, bath salt, and custom private label
-              packaging solutions.
-              <strong className="block mt-2">
-                We&apos;ve built strong partnerships with trusted processors and manufacturers across Pakistan,
-                ensuring consistent quality, competitive pricing, and reliable worldwide delivery in every shipment.
-              </strong>
-            </p>
-          </div>
+  <p className="story-p">
+    We are proud to build direct relationships with the legendary Khewra Salt Mine in Pakistan.
+    This 700-million-year-old natural reserve produces the world’s finest pink Himalayan salt,
+    known for its purity, rich mineral content, and natural beauty.
+  </p>
+
+  <p className="story-p">
+    Our company is officially registered with the Chamber of Commerce and operates in full
+    compliance with export regulations and international trade standards. We work closely with
+    certified processors and trusted manufacturers across Pakistan to ensure consistent quality,
+    competitive pricing, and reliable worldwide delivery.
+  </p>
+
+  <p className="story-p">
+    What began as a commitment to delivering authentic Himalayan salt has evolved into a
+    specialized export company offering edible salt, industrial salt, salt lamps, cooking slabs,
+    bath salt, and customized private label packaging solutions tailored to global buyers.
+  </p>
+
+  <p className="story-p">
+    <strong>
+      Our team consists of qualified professionals fluent in English and experienced in
+      international trade, logistics coordination, documentation, and customer support.
+      We prioritize clear communication, transparency, and long-term partnerships with
+      clients worldwide.
+    </strong>
+  </p>
+</div>
           <div>
             <div className="story-img-wrap">
               <div className="img-corner img-corner-tl" />
@@ -466,7 +452,7 @@ export const About = () => {
                 return (
                   <div className="value-card" key={i}>
                     <div className="value-icon-wrap">
-                      <Icon size={22} color="#4ade80" />
+                      <Icon size={22} color="#16a34a" />
                     </div>
                     <h3>{v.title}</h3>
                     <p>{v.desc}</p>
@@ -476,6 +462,8 @@ export const About = () => {
             </div>
           </div>
         </section>
+
+        </div> {/* end .about-light */}
 
       </div>
     </NavLayout>

@@ -454,7 +454,7 @@ export const Header = () => {
               }} />
 
               <img
-                src="https://res.cloudinary.com/dptmeakuy/image/upload/v1771607943/ChatGPT_Image_Feb_20_2026_10_15_58_PM_izansz.png"
+                src="https://res.cloudinary.com/dptmeakuy/image/upload/v1772181633/file_000000004a4471fab3cbb178fdf1348b_c16iru.png"
                 alt="Himalayan Salt Products from Khewra Mine"
                 className="hero-image-img"
               />
@@ -515,8 +515,12 @@ export const Header = () => {
                   <Package size={16} color="#4ade80" />
                 </div>
                 <div>
-                  <div style={{ fontWeight: 700, fontSize: "13px", color: "#ffffff" }}>Bulk Only</div>
-                  <div style={{ fontFamily: "'DM Mono', monospace", fontSize: "10px", color: "rgba(134,239,172,0.5)" }}>Wholesale Pricing</div>
+                  <div style={{ fontWeight: 700, fontSize: "13px", color: "#ffffff" }}>
+                    Licensed Export Company
+                  </div>
+                  <div style={{ fontFamily: "'DM Mono', monospace", fontSize: "10px", color: "rgba(134,239,172,0.5)" }}>
+                    International Trade Compliant
+                  </div>
                 </div>
               </div>
             </div>

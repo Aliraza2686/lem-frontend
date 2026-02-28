@@ -275,11 +275,11 @@ export const ContactForm = () => {
         </div>
 
         {/* Submit Button */}
-        <div className="text-center">
+        <div className="text-center flex justify-center items-center flex-col gap-2">
           <button
             type="button"
             onClick={handleSubmit}
-            className="bg-blue-600 cursor-pointer text-white px-8 py-3 rounded-lg font-semibold hover:bg-blue-700 focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition-colors"
+            className="mobile-cta"
           >
             Submit Contact Form
           </button>
