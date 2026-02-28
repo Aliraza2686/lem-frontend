@@ -348,7 +348,7 @@ const stats = [
           .stat-cell:nth-child(3) { border-right: none; }
         }
         @media (max-width: 480px) {
-          .stats-inner { grid-template-columns: repeat(2, 1fr); }
+          .stats-inner { grid-template-columns: repeat(1, 1fr); }
           .story-img-wrap img { height: 280px; }
         }
       `}</style>
