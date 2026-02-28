@@ -35,12 +35,12 @@ export const About = () => {
     },
   ];
 
-  const stats = [
-    { number: "500+", label: "Happy Clients" },
-    { number: "50+", label: "Product Lines" },
-    { number: "15+", label: "Countries Served" },
-    { number: "2015", label: "Founded" },
-  ];
+const stats = [
+  { number: "Export", label: "Licensed Company" },
+  { number: "Premium", label: "Himalayan Source" },
+  { number: "Bulk", label: "Supply Capacity" },
+  { number: "Private", label: "Label Solutions" },
+];
 
   return (
     <NavLayout>
