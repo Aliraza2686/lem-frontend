@@ -1,8 +1,8 @@
 import React from "react";
 import { Clock, Mail, MapPin, Phone } from "lucide-react";
-import { NavLayout } from "../components/layouts/NavLayout";
 import { ContactForm } from "../components/forms/Contactform";
 import { ADDRESS, EMAIL, PHONE_NUMBER } from "../lib/utills";
+import { NavLayoutTwo } from "../components/layouts/NavLayoutTwo";
 
 export const Contact = () => {
   const infoCards = [
@@ -36,7 +36,7 @@ export const Contact = () => {
   ];
 
   return (
-    <NavLayout>
+    <NavLayoutTwo>
       <style>{`
         @import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Mono:wght@300;400;500&display=swap');
 
@@ -324,6 +324,6 @@ export const Contact = () => {
         </div>
 
       </div>
-    </NavLayout>
+    </NavLayoutTwo>
   );
 };

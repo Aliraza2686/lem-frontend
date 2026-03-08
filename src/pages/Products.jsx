@@ -1,13 +1,13 @@
 import React from 'react'
-import { NavLayout } from '../components/layouts/NavLayout'
 import { MiniJumbo } from '../components/MiniJumbo'
+import { NavLayoutTwo } from '../components/layouts/NavLayoutTwo'
 
 export const Products = () => {
   return (
     <div>
-      <NavLayout>
+      <NavLayoutTwo>
         <MiniJumbo />
-      </NavLayout>
+      </NavLayoutTwo>
     </div>
   )
 }

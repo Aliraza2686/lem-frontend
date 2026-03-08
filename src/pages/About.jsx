@@ -1,5 +1,5 @@
 import { Mountain, Leaf, Award, Users, Globe, Heart } from "lucide-react";
-import { NavLayout } from "../components/layouts/NavLayout";
+import { NavLayoutTwo } from "../components/layouts/NavLayoutTwo";
 
 export const About = () => {
   const values = [
@@ -43,7 +43,7 @@ const stats = [
 ];
 
   return (
-    <NavLayout>
+    <NavLayoutTwo>
       <style>{`
         @import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Mono:wght@300;400;500&display=swap');
 
@@ -466,6 +466,6 @@ const stats = [
         </div> {/* end .about-light */}
 
       </div>
-    </NavLayout>
+    </NavLayoutTwo>
   );
 };

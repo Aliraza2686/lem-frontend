@@ -1,12 +1,12 @@
 import FAQ from "../components/Faq"
-import { NavLayout } from "../components/layouts/NavLayout"
+import { NavLayoutTwo } from "../components/layouts/NavLayoutTwo"
 
 export const FaqPage = () => {
   return (
     <>
-      <NavLayout>
+      <NavLayoutTwo>
         <FAQ />
-      </NavLayout>
+      </NavLayoutTwo>
 
     </>
   )

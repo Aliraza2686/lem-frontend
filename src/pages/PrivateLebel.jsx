@@ -2,8 +2,8 @@
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 import React, { useState } from "react";
 import { Package, CheckCircle, Clock, X, ChevronLeft, ChevronRight, ZoomIn, ArrowRight } from "lucide-react";
-import { NavLayout } from "../components/layouts/NavLayout";
 import { Link } from "react-router-dom";
+import { NavLayoutTwo } from "../components/layouts/NavLayoutTwo";
 
 const packagingSamples = [
   { id: 1, src: "https://res.cloudinary.com/dptmeakuy/image/upload/v1772107073/ChatGPT_Image_Feb_23_2026_09_40_58_AM_j4lpth.png", label: "Himalayan Pink Salt", tag: "" },
@@ -88,7 +88,7 @@ export default function PrivateLabelingPage() {
   const [lightboxIdx, setLightboxIdx] = useState(null);
 
   return (
-    <NavLayout>
+    <NavLayoutTwo>
       <style>{`
         @import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Mono:wght@300;400;500&display=swap');
 
@@ -537,6 +537,6 @@ export default function PrivateLabelingPage() {
         </div>
 
       </div>
-    </NavLayout>
+    </NavLayoutTwo>
   );
 }

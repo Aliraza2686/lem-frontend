@@ -3,8 +3,8 @@
 /* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
 import { useState } from "react";
 import { X } from "lucide-react";
-import { NavLayout } from "../components/layouts/NavLayout";
 import { cn } from "../lib/utills";
+import { NavLayoutTwo } from "../components/layouts/NavLayoutTwo";
 
 const galleryImages = [
   { id: 1,  src: "https://res.cloudinary.com/dptmeakuy/image/upload/v1749547014/368171d2-f64c-42c5-9e7d-a4dea0a4b8c0_lk6jrz.jpg",  alt: "Workplace",              colSpan: 2, rowSpan: 2 },
@@ -31,7 +31,7 @@ export function Gallery() {
     `${col === 2 ? "md:col-span-2" : "col-span-1"} ${row === 2 ? "row-span-2" : "row-span-1"}`;
 
   return (
-    <NavLayout>
+    <NavLayoutTwo>
       <style>{`
         @import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Mono:wght@300;400;500&display=swap');
 
@@ -278,6 +278,6 @@ export function Gallery() {
         )}
 
       </div>
-    </NavLayout>
+    </NavLayoutTwo>
   );
 }
