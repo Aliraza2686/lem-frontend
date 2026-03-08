@@ -8,10 +8,13 @@ import { Contact } from "./pages/Contact";
 import { FaqPage } from "./pages/FaqPage";
 import PrivateLabelingPage from "./pages/PrivateLebel";
 import { Gallery } from "./pages/Galary";
+import ScrollToTop from "./components/atoms/ScrollToTop";
 function App() {
   return (
     <>
       <BrowserRouter>
+        <ScrollToTop />
+
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/products" element={<Products />} />
