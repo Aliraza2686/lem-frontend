@@ -578,10 +578,10 @@ function Header() {
             src="https://res.cloudinary.com/dptmeakuy/image/upload/v1755945081/7ccf29e1-b647-4a76-8fb4-b24aa23b964f_jwhnxt.jpg"
             alt="Khewra Salt Mine"
           />
-          <div className="about-seal">
-            <span className="seal-num">15+</span>
-            <span className="seal-lbl">Yrs at Source</span>
-          </div>
+        <div className="about-seal">
+  <span className="seal-num">Direct</span>
+  <span className="seal-lbl">From Himalayan Source</span>
+</div>
         </div>
       </section>
 
