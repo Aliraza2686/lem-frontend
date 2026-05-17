@@ -9,7 +9,13 @@ import { FaqPage } from "./pages/FaqPage";
 import PrivateLabelingPage from "./pages/PrivateLebel";
 import { Gallery } from "./pages/Galary";
 import ScrollToTop from "./components/atoms/ScrollToTop";
+import { useEffect } from "react";
+import trackVisit from "./utills/tracker";
+
 function App() {
+   useEffect(() => {
+    trackVisit(); // fires once on load
+  }, []);
   return (
     <>
       <BrowserRouter>
