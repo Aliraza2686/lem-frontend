@@ -215,7 +215,7 @@ export const TopSelling = () => {
               Top Selling <span>Bulk Products</span>
             </h2>
             <p className="ts-subtitle">
-              Our most popular wholesale items trusted by businesses worldwide — direct from Khewra Salt Mine.
+              Our most popular wholesale items trusted by businesses worldwide.
             </p>
             <button className="ts-view-btn" onClick={() => navigate("/products")}>
               View All Products

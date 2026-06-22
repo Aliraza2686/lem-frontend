@@ -11,6 +11,7 @@ import { Gallery } from "./pages/Galary";
 import ScrollToTop from "./components/atoms/ScrollToTop";
 import { useEffect } from "react";
 import trackVisit from "./utills/tracker";
+import PDetails from "./pages/product-details/PDetails";
 
 function App() {
    useEffect(() => {
@@ -29,6 +30,8 @@ function App() {
           <Route path="/faq" element={<FaqPage />} />
           <Route path="/private-label" element={<PrivateLabelingPage />} />
           <Route path="/workspace-images" element={<Gallery />} />
+          <Route path="/product-details/:id" element={<PDetails />} />
+
 
 
 

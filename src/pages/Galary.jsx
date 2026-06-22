@@ -210,15 +210,17 @@ export function Gallery() {
         <header className="gallery-hero">
           <div className="gallery-glow" />
           <div className="gallery-hero-inner">
-            <div className="gallery-eyebrow">
-              <div className="gallery-eyebrow-dot" />
-              Khewra Mine — Real Product Photos
-            </div>
-            <h1>Our <span>Gallery</span></h1>
-            <p>
-              Real images of our Himalayan salt products, packaging, and sourcing environment
-              based in Khewra, Pakistan. All photos reflect actual materials and export-ready handling.
-            </p>
+          <div className="gallery-eyebrow">
+  <div className="gallery-eyebrow-dot" />
+  Khewra & Pakistan Mineral Resources
+</div>
+
+<h1>Our <span>Gallery</span></h1>
+
+<p>
+  Discover real images of Himalayan salt, industrial minerals, packaging, and sourcing activities across Pakistan.
+  Our gallery showcases authentic products and professional export preparation for global buyers.
+</p>
           </div>
         </header>
 

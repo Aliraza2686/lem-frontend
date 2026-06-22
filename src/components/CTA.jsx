@@ -136,10 +136,9 @@ export const CTA = () => {
           <h2 className="cta-title">
             Ready to Place a <span>Bulk Order?</span>
           </h2>
-          <p className="cta-desc">
-            Join hundreds of businesses who trust us for their natural product needs. From authentic
-            Himalayan salt to premium grains — contact our team for custom pricing and bulk discounts.
-          </p>
+        <p className="cta-desc">
+  Looking for a reliable mineral supplier? We export Himalayan salt and other premium minerals worldwide, offering bulk supply, custom packaging, and competitive pricing.
+</p>
           <div className="cta-btns">
             <Link to="/contact" className="cta-btn-primary">
               <Sparkles size={16} />

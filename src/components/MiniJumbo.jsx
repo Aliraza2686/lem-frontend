@@ -1,83 +1,27 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { ArrowRight, Package, Flame } from "lucide-react";
+import { productsThree, productsTwo } from "../lib/utills";
 
-const products = [
-  {
-    id: "edible-pink-salt",
-    name: "Pink Salt Grains",
-    description: "Premium grade pink salt for culinary use",
-    price: "Starting at $15/kg",
-    image: "https://res.cloudinary.com/dptmeakuy/image/upload/v1772107986/ChatGPT_Image_Feb_21_2026_11_36_43_AM_i83jd1.png",
-    rating: 4.9,
-    bulkMin: "25kg",
-    category: "Edible Salt",
-    popularity: 92,
-    badge: "Top Rated",
-  },
-  {
-    id: "salt-candle-holders",
-    name: "Animal Lick Salt",
-    description: "Handcrafted lick salt for animals — rich in magnesium",
-    price: "Starting at $18",
-    image: "https://res.cloudinary.com/dptmeakuy/image/upload/v1749545593/animal_lick_salt_piece_is_full_of_magniciem_and_uo9qym.jpg",
-    rating: 4.6,
-    bulkMin: "15 units",
-    category: "Animal Products",
-    popularity: 75,
-    badge: null,
-  },
-  {
-    id: "salt-tiles",
-    name: "Customizable Shape Salt Lamps",
-    description: "Custom shape salt lamps for decoration and wellness",
-    price: "Starting at $35",
-    image: "https://res.cloudinary.com/dptmeakuy/image/upload/v1749546206/14e47b8d-93e8-447f-9f72-81d888aeeb0b_xqcfvo.jpg",
-    rating: 4.5,
-    bulkMin: "12 units",
-    category: "Salt Lamps",
-    popularity: 70,
-    badge: "Custom",
-  },
-  {
-    id: "small-salt-lamps",
-    name: "Natural Himalayan Salt Lamps",
-    description: "Compact salt lamps perfect for desks and small spaces",
-    price: "Starting at $22",
-    image: "https://res.cloudinary.com/dptmeakuy/image/upload/v1772107992/ChatGPT_Image_Feb_21_2026_11_52_50_AM_vqebh1.png",
-    rating: 4.7,
-    bulkMin: "25 units",
-    category: "Salt Lamps",
-    popularity: 85,
-    badge: null,
-  },
-  {
-    id: "himalayan-salt-lamp-large",
-    name: "Globe Shape Himalayan Salt Lamp",
-    description: "Natural air purifying salt lamp with wooden base — Direct from Khewra Mine",
-    price: "Starting at $45",
-    image: "https://res.cloudinary.com/dptmeakuy/image/upload/v1772107996/ChatGPT_Image_Feb_21_2026_11_52_01_AM_omyvj9.png",
-    rating: 4.8,
-    bulkMin: "10 units",
-    category: "Salt Lamps",
-    popularity: 95,
-    badge: "Best Seller",
-  },
-  {
-    id: "pink-salt-bricks",
-    name: "Pink Salt Bricks",
-    description: "Pure Himalayan salt bricks",
-    price: "Starting at $25",
-    image: "https://res.cloudinary.com/dptmeakuy/image/upload/v1749544296/Gourmet_Himalayan_Pink_Salt_-_5_Pound_Brick_by_u3uxbv.jpg",
-    rating: 4.7,
-    bulkMin: "20 units",
-    category: "Salt Bricks",
-    popularity: 88,
-    badge: null,
-  },
+export const products = [
+  ...productsThree,
+  ...productsTwo,
 ];
 
-const categories = ["All", "Salt Lamps", "Salt Bricks", "Edible Salt", "Animal Products"];
+// const categories = [
+//   "All",
+//   "Salt Lamps",
+//   "Salt Bricks",
+//   "Edible Salt",
+//   "Animal Products",
+//   "Minerals",
+//   "Gemstones & Ornamental",
+// ];
+const categories = [
+  "All",
+  ...new Set(products.map((p) => p.category)),
+];
+// const categories = ["All", "Salt Lamps", "Salt Bricks", "Edible Salt", "Animal Products"];
 
 export const MiniJumbo = () => {
   const [activeCategory, setActiveCategory] = useState("All");
@@ -306,21 +250,27 @@ export const MiniJumbo = () => {
           <div className="hero-inner">
             <div className="hero-eyebrow">
               <div className="hero-eyebrow-dot" />
-              Salt Products — Khewra Mine Collection
+              Minerals & Himalayan Salt Exports
             </div>
+
             <h1 className="hero-title">
-              Premium Natural <span>Salt Products</span>
-              <br />for Your Business
+              Premium <span>Minerals & Natural Resources</span>
+              <br />for Global Markets
             </h1>
+
             <div className="hero-badges">
               <span className="hbadge hbadge-green">
                 <Package size={12} style={{ display: "inline", marginRight: 5 }} />
                 {products.length} Products Available
               </span>
-              <span className="hbadge hbadge-orange">Bulk Orders Only</span>
+
+              <span className="hbadge hbadge-orange">
+                Bulk Supply
+              </span>
+
               <span className="hbadge hbadge-red">
                 <Flame size={12} style={{ display: "inline", marginRight: 5 }} />
-                Direct from Khewra Mine
+                Export Ready
               </span>
             </div>
           </div>
@@ -350,7 +300,15 @@ export const MiniJumbo = () => {
             {filtered.map((product) => (
               <div className="product-card" key={product.id}>
                 <div className="card-img-wrap">
-                  <img src={product.image} alt={product.name} />
+                  <img
+                    src={
+                      product.variants?.[0]?.images?.find(
+                        (img) => !img.is_video
+                      )?.src
+                    }
+                    alt={product.name}
+                  />
+                  {/* <img src={product.image} alt={product.name} /> */}
                   <div className="card-img-overlay" />
                   <div className="card-corner card-corner-tl" />
                   <div className="card-corner card-corner-tr" />
@@ -360,25 +318,42 @@ export const MiniJumbo = () => {
                   {/* {product.badge && <span className="card-badge">{product.badge}</span>} */}
                 </div>
 
-                <div className="card-body">
-                  <div className="card-category">{product.category}</div>
-                  <h3 className="card-title">{product.name}</h3>
-                  <p className="card-desc">{product.description}</p>
+               <div className="card-body">
 
-                  <div className="card-meta">
-                    <div className="card-min">
-                      <Package size={10} color="#9ca3af" />
-                      Min {product.bulkMin}
-                    </div>
-                  </div>
+  <div className="card-category">
+    {product.category}
+  </div>
 
-                  <div className="card-divider" />
+  <h3 className="card-title">
+    {product.name}
+  </h3>
 
-                  <Link to={`/contact?id=${product.id}`} className="card-cta">
-                    Get a Quote
-                    <ArrowRight size={14} />
-                  </Link>
-                </div>
+  <p className="card-desc">
+    {product.desc}
+  </p>
+
+  <div className="card-meta">
+
+    <div className="card-min">
+      <Package size={10} color="#9ca3af" />
+
+      {product.packaging?.[0]}
+    </div>
+
+  </div>
+
+  <div className="card-divider" />
+
+  <Link
+    to={`/product-details/${product.id}`}
+    className="card-cta"
+  >
+    View Details
+
+    <ArrowRight size={14} />
+  </Link>
+
+</div>
               </div>
             ))}
           </div>

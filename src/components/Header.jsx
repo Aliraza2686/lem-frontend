@@ -4,28 +4,45 @@ import { useState, useEffect } from "react";
 import { ArrowRight, Ship, Globe, Award, Package, Phone, Mail, ChevronDown, FileText, Menu, X } from "lucide-react";
 import { Link, useLocation } from "react-router-dom";
 import { Logo } from "./atoms/Logo";
-import { EMAIL, PHONE_NUMBER } from "../lib/utills";
+import { EMAIL, minerals, PHONE_NUMBER } from "../lib/utills";
 
 const NAV_LINKS = [
-  { label: "Home",          to: "/" },
-  { label: "Products",      to: "/products" },
+  { label: "Home", to: "/" },
+  { label: "Products", to: "/products" },
   { label: "Private Label", to: "/private-label" },
-  { label: "Gallery",       to: "/workspace-images" },
-  { label: "About",         to: "/about" },
-  { label: "FAQ",           to: "/faq" },
-  { label: "Contact",       to: "/contact" },
+  { label: "Gallery", to: "/workspace-images" },
+  { label: "About", to: "/about" },
+  { label: "FAQ", to: "/faq" },
+  { label: "Contact", to: "/contact" },
 ];
 
 const services = [
-  { icon: Package,  title: "Bulk Supply",    desc: "Export-grade Himalayan salt in custom quantities from 100 kg upwards." },
-  { icon: FileText, title: "Private Label",  desc: "Your brand, our product. Sticker labeling on plain pouches and bags." },
-  { icon: Globe,    title: "Global Shipping",desc: "Air & sea freight to any destination. LCL and FCL options available." },
-  { icon: Award,    title: "Quality Assured",desc: "Food-grade edible salt, sourced directly from the Khewra salt belt." },
+  {
+    icon: Package,
+    title: "Bulk Mineral Supply",
+    desc: "Export-grade minerals supplied in custom quantities to meet industrial, wholesale, and manufacturing requirements."
+  },
+  {
+    icon: FileText,
+    title: "Custom Packaging",
+    desc: "Flexible packaging solutions, private labeling, and product customization tailored to your market needs."
+  },
+  {
+    icon: Globe,
+    title: "Global Export & Logistics",
+    desc: "Reliable worldwide shipping via air and sea freight, with both LCL and FCL container options."
+  },
+  {
+    icon: Award,
+    title: "Quality & Compliance",
+    desc: "Carefully sourced minerals with consistent quality standards, export documentation, and inspection support."
+  },
 ];
 
+// Notes, copper, white -- brown -- 
 function Header() {
-  const [scrolled,  setScrolled]  = useState(false);
-  const [menuOpen,  setMenuOpen]  = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
   const location = useLocation();
 
   useEffect(() => {
@@ -47,7 +64,141 @@ function Header() {
         @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400;1,600;1,700&family=Source+Sans+3:wght@300;400;500;600&family=DM+Mono:wght@300;400;500&display=swap');
 
         * { box-sizing: border-box; }
+/* ── Minerals Grid ── */
 
+.minerals-strip {
+  background: #f2ede3;
+  padding: 80px 48px;
+  font-family: 'Source Sans 3', sans-serif;
+}
+
+
+.minerals-grid {
+  max-width: 900px;
+  margin: 0 auto;
+
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+
+.mineral-card {
+  background: #ffffff;
+  padding: 34px 30px;
+
+  border: 1px solid rgba(200,170,100,0.25);
+
+  position: relative;
+  overflow: hidden;
+
+  transition: all 0.3s ease;
+}
+
+
+.mineral-card::before {
+  content: "";
+  position: absolute;
+
+  top:0;
+  left:0;
+  right:0;
+
+  height:3px;
+
+  background:#c8aa64;
+
+  transform:scaleX(0);
+  transform-origin:left;
+
+  transition:transform .3s ease;
+}
+
+
+.mineral-card:hover {
+  transform: translateY(-8px);
+  box-shadow:0 15px 35px rgba(0,0,0,.08);
+}
+
+
+.mineral-card:hover::before {
+  transform:scaleX(1);
+}
+
+
+
+.mineral-category {
+
+  font-family:'DM Mono', monospace;
+
+  font-size:10px;
+
+  letter-spacing:.15em;
+
+  text-transform:uppercase;
+
+  color:#8a6f3a;
+
+  margin-bottom:14px;
+
+}
+
+
+
+.mineral-card h3 {
+
+  font-family:'Playfair Display', serif;
+
+  font-size:24px;
+
+  color:#0d1f35;
+
+  margin-bottom:14px;
+
+}
+
+
+
+.mineral-card p {
+
+  font-size:14px;
+
+  color:#556;
+
+  line-height:1.8;
+
+}
+
+
+
+@media(max-width:1024px){
+
+  .minerals-grid{
+
+    grid-template-columns:repeat(2,1fr);
+
+  }
+
+}
+
+
+
+@media(max-width:768px){
+
+  .minerals-strip{
+
+    padding:60px 20px;
+
+  }
+
+
+  .minerals-grid{
+
+    grid-template-columns:1fr;
+
+  }
+
+}
         /* ── Hero ── */
         .hero {
           position: relative; min-height: 100vh; width: 100%;
@@ -492,33 +643,88 @@ function Header() {
         </nav>
 
         {/* Hero copy */}
-        <div className="hero-content">
-          <div className="hero-badge">
-            <div className="badge-rule" />
-            <span className="badge-text">Direct from Source · Khewra Salt Mines</span>
-            <div className="badge-rule" />
+        <div className="flex justify-between items-start gap-5 flex-wrap">
+
+
+          <div className="hero-content  ">
+            <div>
+
+              <div className="hero-badge">
+                <div className="badge-rule" />
+                <span className="badge-text">Direct from Source · Mines</span>
+                <div className="badge-rule" />
+              </div>
+
+              <h1 className="hero-title">
+                Natural Minerals
+                <span className="hero-title-outline">Exported</span>
+                <span className="hero-title-sub"> Worldwide</span>
+              </h1>
+
+              <p className="hero-tagline">
+                Global supplier of Himalayan Salt, Bentonite, Limestone, Antimony, Nephrite Jade, White Quartz, and a wide range of
+                premium minerals sourced from Pakistan. Serving importers, manufacturers, distributors, and wholesalers worldwide with
+                reliable sourcing, private labeling, and end-to-end logistics.
+              </p>
+              <div className="hero-actions">
+                <Link to="/contact" className="btn-primary">
+                  Request a Quote <ArrowRight size={15} />
+                </Link>
+                <Link to="/products" className="btn-secondary">
+                  <Ship size={14} /> View Our Products
+                </Link>
+              </div>
+            </div>
+
           </div>
+          <div>{/* ══ MINERALS GRID ══ */}
 
-          <h1 className="hero-title">
-            Himalayan Salt
-            <span className="hero-title-outline">Exported</span>
-            <span className="hero-title-sub"> Worldwide</span>
-          </h1>
+            <section className="minerals-strip">
+              <div className="minerals-grid">
 
-          <p className="hero-tagline">
-            Wholesale Himalayan salt supplier operating directly from the Khewra salt belt, Punjab, Pakistan.
-            Bulk orders, private labeling, and global freight — handled end to end.
-          </p>
 
-          <div className="hero-actions">
-            <Link to="/contact" className="btn-primary">
-              Request a Quote <ArrowRight size={15} />
-            </Link>
-            <Link to="/products" className="btn-secondary">
-              <Ship size={14} /> View Our Products
-            </Link>
-          </div>
+                {minerals.map((mineral) => (
+
+                  <Link
+                    to={`/product-details/${mineral?.id}`}
+                    key={mineral.name}
+                    className="mineral-card"
+                  >
+
+                    <div className="mineral-category">
+                      {mineral.category}
+                    </div>
+
+
+                    <h3>
+                      {mineral.name}
+                    </h3>
+
+
+                    <p>
+                      {mineral.desc}
+                    </p>
+
+
+                    <Link
+                      to={`/product-details/${mineral?.id}`}
+                      className="mineral-btn flex gap-2 items-center mt-2"
+                    >
+                      View Details <ArrowRight size={14} />
+                    </Link>
+
+
+                  </Link>
+
+                ))}
+
+
+              </div>
+
+
+            </section></div>
         </div>
+
 
         {/* Side ribbon */}
         <div className="hero-ribbon">
@@ -554,19 +760,21 @@ function Header() {
       </section>
 
       {/* ══ ABOUT ══ */}
-      <section className="about-strip">
+      <section className="about-strip items-center">
         <div>
           <div className="about-overline">Our Story</div>
           <h2 className="about-title">
             Sourced at the<br />
             <em>Heart of the Mines</em>
           </h2>
+
           <p className="about-body">
-            Lumina Earth Minerals operates from Khewra — home to the world&apos;s second-largest
-            Himalayan salt deposit. Our proximity to the source means tighter supply control,
-            authentic provenance, and reliable export-grade quality on every order.
-            We work exclusively with B2B clients: importers, distributors, and brand owners
-            seeking consistent, traceable Himalayan salt supply.
+            Lumina Earth Minerals sources premium minerals directly from Pakistan&apos;s richest mining regions,
+            including the renowned Khewra Salt Range and our network of partner mines and processing facilities.
+            From Himalayan Salt, Bentonite, Limestone, Antimony, Nephrite Jade, and White Quartz to other
+            industrial and natural minerals, we maintain strict quality control from extraction to export.
+            We work exclusively with B2B clients worldwide, providing reliable supply, traceable sourcing,
+            custom packaging, and export-ready logistics for bulk orders.
           </p>
           <Link to="/about" className="about-link">
             Learn About Us <ArrowRight size={13} />
@@ -578,11 +786,13 @@ function Header() {
             src="https://res.cloudinary.com/dptmeakuy/image/upload/v1755945081/7ccf29e1-b647-4a76-8fb4-b24aa23b964f_jwhnxt.jpg"
             alt="Khewra Salt Mine"
           />
-        <div className="about-seal">
-  <span className="seal-num">Direct</span>
-  <span className="seal-lbl">From Himalayan Source</span>
-</div>
+          <div className="about-seal">
+            <span className="seal-num">Direct</span>
+            <span className="seal-lbl">From Himalayan Source</span>
+          </div>
         </div>
+
+
       </section>
 
       {/* ══ CTA ══ */}

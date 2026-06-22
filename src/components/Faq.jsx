@@ -8,16 +8,16 @@ const faqCategories = [
     icon: Package,
     questions: [
       {
-        q: "What salt products does Lumina Earth Minerals offer?",
-        a: "We supply export-quality Himalayan salt products including edible food-grade salts (pink, white, and black), salt grains in various sizes, animal salt lick blocks, salt lamps, and salt bricks. Products are available for bulk supply and private label packaging.",
+        q: "What products do you export?",
+        a: "We export Himalayan salt and a range of industrial and natural minerals sourced from Pakistan. Contact us for our latest product catalog.",
       },
       {
-        q: "Where is your Himalayan salt sourced from?",
-        a: "Our salt is sourced from the Himalayan salt region in Punjab, Pakistan, including the Khewra salt belt, and supplied through established local partners.",
+        q: "Can you supply bulk quantities?",
+        a: "Yes. We specialize in bulk mineral exports for importers, distributors, wholesalers, and manufacturers worldwide.",
       },
       {
-        q: "What grain sizes are available for edible salt?",
-        a: "We offer fine, medium, and coarse grain sizes suitable for cooking, seasoning, and food processing. Grain size availability may vary depending on order volume.",
+        q: "Do you offer custom packaging?",
+        a: "Yes. We provide flexible packaging options based on customer requirements and market needs.",
       },
     ],
   },
@@ -26,12 +26,12 @@ const faqCategories = [
     icon: Tag,
     questions: [
       {
-        q: "Do you offer private labeling services?",
-        a: "Yes. We offer private label packaging services using plain pouches or bags with buyer-provided sticker or label designs. This service is ideal for brands starting or testing the market.",
+        q: "Do you offer private labeling?",
+        a: "Yes. We can provide private label and custom-branded packaging for selected products.",
       },
       {
-        q: "What products are available for private labeling?",
-        a: "Private labeling is available for edible salts, salt grains, animal salt lick blocks, salt lamps (packaging only), and salt bricks or tiles (outer packaging only).",
+        q: "Can I use my own brand name and design?",
+        a: "Absolutely. We can package products using your branding and labeling requirements.",
       },
     ],
   },
@@ -40,45 +40,38 @@ const faqCategories = [
     icon: DollarSign,
     questions: [
       {
-        q: "What is the minimum order quantity (MOQ)?",
-        a: "MOQ typically starts from 100 kg for edible salt products and varies by product type and packaging. Exact MOQ is confirmed during quotation.",
+        q: "What is your minimum order quantity?",
+        a: "Minimum order quantities vary by product and packaging type. Contact us for details.",
       },
       {
-        q: "How do I request a quote?",
-        a: "You can contact us with product type, required quantity, packaging preference, and destination country. We will respond with pricing and lead time details.",
+        q: "How can I get a quotation?",
+        a: "Send us the product name, quantity required, packaging preference, and destination country, and we'll provide a quote.",
       },
       {
-        q: "How is pricing calculated?",
-        a: "Pricing depends on product type, quantity, packaging, labeling requirements, and destination. Private labeling costs are calculated separately from product pricing.",
+        q: "How is pricing determined?",
+        a: "Pricing depends on the product, quantity, packaging requirements, and shipping destination.",
       },
       {
         q: "What payment methods do you accept?",
-        a: "We accept international bank transfers via SWIFT/BIC using our official business bank account details.",
+        a: "We accept international bank transfers through our official business banking channels.",
       },
     ],
   },
-  // {
-  //   category: "Shipping & Logistics",
-  //   icon: Truck,
-  //   questions: [
-
-  //   ],
-  // },
   {
     category: "Quality & Compliance",
     icon: Shield,
     questions: [
       {
         q: "How do you ensure product quality?",
-        a: "We ensure quality through careful sourcing, clean handling, accurate weight control, and proper packaging suitable for export.",
+        a: "We work with trusted suppliers and follow quality control procedures throughout sourcing, processing, and packaging.",
       },
       {
-        q: "Do you provide laboratory testing or certifications?",
-        a: "Third-party testing and certifications can be arranged upon buyer request, subject to additional cost and feasibility.",
+        q: "Can you provide testing reports or certifications?",
+        a: "Yes. Product testing reports and certifications can be arranged based on buyer requirements.",
       },
       {
-        q: "Is your salt food-grade?",
-        a: "Yes, edible salt supplied for food use is food-grade and suitable for culinary applications.",
+        q: "Do you support export documentation?",
+        a: "Yes. We provide the necessary export documentation required for international shipments.",
       },
     ],
   },
@@ -87,16 +80,16 @@ const faqCategories = [
     icon: Award,
     questions: [
       {
-        q: "What type of clients do you work with?",
-        a: "We work with importers, distributors, wholesalers, and brand owners looking for reliable salt supply and private label packaging.",
+        q: "Who do you work with?",
+        a: "We work with importers, distributors, wholesalers, retailers, and manufacturers around the world.",
       },
       {
         q: "Why choose Lumina Earth Minerals?",
-        a: "Lumina Earth Minerals is based in Khewra, Pakistan, home to the world-famous Himalayan salt mines. Operating directly from the source allows us close access to authentic Himalayan salt, better supply control, and reliable quality for export and private label orders.",
+        a: "We offer reliable sourcing, competitive pricing, quality-focused supply, and professional export support for international buyers.",
       },
       {
         q: "How can I contact you?",
-        a: "You can contact us via email, phone, or through the website contact form. We aim to respond to all inquiries promptly.",
+        a: "You can reach us through our website, email, WhatsApp, or phone. We aim to respond quickly to all inquiries.",
       },
     ],
   },

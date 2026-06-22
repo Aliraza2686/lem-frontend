@@ -398,7 +398,7 @@ export default function PrivateLabelingPage() {
             <h1>Build Your Brand with <span>Premium Salt Products</span></h1>
             <p>
               We supply, pack, and label world-class Himalayan salt products under your brand —
-              export-ready, globally shipped, quality guaranteed.
+              export-ready, globally shipped, quality guaranteed. (private label on salt products only)
             </p>
             <div className="pl-hero-tags">
               {["🌍 Global Export", "🏷️ Your Brand", "📦 Flexible Pack Sizes", "✅ Quality Certified"].map((t, i) => (

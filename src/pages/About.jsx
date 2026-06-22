@@ -2,45 +2,45 @@ import { Mountain, Leaf, Award, Users, Globe, Heart } from "lucide-react";
 import { NavLayoutTwo } from "../components/layouts/NavLayoutTwo";
 
 export const About = () => {
-  const values = [
-    {
-      icon: Leaf,
-      title: "100% Natural",
-      desc: "We source only the purest, most natural products without artificial additives or chemicals.",
-    },
-    {
-      icon: Award,
-      title: "Quality Assured",
-      desc: "Every product undergoes rigorous quality testing to ensure it meets our high standards.",
-    },
-    {
-      icon: Users,
-      title: "Customer First",
-      desc: "Your success is our success. We provide personalized service and support for every client.",
-    },
-    {
-      icon: Globe,
-      title: "Global Sourcing",
-      desc: "We work with trusted suppliers worldwide to bring you authentic products from their origins.",
-    },
-    {
-      icon: Heart,
-      title: "Ethical Practices",
-      desc: "We ensure fair trade practices and support sustainable farming and production methods.",
-    },
-    {
-      icon: Mountain,
-      title: "Authentic Origins",
-      desc: "All products are sourced from their authentic origins, ensuring genuine quality and heritage.",
-    },
-  ];
-
-const stats = [
-  { number: "Export", label: "Licensed Company" },
-  { number: "Premium", label: "Himalayan Source" },
-  { number: "Bulk", label: "Supply Capacity" },
-  { number: "Private", label: "Label Solutions" },
+const values = [
+  {
+    icon: Mountain,
+    title: "Authentic Mineral Sources",
+    desc: "We source premium minerals from Pakistan including Bentonite, Nephrite, Fluorite, Limestone, Silica Sand, Himalayan Salt, and other natural resources.",
+  },
+  {
+    icon: Award,
+    title: "Quality Assured",
+    desc: "Every mineral shipment is carefully inspected to maintain consistent quality, specifications, and export standards for global buyers.",
+  },
+  {
+    icon: Users,
+    title: "Trusted Partnerships",
+    desc: "We work closely with importers, distributors, and industries worldwide to provide reliable mineral supply solutions.",
+  },
+  {
+    icon: Globe,
+    title: "Global Mineral Export",
+    desc: "We supply Bentonite, Nephrite, Fluorite, Limestone, Silica Sand, and other minerals with worldwide shipping support.",
+  },
+  {
+    icon: Leaf,
+    title: "Natural Resources",
+    desc: "Our portfolio focuses on naturally sourced minerals from Pakistan's rich geological regions with strong origin value.",
+  },
+  {
+    icon: Heart,
+    title: "Long-Term Reliability",
+    desc: "We prioritize transparency, competitive pricing, and dependable supply chains to build lasting global partnerships.",
+  },
 ];
+
+  const stats = [
+    { number: "Export", label: "Licensed Company" },
+    { number: "Premium", label: "Himalayan Source" },
+    { number: "Bulk", label: "Supply Capacity" },
+    { number: "Private", label: "Label Solutions" },
+  ];
 
   return (
     <NavLayoutTwo>
@@ -365,8 +365,8 @@ const stats = [
             </div>
             <h1>About <span>Our Company</span></h1>
             <p>
-              Your trusted wholesale partner for premium natural products since 2015. We source the finest
-              Himalayan salt products directly from the Khewra Mine — quality, authenticity, and value in every order.
+              Your reliable wholesale partner for premium minerals from Pakistan. From Himalayan salt to diverse
+              mineral products, we provide quality sourcing, competitive pricing, and export solutions for global buyers.
             </p>
           </div>
         </section>
@@ -386,82 +386,134 @@ const stats = [
         {/* ── Story + Values on light bg ── */}
         <div className="about-light">
 
-        {/* ── Story ── */}
-        <div className="story-section">
-        <div>
+          {/* ── Story ── */}
+       <div className="story-section">
+<div>
   <div className="story-eyebrow">Our Story</div>
-  <h2>Rooted in Heritage <span>Driven by Global Vision</span></h2>
+
+  <h2>
+    Rooted in Heritage <span>Driven by Global Vision</span>
+  </h2>
+  <p className="story-p">
+  Based in Pakistan, <strong>Lumina Earth Minerals</strong> is a trusted mineral export
+  company built on reliable sourcing, quality standards, and international trade.
+
+  We specialize in supplying:
+</p>
+
+<div className="flex flex-wrap gap-3 my-6">
+  {[
+    "Bentonite",
+    "Nephrite",
+    "Fluorite",
+    "Limestone",
+    "Silica Sand",
+    "Himalayan Salt",
+  ].map((mineral) => (
+    <span
+      key={mineral}
+      className="
+        inline-flex items-center
+        px-5 py-2.5
+        rounded-full
+        bg-gradient-to-br from-yellow-100/20 to-white/10
+        border border-yellow-600/30
+        text-yellow-700
+        font-bold
+        text-sm
+        tracking-wide
+        shadow-sm
+        transition-all
+        duration-300
+        hover:-translate-y-1
+        hover:bg-yellow-100/30
+      "
+    >
+      {mineral}
+    </span>
+  ))}
+</div>
+
+<p className="story-p">
+  Our minerals are sourced from Pakistan's rich geological regions and supplied to
+  global buyers with a focus on quality, consistency, and reliable export solutions.
+</p>
 
   <p className="story-p">
-    We are proud to build direct relationships with the legendary Khewra Salt Mine in Pakistan.
-    This 700-million-year-old natural reserve produces the world’s finest pink Himalayan salt,
-    known for its purity, rich mineral content, and natural beauty.
+    Based in Pakistan, <strong>Lumina Earth Minerals</strong> is a trusted mineral export
+    company built on reliable sourcing, quality standards, and international trade.
+    We supply premium minerals including 
+    <strong> Bentonite, Nephrite, Fluorite, Limestone, Silica Sand, Himalayan Salt</strong>,
+    and other natural resources to global markets.
   </p>
 
   <p className="story-p">
-    Our company is officially registered with the Chamber of Commerce and operates in full
-    compliance with export regulations and international trade standards. We work closely with
-    certified processors and trusted manufacturers across Pakistan to ensure consistent quality,
-    competitive pricing, and reliable worldwide delivery.
+    Our company is officially registered with the Chamber of Commerce and operates according
+    to export regulations and international trade standards. We work with trusted suppliers,
+    processors, and partners across Pakistan to ensure consistent quality, competitive pricing,
+    and dependable worldwide delivery of 
+    <strong> industrial minerals and natural resources.</strong>
   </p>
 
   <p className="story-p">
-    What began as a commitment to delivering authentic Himalayan salt has evolved into a
-    specialized export company offering edible salt, industrial salt, salt lamps, cooking slabs,
-    bath salt, and customized private label packaging solutions tailored to global buyers.
+    What started with authentic Himalayan salt has evolved into a specialized 
+    <strong> mineral export company</strong> offering a diverse portfolio of products such as
+    <strong> Bentonite for industrial applications, Nephrite, Fluorite, Limestone,
+    Silica Sand, and other high-quality minerals</strong> tailored for international buyers.
   </p>
 
   <p className="story-p">
     <strong>
-      Our team consists of qualified professionals fluent in English and experienced in
-      international trade, logistics coordination, documentation, and customer support.
-      We prioritize clear communication, transparency, and long-term partnerships with
-      clients worldwide.
+      Our team specializes in international trade, export documentation, logistics coordination,
+      and customer support. We focus on transparency, reliable supply chains, and building
+      long-term partnerships with importers, distributors, and industries worldwide.
     </strong>
   </p>
 </div>
-          <div>
-            <div className="story-img-wrap">
-              <div className="img-corner img-corner-tl" />
-              <div className="img-corner img-corner-tr" />
-              <div className="img-corner img-corner-bl" />
-              <div className="img-corner img-corner-br" />
-              <img
-                src="https://res.cloudinary.com/dptmeakuy/image/upload/v1749547014/368171d2-f64c-42c5-9e7d-a4dea0a4b8c0_lk6jrz.jpg"
-                alt="Our facility"
-              />
-            </div>
-          </div>
-        </div>
 
-        {/* ── Values ── */}
-        <section className="values-section">
-          <div className="values-glow" />
-          <div className="values-inner">
-            <div className="values-header">
-              <div className="about-eyebrow" style={{ justifyContent: "center" }}>
-                <div className="eyebrow-dot" />
-                What We Stand For
+  <div>
+    <div className="story-img-wrap">
+      <div className="img-corner img-corner-tl" />
+      <div className="img-corner img-corner-tr" />
+      <div className="img-corner img-corner-bl" />
+      <div className="img-corner img-corner-br" />
+
+      <img
+        src="https://res.cloudinary.com/dptmeakuy/image/upload/v1749547014/368171d2-f64c-42c5-9e7d-a4dea0a4b8c0_lk6jrz.jpg"
+        alt="Lumina Earth Minerals facility"
+      />
+    </div>
+  </div>
+</div>
+
+          {/* ── Values ── */}
+          <section className="values-section">
+            <div className="values-glow" />
+            <div className="values-inner">
+              <div className="values-header">
+                <div className="about-eyebrow" style={{ justifyContent: "center" }}>
+                  <div className="eyebrow-dot" />
+                  What We Stand For
+                </div>
+                <h2>Our Core <span>Values</span></h2>
+                <p>The principles that guide everything we do</p>
               </div>
-              <h2>Our Core <span>Values</span></h2>
-              <p>The principles that guide everything we do</p>
-            </div>
-            <div className="values-grid">
-              {values.map((v, i) => {
-                const Icon = v.icon;
-                return (
-                  <div className="value-card" key={i}>
-                    <div className="value-icon-wrap">
-                      <Icon size={22} color="#16a34a" />
+              <div className="values-grid">
+                {values.map((v, i) => {
+                  const Icon = v.icon;
+                  return (
+                    <div className="value-card" key={i}>
+                      <div className="value-icon-wrap">
+                        <Icon size={22} color="#16a34a" />
+                      </div>
+                      <h3>{v.title}</h3>
+                      <p>{v.desc}</p>
                     </div>
-                    <h3>{v.title}</h3>
-                    <p>{v.desc}</p>
-                  </div>
-                );
-              })}
+                  );
+                })}
+              </div>
             </div>
-          </div>
-        </section>
+          </section>
 
         </div> {/* end .about-light */}
 

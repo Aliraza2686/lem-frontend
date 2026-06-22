@@ -171,10 +171,10 @@ export default function Footer() {
               </div>
               <span className="footer-brand-name">Lumina Earth Minerals</span>
             </Link>
-            <p className="footer-brand-desc">
-              Your trusted wholesale partner for premium Himalayan salt products.
-              Direct from Khewra Mine — quality guaranteed, bulk quantities available.
-            </p>
+         <p className="footer-brand-desc">
+  Your trusted export partner for Himalayan salt and premium minerals from Pakistan.
+  Reliable sourcing, quality assurance, and worldwide bulk supply.
+</p>
             <div className="footer-socials">
               <Link to="https://web.facebook.com/LuminaEarthMineralsLLP" target="_blank" className="footer-social-btn" aria-label="Facebook">
                 <Facebook size={15} />
@@ -196,7 +196,7 @@ export default function Footer() {
             <div className="footer-col-title">Quick Links</div>
             {[
               { to: "/", label: "Home" },
-              { to: "/products", label: "Salt Products" },
+              { to: "/products", label: "Products" },
               { to: "/private-label", label: "Private Labeling" },
               { to: "/workspace-images", label: "Gallery" },
             ].map((link) => (

@@ -266,10 +266,12 @@ export const Contact = () => {
               Get in Touch
             </div>
             <h1>Contact <span>Our Team</span></h1>
-            <p>
-              Reach out for bulk orders, custom quotes, or any questions about
-              our Himalayan salt and natural products. We respond within 24 hours.
-            </p>
+         <p>
+  Contact us for bulk mineral supply, export inquiries, and customized quotations.
+  We provide reliable sourcing solutions for
+  <strong> Bentonite, Nephrite, Fluorite, Limestone, Silica Sand, Himalayan Salt</strong>,
+  and other minerals for global buyers. Our team responds within 24 hours.
+</p>
           </div>
         </section>
 

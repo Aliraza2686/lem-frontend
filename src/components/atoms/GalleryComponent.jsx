@@ -4,94 +4,7 @@
 
 import { useState } from "react"
 import { X } from "lucide-react"
-import { cn } from "../../lib/utills";
-
-const galleryImages = [
-  {
-    id: 1,
-    src: "https://res.cloudinary.com/dptmeakuy/image/upload/v1749547014/368171d2-f64c-42c5-9e7d-a4dea0a4b8c0_lk6jrz.jpg",
-    alt: "Workplace",
-    colSpan: 2,
-    rowSpan: 2,
-  },
-  {
-    id: 2,
-    src: "https://res.cloudinary.com/dptmeakuy/image/upload/v1755945558/Himalayan_Rock_Salt_Candle_Holder__is_available_s6uszh.jpg",
-    alt: "Salt Lick Block",
-    colSpan: 1,
-    rowSpan: 2,
-  },
-  {
-    id: 3,
-    src: "https://res.cloudinary.com/dptmeakuy/image/upload/v1755945557/Himalayan_Salt_-_Pink_Warmer__A_genuine_zomxzr.jpg",
-    alt: "Handcrafted Salt Lamp",
-    colSpan: 1,
-    rowSpan: 1,
-  },
-  {
-    id: 4,
-    src: "https://res.cloudinary.com/dptmeakuy/image/upload/v1755945557/Himalayan_Salt_-_Pink_Warmer__A_genuine_zomxzr.jpg",
-    alt: "Salt Table Lamp",
-    colSpan: 2,
-    rowSpan: 1,
-  },
-  {
-    id: 5,
-    src: "https://res.cloudinary.com/dptmeakuy/image/upload/v1749546206/14e47b8d-93e8-447f-9f72-81d888aeeb0b_xqcfvo.jpg",
-    alt: "Display Variety of Salt Lamps",
-    colSpan: 1,
-    rowSpan: 1,
-  },
-  {
-    id: 6,
-    src: "https://res.cloudinary.com/dptmeakuy/image/upload/v1749545146/About_this_item_Home_Decor__home_decor_items_such_egksqb.jpg",
-    alt: "Natural Himalayan Salt Lamp",
-    colSpan: 1,
-    rowSpan: 2,
-  },
-  {
-    id: 7,
-    src: "https://res.cloudinary.com/dptmeakuy/image/upload/v1755945558/HSD_Pink_Himalayan_Salt_Rocks_1Kg___Food_Grade_xx7muw.jpg",
-    alt: "Raw Pink Himalayan Salt",
-    colSpan: 2,
-    rowSpan: 1,
-  },
-  {
-    id: 8,
-    src: "https://res.cloudinary.com/dptmeakuy/image/upload/v1755945081/7ccf29e1-b647-4a76-8fb4-b24aa23b964f_jwhnxt.jpg",
-    alt: "Himalayan Salt Mine",
-    colSpan: 1,
-    rowSpan: 1,
-  },
-  {
-    id: 9,
-    src: "https://res.cloudinary.com/dptmeakuy/image/upload/v1768810414/received_867262264765142_atqi8q.jpg",
-    alt: "Salt Bricks",
-    colSpan: 1,
-    rowSpan: 2,
-  },
-  {
-    id: 10,
-    src: "https://res.cloudinary.com/dptmeakuy/image/upload/v1768810423/received_3613438468931285_xzarwb.jpg",
-    alt: "Edible Himalayan Salt",
-    colSpan: 2,
-    rowSpan: 1,
-  },
-  {
-    id: 11,
-    src: "https://res.cloudinary.com/dptmeakuy/image/upload/v1768810416/received_1278297286201813_sn1b82.jpg",
-    alt: "Salt Rock Presentation",
-    colSpan: 1,
-    rowSpan: 1,
-  },
-  {
-    id: 12,
-    src: "https://res.cloudinary.com/dptmeakuy/image/upload/v1768810414/received_803925301281025_zt56ty.jpg",
-    alt: "Pink Himalayan Salt",
-    colSpan: 2,
-    rowSpan: 2,
-  },
-];
+import { cn, productsTwo } from "../../lib/utills";
 
 
 export function GalleryComponent() {
@@ -107,6 +20,127 @@ export function GalleryComponent() {
         const rowClass = rowSpan === 2 ? "row-span-2" : "row-span-1"
         return `${colClass} ${rowClass}`
     }
+
+
+const productGalleryImages = productsTwo.flatMap((product) =>
+  (product.variants ?? []).flatMap((variant) =>
+    (variant.images ?? [])
+      .filter((img) => img && !img.is_video)
+      .map((img) => ({
+        src: img.src,
+        alt: `${product.name} - ${variant.label}`,
+      }))
+  )
+);
+
+console.log(productGalleryImages, "productGalleryImages");
+
+const existingGallery = [
+    {
+        id: 1,
+        src: "https://res.cloudinary.com/dptmeakuy/image/upload/v1749547014/368171d2-f64c-42c5-9e7d-a4dea0a4b8c0_lk6jrz.jpg",
+        alt: "Workplace",
+        colSpan: 2,
+        rowSpan: 2,
+    },
+    {
+        id: 2,
+        src: "https://res.cloudinary.com/dptmeakuy/image/upload/v1755945558/Himalayan_Rock_Salt_Candle_Holder__is_available_s6uszh.jpg",
+        alt: "Salt Lick Block",
+        colSpan: 1,
+        rowSpan: 2,
+    },
+    {
+        id: 3,
+        src: "https://res.cloudinary.com/dptmeakuy/image/upload/v1755945557/Himalayan_Salt_-_Pink_Warmer__A_genuine_zomxzr.jpg",
+        alt: "Handcrafted Salt Lamp",
+        colSpan: 1,
+        rowSpan: 1,
+    },
+    {
+        id: 4,
+        src: "https://res.cloudinary.com/dptmeakuy/image/upload/v1755945557/Himalayan_Salt_-_Pink_Warmer__A_genuine_zomxzr.jpg",
+        alt: "Salt Table Lamp",
+        colSpan: 2,
+        rowSpan: 1,
+    },
+    {
+        id: 5,
+        src: "https://res.cloudinary.com/dptmeakuy/image/upload/v1749546206/14e47b8d-93e8-447f-9f72-81d888aeeb0b_xqcfvo.jpg",
+        alt: "Display Variety of Salt Lamps",
+        colSpan: 1,
+        rowSpan: 1,
+    },
+    {
+        id: 6,
+        src: "https://res.cloudinary.com/dptmeakuy/image/upload/v1749545146/About_this_item_Home_Decor__home_decor_items_such_egksqb.jpg",
+        alt: "Natural Himalayan Salt Lamp",
+        colSpan: 1,
+        rowSpan: 2,
+    },
+    {
+        id: 7,
+        src: "https://res.cloudinary.com/dptmeakuy/image/upload/v1755945558/HSD_Pink_Himalayan_Salt_Rocks_1Kg___Food_Grade_xx7muw.jpg",
+        alt: "Raw Pink Himalayan Salt",
+        colSpan: 2,
+        rowSpan: 1,
+    },
+    {
+        id: 8,
+        src: "https://res.cloudinary.com/dptmeakuy/image/upload/v1755945081/7ccf29e1-b647-4a76-8fb4-b24aa23b964f_jwhnxt.jpg",
+        alt: "Himalayan Salt Mine",
+        colSpan: 1,
+        rowSpan: 1,
+    },
+    {
+        id: 9,
+        src: "https://res.cloudinary.com/dptmeakuy/image/upload/v1768810414/received_867262264765142_atqi8q.jpg",
+        alt: "Salt Bricks",
+        colSpan: 1,
+        rowSpan: 2,
+    },
+    {
+        id: 10,
+        src: "https://res.cloudinary.com/dptmeakuy/image/upload/v1768810423/received_3613438468931285_xzarwb.jpg",
+        alt: "Edible Himalayan Salt",
+        colSpan: 2,
+        rowSpan: 1,
+    },
+    {
+        id: 11,
+        src: "https://res.cloudinary.com/dptmeakuy/image/upload/v1768810416/received_1278297286201813_sn1b82.jpg",
+        alt: "Salt Rock Presentation",
+        colSpan: 1,
+        rowSpan: 1,
+    },
+    {
+        id: 12,
+        src: "https://res.cloudinary.com/dptmeakuy/image/upload/v1768810414/received_803925301281025_zt56ty.jpg",
+        alt: "Pink Himalayan Salt",
+        colSpan: 2,
+        rowSpan: 2,
+    },
+];
+
+
+
+ const galleryImages = [
+    ...existingGallery,
+
+    ...productGalleryImages.map((img, index) => ({
+        id: existingGallery.length + index + 1,
+
+        src: img.src,
+
+        alt: img.alt,
+
+        colSpan: 1,
+
+        rowSpan: 1,
+    })),
+];
+
+
 
     return (
         <>
