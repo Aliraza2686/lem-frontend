@@ -65,18 +65,18 @@ export const topSellingProducts = [
 
 
 export const   products =  [
-  {
-    id: "himalayan-salt-lamp-large",
-    name: "Globe shape Himalayan Salt Lamp",
-    description: "Natural air purifying salt lamp with wooden base - Direct from Khewra Mine",
-    price: "Starting at $45",
-    priceValue: 45,
-    image: "https://res.cloudinary.com/dptmeakuy/image/upload/v1735125755/obu9jkazpzsxynhdy2fl.jpg",
-    rating: 4.8,
-    bulkMin: "10 units",
-    category: "Salt Lamps",
-    popularity: 95,
-  },
+  // {
+  //   id: "himalayan-salt-lamp-large",
+  //   name: "Globe shape Himalayan Salt Lamp",
+  //   description: "Natural air purifying salt lamp with wooden base - Direct from Khewra Mine",
+  //   price: "Starting at $45",
+  //   priceValue: 45,
+  //   image: "https://res.cloudinary.com/dptmeakuy/image/upload/v1735125755/obu9jkazpzsxynhdy2fl.jpg",
+  //   rating: 4.8,
+  //   bulkMin: "10 units",
+  //   category: "Salt Lamps",
+  //   popularity: 95,
+  // },
   {
     id: "pink-salt-bricks",
     name: "Pink Salt Bricks for Cooking",
@@ -978,53 +978,53 @@ export const productsThree = [
     labReports: [],
   },
 
-  {
-    id: "himalayan-salt-lamp-large",
+  // {
+  //   id: "himalayan-salt-lamp-large",
 
-    name: "Globe Shape Himalayan Salt Lamp",
+  //   name: "Globe Shape Himalayan Salt Lamp",
 
-    category: "Salt Lamps",
+  //   category: "Salt Lamps",
 
-    origin: "Khewra Salt Mine, Punjab, Pakistan",
+  //   origin: "Khewra Salt Mine, Punjab, Pakistan",
 
-    desc: "Natural air purifying globe-shaped Himalayan salt lamp with wooden base.",
+  //   desc: "Natural air purifying globe-shaped Himalayan salt lamp with wooden base.",
 
-    heroNote: "Direct from Khewra Mine",
+  //   heroNote: "Direct from Khewra Mine",
 
-    applications: [
-      "Home Decor",
-      "Hotels",
-      "Wellness Centers",
-      "Interior Decoration",
-    ],
+  //   applications: [
+  //     "Home Decor",
+  //     "Hotels",
+  //     "Wellness Centers",
+  //     "Interior Decoration",
+  //   ],
 
-    packaging: [
-      "Individual boxes",
-      "Export cartons",
-    ],
+  //   packaging: [
+  //     "Individual boxes",
+  //     "Export cartons",
+  //   ],
 
-    variants: [
-      {
-        key: "globe",
+  //   variants: [
+  //     {
+  //       key: "globe",
 
-        label: "Globe Shape Lamp",
+  //       label: "Globe Shape Lamp",
 
-        swatch: "#d69a86",
+  //       swatch: "#d69a86",
 
-        desc: "Decorative globe-shaped Himalayan salt lamp.",
+  //       desc: "Decorative globe-shaped Himalayan salt lamp.",
 
-        purity: "",
+  //       purity: "",
 
-        images: [
-          {
-            src: "https://res.cloudinary.com/dptmeakuy/image/upload/v1772107996/ChatGPT_Image_Feb_21_2026_11_52_01_AM_omyvj9.png",
-          },
-        ],
-      },
-    ],
+  //       images: [
+  //         {
+  //           src: "https://res.cloudinary.com/dptmeakuy/image/upload/v1772107996/ChatGPT_Image_Feb_21_2026_11_52_01_AM_omyvj9.png",
+  //         },
+  //       ],
+  //     },
+  //   ],
 
-    labReports: [],
-  },
+  //   labReports: [],
+  // },
 
   {
     id: "pink-salt-bricks",

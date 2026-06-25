@@ -1,6 +1,6 @@
 import React from 'react'
  
-import { TopSelling } from '../components/TopSelling'
+// import { TopSelling } from '../components/TopSelling'
 // import { Features } from '../components/Features'
 // import { Story } from '../components/Story'
 import { NavLayout } from '../components/layouts/NavLayout'
@@ -11,7 +11,7 @@ export const Home = () => {
     <>
       <NavLayout>
       <Header/>
-      <TopSelling />
+      {/* <TopSelling /> */}
       {/* <Features /> */}
       {/* <Story /> */}
       <FAQ isHome={true} />

@@ -4,8 +4,9 @@ import { ArrowRight, Package, Flame } from "lucide-react";
 import { productsThree, productsTwo } from "../lib/utills";
 
 export const products = [
-  ...productsThree,
   ...productsTwo,
+
+  ...productsThree,
 ];
 
 // const categories = [
@@ -280,7 +281,7 @@ export const MiniJumbo = () => {
         <div className="products-light">
 
           {/* Filter bar */}
-          <div className="filter-section">
+          <div className="filter-section hidden">
             <div className="filter-bar">
               <span className="filter-label">Filter:</span>
               {categories.map((cat) => (
@@ -296,7 +297,7 @@ export const MiniJumbo = () => {
           </div>
 
           {/* Products grid */}
-          <div className="products-grid">
+          <div className="products-grid !mt-20">
             {filtered.map((product) => (
               <div className="product-card" key={product.id}>
                 <div className="card-img-wrap">
