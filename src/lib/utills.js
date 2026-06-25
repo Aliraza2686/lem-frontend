@@ -631,53 +631,99 @@ export const productsfour = [
 
     ],
   },
-  {
+{
   id: 'silica-sand',
   name: 'Silica Sand',
   category: 'Industrial Mineral',
   origin: 'Punjab & Sindh, Pakistan',
-  desc: 'High-purity silica sand supplied for glass manufacturing, foundry operations, construction, and industrial processing. Available in washed, graded, and custom mesh specifications.',
-  heroNote: 'High SiO₂ content with consistent grain quality',
+  desc: 'Silica sand sourced from Pakistan and supplied in multiple grades for industrial applications. Available in laboratory-tested white and brown variants with custom mesh sizing, washing, grading, and bulk export packaging options.',
+  heroNote: 'Laboratory-tested silica sand available in premium white and industrial-grade brown variants',
+
   applications: [
-    'Glass Manufacturing',
-    'Foundry Casting',
-    'Construction Materials',
+    'Glass Manufacturing (Premium White Grade)',
+    'Foundry Operations',
+    'Water Filtration Media',
     'Ceramics Production',
-    'Water Filtration'
+    'Construction Materials'
   ],
+
   packaging: [
     '25kg / 50kg PP bags',
     'Jumbo bags (1 ton)',
     'Bulk loose (truck/container)'
   ],
+
   variants: [
-    // {
-    //   key: 'washed',
-    //   label: 'Washed Silica Sand',
-    //   swatch: '#e6dfd2',
-    //   desc: 'Cleaned silica sand with reduced impurities, suitable for glass and industrial applications.',
-    //   purity: '95–99% SiO₂',
-    //   images: [
-    //     { src: 'https://res.cloudinary.com/dptmeakuy/image/upload/v1782125499/WhatsApp_Image_2026-06-12_at_12.02.39_kstkhx.jpg' },
-    //     { src: 'https://res.cloudinary.com/dptmeakuy/image/upload/v1782125499/WhatsApp_Image_2026-06-12_at_12.02.39_1_swzjtd.jpg' },
-    //   ],
-    // },
     {
       key: 'graded',
-      label: 'Graded Silica Sand',
+      label: 'White Silica Sand',
       swatch: '#d8c8aa',
-      desc: 'Uniform particle-size silica sand supplied for foundry, filtration, and manufacturing requirements.',
-      purity: '98.5% to 99.20%',
-     images: [
+
+      desc: 'High-purity white silica sand supported by chemical analysis showing exceptionally high silica content and very low impurity levels. Suitable for demanding industrial applications including glass manufacturing, foundry operations, ceramics, and filtration systems.',
+
+      purity: '99.615% SiO₂',
+
+      quality: 'Excellent Export Grade',
+
+      highlights: [
+        '99.615% Silicon Dioxide (SiO₂)',
+        'Very Low Iron Content (Fe₂O₃: 0.018%)',
+        'Low Calcium and Magnesium Impurities',
+        'Consistent Graded Mesh Supply',
+        'Suitable for Glass and Industrial Applications'
+      ],
+
+      images: [
         { src: 'https://res.cloudinary.com/dptmeakuy/image/upload/v1782125499/WhatsApp_Image_2026-06-12_at_12.02.39_kstkhx.jpg' },
         { src: 'https://res.cloudinary.com/dptmeakuy/image/upload/v1782125499/WhatsApp_Image_2026-06-12_at_12.02.39_1_swzjtd.jpg' },
       ],
     },
+
+    {
+      key: 'brown',
+      label: 'Brown Silica Sand',
+      swatch: '#b38b5d',
+
+      desc: 'Naturally occurring brown silica sand with laboratory-tested silica content of 95.57% SiO₂. Suitable for foundry applications, construction materials, filtration media, and general industrial use.',
+
+      purity: '95.57% SiO₂',
+
+      quality: 'Industrial Export Grade',
+
+      highlights: [
+        'Laboratory Tested',
+        '95.57% Silicon Dioxide (SiO₂)',
+        'Available in Custom Mesh Sizes',
+        'Suitable for Foundry and Construction Applications',
+        'Bulk Export Supply Available'
+      ],
+
+      images: [
+        {
+          src: 'https://res.cloudinary.com/dptmeakuy/image/upload/v1782405937/WhatsApp_Image_2026-06-25_at_21.37.44_2_qgvnwr.jpg'
+        },
+        {
+          src: 'https://res.cloudinary.com/dptmeakuy/image/upload/v1782405933/WhatsApp_Image_2026-06-25_at_21.37.43_mfhuoy.jpg'
+        },
+        {
+          src: 'https://res.cloudinary.com/dptmeakuy/image/upload/v1782405939/WhatsApp_Image_2026-06-25_at_21.37.44_pyla5o.jpg'
+        }
+      ]
+    }
   ],
+
   labReports: [
-    // { name: 'SiO₂ Chemical Analysis Report', file: 'https://res.cloudinary.com/dptmeakuy/image/upload/v1782125498/WhatsApp_Image_2026-06-12_at_12.02.38_nlzbyf.jpg', size:'' },
-    { name: 'Particle Size Distribution Report', file: 'https://res.cloudinary.com/dptmeakuy/image/upload/v1782125917/silica_sand_report_cubjuk.jpg', size: '' },
-  ],
+    {
+      name: 'White Silica Sand Chemical Analysis',
+      file: 'https://res.cloudinary.com/dptmeakuy/image/upload/v1782125917/silica_sand_report_cubjuk.jpg',
+      size: ''
+    },
+    {
+      name: 'Brown Silica Sand SiO₂ Analysis',
+      file: 'https://res.cloudinary.com/dptmeakuy/image/upload/v1782405939/brown_fhlnvo.png',
+      size: ''
+    }
+  ]
 },
 {
   id: 'copper',
@@ -726,63 +772,43 @@ export const productsfour = [
     // { name: 'Trace Element Analysis', file: '/reports/copper-trace.pdf', size: '700 KB' },
   ],
 },
-{
-  id: 'fluorite',
-  name: 'Fluorite',
-  category: 'Industrial Mineral',
-  origin: 'Balochistan & Northern Pakistan',
-  desc: 'Premium fluorite supplied for industrial and decorative applications. Available in raw mineral form, graded pieces, and selected gemstone-quality specimens.',
-  heroNote: 'High calcium fluoride content with natural crystal formations',
-  applications: [
-    'Steel & Metallurgy',
-    'Chemical Manufacturing',
-    'Glass & Ceramics',
-    'Decorative Stone',
-    'Mineral Collecting'
-  ],
-  packaging: [
-    '25kg / 50kg PP bags',
-    'Jumbo bags (1 ton)',
-    'Protective export crates'
-  ],
-  variants: [
-    {
-      key: 'raw',
-      label: 'Premium Fluorite (Lumps) – Laboratory Tested | 79.35% CaF₂',
-      swatch: '#8b7bb8',
-      desc: 'High-quality Fluorite (Lumps) independently laboratory tested with 79.35% Calcium Fluoride (CaF₂). Suitable for metallurgical, steel, cement, and industrial flux applications. Supplied in natural lump form with reliable quality for industrial processing.',
-      purity: 'Our Fluorite (Lumps) is independently laboratory tested and contains 79.35% Calcium Fluoride (CaF₂), making it suitable for metallurgical, steel, cement, and industrial flux applications.',
-      images: [
-        { src: 'https://res.cloudinary.com/dptmeakuy/image/upload/v1782133842/Flourite_jhmtve.png' },
-        { src: 'https://res.cloudinary.com/dptmeakuy/image/upload/v1782133841/Crushed_Coarse_Period_und_feines_Staub-Pulver___Natu%CC%88rlicher_Edelstein_fu%CC%88r_Resin_Art_Schmuckherstellung_und_DIY-Handwerk_lcretc.jpg' },
-      ],
-    },
-    // {
-    //   key: 'green',
-    //   label: 'Green Fluorite',
-    //   swatch: '#7fa878',
-    //   desc: 'Natural green fluorite crystals valued for decorative use, carving, and collector markets.',
-    //   purity: 'Gem-quality specimens',
-    //   images: [
-    //     { src: '/images/fluorite/green-1.jpg' },
-    //   ],
-    // },
-    // {
-    //   key: 'purple',
-    //   label: 'Purple Fluorite',
-    //   swatch: '#76558f',
-    //   desc: 'Distinct purple fluorite variety with attractive crystal structures for decorative and collectible applications.',
-    //   purity: 'Premium crystal grade',
-    //   images: [
-    //     { src: '/images/fluorite/purple-1.jpg' },
-    //   ],
-    // },
-  ],
-  labReports: [
-    { name: 'Fluorite Test Certificate', file: 'https://res.cloudinary.com/dptmeakuy/image/upload/v1782133544/flourite_report_taotms.png', size: '' },
-    // { name: 'Mineral Composition Analysis', file: '/reports/fluorite-analysis.pdf', size: '820 KB' },
-  ],
-},
+// {
+//   id: 'fluorite',
+//   name: 'Fluorite',
+//   category: 'Industrial Mineral',
+//   origin: 'Balochistan & Northern Pakistan',
+//   desc: 'Premium fluorite supplied for industrial and decorative applications. Available in raw mineral form, graded pieces, and selected gemstone-quality specimens.',
+//   heroNote: 'High calcium fluoride content with natural crystal formations',
+//   applications: [
+//     'Steel & Metallurgy',
+//     'Chemical Manufacturing',
+//     'Glass & Ceramics',
+//     'Decorative Stone',
+//     'Mineral Collecting'
+//   ],
+//   packaging: [
+//     '25kg / 50kg PP bags',
+//     'Jumbo bags (1 ton)',
+//     'Protective export crates'
+//   ],
+//   variants: [
+//     {
+//       key: 'raw',
+//       label: 'Premium Fluorite (Lumps) – Laboratory Tested | 79.35% CaF₂',
+//       swatch: '#8b7bb8',
+//       desc: 'High-quality Fluorite (Lumps) independently laboratory tested with 79.35% Calcium Fluoride (CaF₂). Suitable for metallurgical, steel, cement, and industrial flux applications. Supplied in natural lump form with reliable quality for industrial processing.',
+//       purity: 'Our Fluorite (Lumps) is independently laboratory tested and contains 79.35% Calcium Fluoride (CaF₂), making it suitable for metallurgical, steel, cement, and industrial flux applications.',
+//       images: [
+//         { src: 'https://res.cloudinary.com/dptmeakuy/image/upload/v1782133842/Flourite_jhmtve.png' },
+//         { src: 'https://res.cloudinary.com/dptmeakuy/image/upload/v1782133841/Crushed_Coarse_Period_und_feines_Staub-Pulver___Natu%CC%88rlicher_Edelstein_fu%CC%88r_Resin_Art_Schmuckherstellung_und_DIY-Handwerk_lcretc.jpg' },
+//       ],
+//     },
+   
+//   ],
+//   labReports: [
+//     { name: 'Fluorite Test Certificate', file: 'https://res.cloudinary.com/dptmeakuy/image/upload/v1782133544/flourite_report_taotms.png', size: '' },
+//   ],
+// },
 ];
 
 export const productsThree = [
@@ -1127,10 +1153,10 @@ export const minerals = [
     category: "Metallic Mineral",
     desc: "Quality copper sourced from Pakistan mineral deposits for industrial, electrical, and manufacturing applications."
   },
-  {
-  id: "fluorite",
-  name: "Fluorite",
-  category: "Industrial Mineral",
-  desc: "High-quality fluorite sourced from Pakistan mineral regions. Used for industrial applications including metallurgy, chemical processing, and decorative stone markets."
-},
+//   {
+//   id: "fluorite",
+//   name: "Fluorite",
+//   category: "Industrial Mineral",
+//   desc: "High-quality fluorite sourced from Pakistan mineral regions. Used for industrial applications including metallurgy, chemical processing, and decorative stone markets."
+// },
 ];
