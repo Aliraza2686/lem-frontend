@@ -553,7 +553,7 @@ export const productsfour = [
       // },
     ],
     labReports: [
-      { name: 'Sb Content Assay Report', file: 'https://res.cloudinary.com/dptmeakuy/image/upload/v1782126610/antimony_report_wrs4lz.png', size: '' },
+      // { name: 'Sb Content Assay Report', file: 'https://res.cloudinary.com/dptmeakuy/image/upload/v1782126610/antimony_report_wrs4lz.png', size: '' },
       // { name: 'Trace Element Analysis', file: '/reports/antimony-trace.pdf', size: '680 KB' },
     ],
   },
