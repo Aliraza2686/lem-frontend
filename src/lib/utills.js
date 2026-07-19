@@ -1100,7 +1100,7 @@ export const productsThree = [
     labReports: [],
   },
 ];
-export const productsTwo = [...productsThree, ...productsfour]
+export const productsTwo = [ ...productsfour]
 
 
 

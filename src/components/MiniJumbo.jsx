@@ -1,12 +1,13 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { ArrowRight, Package, Flame } from "lucide-react";
-import { productsThree, productsTwo } from "../lib/utills";
+import {  productsTwo } from "../lib/utills";
 
 export const products = [
+  // ...productsThree,
+
   ...productsTwo,
 
-  ...productsThree,
 ];
 
 // const categories = [
