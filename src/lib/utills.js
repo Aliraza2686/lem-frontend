@@ -533,7 +533,7 @@ export const productsfour = [
         label: 'Antimony Ore',
         swatch: '#6b6660',
         desc: 'Our Antimony Ore is sourced from mineral-rich deposits and is suitable for industrial processing applications.',
-        purity: '38.73% Sb content',
+        purity: '60% Sb content',
         images: [
           { src: 'https://res.cloudinary.com/dptmeakuy/image/upload/v1782126450/antimony2_xppsy9.png' },
           { src: 'https://res.cloudinary.com/dptmeakuy/image/upload/v1782126445/antimony_3_f7maly.png' },
@@ -626,8 +626,8 @@ export const productsfour = [
       // },
     ],
     labReports: [
-      { name: 'ZGQ — High-Purity White Quartz', file: 'https://res.cloudinary.com/dptmeakuy/raw/upload/v1782131383/ZGQ_Test_Report_English_hs2moa.docx', size: '' },
-      { name: 'ZZEQ — Ultra-Pure Quartz', file: 'https://res.cloudinary.com/dptmeakuy/raw/upload/v1782131382/ZEQ_Test_Report_English_ksu09k.docx', size: '' },
+      // { name: 'ZGQ — High-Purity White Quartz', file: 'https://res.cloudinary.com/dptmeakuy/raw/upload/v1782131383/ZGQ_Test_Report_English_hs2moa.docx', size: '' },
+      // { name: 'ZZEQ — Ultra-Pure Quartz', file: 'https://res.cloudinary.com/dptmeakuy/raw/upload/v1782131382/ZEQ_Test_Report_English_ksu09k.docx', size: '' },
 
     ],
   },
@@ -713,16 +713,16 @@ export const productsfour = [
   ],
 
   labReports: [
-    {
-      name: 'White Silica Sand Chemical Analysis',
-      file: 'https://res.cloudinary.com/dptmeakuy/image/upload/v1782125917/silica_sand_report_cubjuk.jpg',
-      size: ''
-    },
-    {
-      name: 'Brown Silica Sand SiO₂ Analysis',
-      file: 'https://res.cloudinary.com/dptmeakuy/image/upload/v1782405939/brown_fhlnvo.png',
-      size: ''
-    }
+    // {
+    //   name: 'White Silica Sand Chemical Analysis',
+    //   file: 'https://res.cloudinary.com/dptmeakuy/image/upload/v1782125917/silica_sand_report_cubjuk.jpg',
+    //   size: ''
+    // },
+    // {
+    //   name: 'Brown Silica Sand SiO₂ Analysis',
+    //   file: 'https://res.cloudinary.com/dptmeakuy/image/upload/v1782405939/brown_fhlnvo.png',
+    //   size: ''
+    // }
   ]
 },
 {
