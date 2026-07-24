@@ -6,12 +6,12 @@ export default function Footer() {
   return (
     <>
       <style>{`
-        @import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Mono:wght@300;400;500&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400;1,600;1,700&family=Source+Sans+3:wght@300;400;500;600&family=DM+Mono:wght@300;400;500&display=swap');
 
         .footer {
           background: rgba(2, 12, 6, 0.99);
           border-top: 1px solid rgba(74, 222, 128, 0.12);
-          font-family: 'Syne', sans-serif;
+          font-family: 'Source Sans 3', sans-serif;
           position: relative;
           overflow: hidden;
         }
@@ -19,15 +19,15 @@ export default function Footer() {
           content: '';
           position: absolute; inset: 0;
           background-image:
-            linear-gradient(rgba(74,222,128,0.02) 1px, transparent 1px),
-            linear-gradient(90deg, rgba(74,222,128,0.02) 1px, transparent 1px);
+            linear-gradient(rgba(200,170,100,0.02) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(200,170,100,0.02) 1px, transparent 1px);
           background-size: 60px 60px;
           pointer-events: none;
         }
         .footer-glow {
           position: absolute; bottom: -80px; left: 50%; transform: translateX(-50%);
           width: 600px; height: 300px;
-          background: radial-gradient(ellipse, rgba(22,163,74,0.07) 0%, transparent 70%);
+          background: radial-gradient(ellipse, rgba(168,137,64,0.07) 0%, transparent 70%);
           pointer-events: none;
         }
 
@@ -48,42 +48,42 @@ export default function Footer() {
         }
         .footer-logo-icon {
           width: 36px; height: 36px; border-radius: 8px;
-          background: linear-gradient(135deg, #16a34a, #047857);
+          background: linear-gradient(135deg, #a88940, #8a6f3a);
           display: flex; align-items: center; justify-content: center;
-          box-shadow: 0 0 16px rgba(74,222,128,0.25);
+          box-shadow: 0 0 16px rgba(200,170,100,0.25);
           flex-shrink: 0;
         }
         .footer-brand-name {
           font-family: 'DM Mono', monospace; font-size: 13px;
-          letter-spacing: 0.1em; color: rgba(134,239,172,0.7);
+          letter-spacing: 0.1em; color: rgba(220,200,150,0.7);
           text-transform: uppercase; font-weight: 500;
         }
         .footer-brand-desc {
           font-family: 'DM Mono', monospace; font-size: 12px; font-weight: 300;
-          color: rgba(134,239,172,0.4); line-height: 1.75; margin-bottom: 20px;
+          color: rgba(220,200,150,0.4); line-height: 1.75; margin-bottom: 20px;
         }
 
         /* Socials */
         .footer-socials { display: flex; gap: 10px; }
         .footer-social-btn {
           width: 34px; height: 34px; border-radius: 7px;
-          background: rgba(4,20,10,0.9);
-          border: 1px solid rgba(74,222,128,0.15);
+          background: rgba(10,24,40,0.9);
+          border: 1px solid rgba(200,170,100,0.15);
           display: flex; align-items: center; justify-content: center;
-          transition: all 0.2s ease; color: rgba(134,239,172,0.45);
+          transition: all 0.2s ease; color: rgba(220,200,150,0.45);
           text-decoration: none;
         }
         .footer-social-btn:hover {
-          border-color: rgba(74,222,128,0.45);
-          color: #4ade80;
-          background: rgba(22,163,74,0.1);
-          box-shadow: 0 0 12px rgba(74,222,128,0.15);
+          border-color: rgba(200,170,100,0.45);
+          color: #c8aa64;
+          background: rgba(168,137,64,0.1);
+          box-shadow: 0 0 12px rgba(200,170,100,0.15);
         }
 
         /* ── Link cols ── */
         .footer-col-title {
           font-family: 'DM Mono', monospace; font-size: 11px;
-          letter-spacing: 0.15em; color: rgba(74,222,128,0.6);
+          letter-spacing: 0.15em; color: rgba(200,170,100,0.6);
           text-transform: uppercase; font-weight: 500;
           margin-bottom: 18px;
           display: flex; align-items: center; gap: 10px;
@@ -91,16 +91,16 @@ export default function Footer() {
         .footer-col-title::after {
           content: '';
           flex: 1; height: 1px;
-          background: linear-gradient(90deg, rgba(74,222,128,0.25), transparent);
+          background: linear-gradient(90deg, rgba(200,170,100,0.25), transparent);
         }
 
         .footer-link {
           display: flex; align-items: center; gap: 6px;
           font-family: 'DM Mono', monospace; font-size: 12px; font-weight: 300;
-          color: rgba(134,239,172,0.45); text-decoration: none;
+          color: rgba(220,200,150,0.45); text-decoration: none;
           padding: 5px 0; transition: color 0.2s ease;
         }
-        .footer-link:hover { color: #4ade80; }
+        .footer-link:hover { color: #c8aa64; }
         .footer-link-arrow {
           opacity: 0; transform: translateX(-4px);
           transition: all 0.2s ease; flex-shrink: 0;
@@ -116,14 +116,14 @@ export default function Footer() {
         }
         .footer-contact-icon {
           width: 28px; height: 28px; border-radius: 6px; flex-shrink: 0;
-          background: rgba(22,163,74,0.08);
-          border: 1px solid rgba(74,222,128,0.15);
+          background: rgba(168,137,64,0.08);
+          border: 1px solid rgba(200,170,100,0.15);
           display: flex; align-items: center; justify-content: center;
           margin-top: 1px;
         }
         .footer-contact-text {
           font-family: 'DM Mono', monospace; font-size: 12px; font-weight: 300;
-          color: rgba(134,239,172,0.5); line-height: 1.5;
+          color: rgba(220,200,150,0.5); line-height: 1.5;
         }
 
         /* ── Bottom bar ── */
@@ -131,22 +131,22 @@ export default function Footer() {
           position: relative; z-index: 2;
           max-width: 1280px; margin: 0 auto;
           padding: 20px 32px 28px;
-          border-top: 1px solid rgba(74,222,128,0.07);
+          border-top: 1px solid rgba(200,170,100,0.07);
           margin-top: 48px;
           display: flex; align-items: center; justify-content: space-between;
           flex-wrap: wrap; gap: 12px;
         }
         .footer-copy {
           font-family: 'DM Mono', monospace; font-size: 11px; font-weight: 300;
-          color: rgba(134,239,172,0.3); letter-spacing: 0.05em;
+          color: rgba(220,200,150,0.3); letter-spacing: 0.05em;
         }
         .footer-bottom-links { display: flex; gap: 20px; }
         .footer-bottom-link {
           font-family: 'DM Mono', monospace; font-size: 11px; font-weight: 300;
-          color: rgba(134,239,172,0.3); text-decoration: none;
+          color: rgba(220,200,150,0.3); text-decoration: none;
           transition: color 0.2s ease; letter-spacing: 0.05em;
         }
-        .footer-bottom-link:hover { color: #4ade80; }
+        .footer-bottom-link:hover { color: #c8aa64; }
 
         /* ── Responsive ── */
         @media (max-width: 1024px) {
@@ -227,19 +227,19 @@ export default function Footer() {
             <div className="footer-col-title">Contact</div>
             <div className="footer-contact-item">
               <div className="footer-contact-icon">
-                <Phone size={13} color="#4ade80" />
+                <Phone size={13} color="#c8aa64" />
               </div>
               <span className="footer-contact-text">{PHONE_NUMBER}</span>
             </div>
             <div className="footer-contact-item">
               <div className="footer-contact-icon">
-                <Mail size={13} color="#4ade80" />
+                <Mail size={13} color="#c8aa64" />
               </div>
               <span className="footer-contact-text">{EMAIL}</span>
             </div>
             <div className="footer-contact-item">
               <div className="footer-contact-icon">
-                <MapPin size={13} color="#4ade80" />
+                <MapPin size={13} color="#c8aa64" />
               </div>
               <span className="footer-contact-text">{ADDRESS}</span>
             </div>
@@ -250,12 +250,11 @@ export default function Footer() {
         {/* ── Bottom bar ── */}
         <div className="footer-bottom">
           <span className="footer-copy">
-            © 2025 Lumina Earth Minerals. All rights reserved.
+            © {new Date().getFullYear()} Lumina Earth Minerals. All rights reserved.
           </span>
-          {/* <div className="footer-bottom-links">
-            <Link to="/privacy" className="footer-bottom-link">Privacy Policy</Link>
-            <Link to="/terms" className="footer-bottom-link">Terms of Service</Link>
-          </div> */}
+          <div className="footer-bottom-links">
+            <Link to="/terms" className="footer-bottom-link">Terms &amp; Conditions</Link>
+          </div>
         </div>
       </footer>
     </>

@@ -376,8 +376,15 @@ export const productsfour = [
         key: 'pink',
         label: 'Pink Salt',
         swatch: '#e8a598',
-        desc: 'The signature Himalayan variety, prized for its mineral-rich rosy hue. The most requested grade for food and lamp applications.',
-        purity: '96–98% NaCl',
+        desc: 'The signature Himalayan variety, prized for its mineral-rich rosy hue and trace mineral content. Sourced from the Khewra Salt Range and supplied in block, granule, or powder form — our most requested grade for food, decorative, and wellness applications.',
+        // purity: '96–98% NaCl',
+        quality: 'Export Grade',
+        highlights: [
+          'Sourced From the Khewra Salt Range',
+          // '96–98% NaCl Content',
+          'Available in Block, Granule, or Powder Form',
+          'Suitable for Food, Décor & Wellness Applications',
+        ],
         images: [
           { src: 'https://res.cloudinary.com/dptmeakuy/image/upload/v1772276542/1665059526_la1h31.png' },
           { src: 'https://res.cloudinary.com/dptmeakuy/image/upload/v1772276543/1665060094_r111bw.png' },
@@ -425,8 +432,8 @@ export const productsfour = [
     name: 'Bentonite',
     category: 'Industrial Mineral',
     origin: 'Khewra Range, Punjab, Pakistan',
-    desc: 'High-quality bentonite clay supplied for drilling fluids, construction, foundry sand binding, and industrial manufacturing. Available crushed, powdered, or in raw uncrushed lump form.',
-    heroNote: 'High swelling capacity, low impurity content',
+    desc: 'One of our flagship export minerals — premium Bentonite sourced direct from the Himalayan Khewra mineral range, lab-tested for high silica and alumina content with ultra-low chloride and sulfur impurities. Supplied for drilling fluids, construction, foundry sand binding, and industrial manufacturing in crushed, powdered, or raw uncrushed lump form.',
+    heroNote: 'High swelling capacity, low impurity content — direct from the Himalayan range',
     applications: ['Oil & Gas Drilling Mud', 'Foundry Sand Binder', 'Construction Sealants', 'Pet Litter Manufacturing', 'Wastewater Treatment'],
     packaging: ['25kg / 50kg PP bags', 'Jumbo bags (1 ton)', 'Bulk loose (truck/container)'],
     variants: [
@@ -445,11 +452,19 @@ export const productsfour = [
         key: 'brown',
         label: 'Bentonite',
         swatch: '#9c7a4f',
-        desc: 'General-purpose grade widely used in foundry binding and civil construction sealing applications.',
-        purity: 'Lab-tested Bentonite with 55.69% Silica and 27.70% Alumina composition, featuring ultra-low chloride (0.01%) and sulfur (0.02%) content for industrial applications.',
+        desc: 'Our best-selling grade, sourced direct from the Himalayan Khewra range and independently lab-tested — among the highest-quality Bentonite we offer, widely used for foundry sand binding and civil construction sealing applications.',
+        // purity: 'Lab-tested Bentonite with 55.69% Silica and 27.70% Alumina composition, featuring ultra-low chloride (0.01%) and sulfur (0.02%) content for industrial applications.',
+        quality: 'Premium Grade — Direct From Himalayan Range',
+        highlights: [
+          'Sourced Direct From the Himalayan Khewra Range',
+          // '55.69% Silica (SiO₂) Content',
+          // '27.70% Alumina (Al₂O₃) Content',
+          // 'Ultra-Low Chloride Content (0.01%)',
+          // 'Ultra-Low Sulfur Content (0.02%)',
+        ],
         images: [
           { src: 'https://res.cloudinary.com/dptmeakuy/image/upload/v1782131837/bentonite_vjpb7f.jpg' },
-          { src: 'https://res.cloudinary.com/dptmeakuy/image/upload/v1782132478/Screenshot_2026-06-22_at_5.47.34_PM_ggolnh.png' },
+          // { src: 'https://res.cloudinary.com/dptmeakuy/image/upload/v1782132478/Screenshot_2026-06-22_at_5.47.34_PM_ggolnh.png' },
         ],
       },
       // {
@@ -494,9 +509,15 @@ export const productsfour = [
         key: 'white',
         label: 'White Limestone',
         swatch: '#eceae3',
-        desc: 'High-CaCO₃ grade preferred for cement clinker and whiteness-sensitive industrial uses.',
+        desc: 'A high-CaCO₃ grade limestone preferred for cement clinker production and whiteness-sensitive industrial uses, quarried from Pakistan\'s Punjab and Khyber Pakhtunkhwa limestone belts and supplied in calibrated lump, crushed, or powdered form to meet buyer specifications.',
         purity: '',
         // purity: '92–96% CaCO₃',
+        highlights: [
+          'Quarried From Punjab & Khyber Pakhtunkhwa',
+          'High CaCO₃ Content for Cement-Grade Use',
+          'Available in Lump, Crushed, or Powdered Form',
+          'Custom Sizing to Buyer Specification',
+        ],
 
         images: [
           { src: 'https://res.cloudinary.com/dptmeakuy/image/upload/v1782131637/limestone_t3mm0w.jpg' },
@@ -523,8 +544,8 @@ export const productsfour = [
     name: 'Antimony',
     category: 'Metallic Mineral',
     origin: 'Balochistan, Pakistan',
-    desc: 'Export-grade antimony ore and concentrate sourced from Pakistan\'s mineral-rich regions, supplied to international buyers for smelting and alloy production.',
-    heroNote: 'Stable supply chain with assay documentation',
+    desc: 'Export-grade Antimony ore sourced from Pakistan\'s mineral-rich Balochistan deposits, supplied at 60%+ Sb content to international buyers for smelting and alloy production.',
+    heroNote: 'Stable supply chain, 60%+ Sb content, with assay documentation',
     applications: ['Flame Retardants', 'Lead-Acid Battery Alloys', 'Semiconductors', 'Ammunition Alloys', 'Glass & Ceramics'],
     packaging: ['Jumbo bags (1 ton)', 'Bulk loose (truck/container)', 'Custom export crating'],
     variants: [
@@ -532,8 +553,15 @@ export const productsfour = [
         key: 'ore',
         label: 'Antimony Ore',
         swatch: '#6b6660',
-        desc: 'Our Antimony Ore is sourced from mineral-rich deposits and is suitable for industrial processing applications.',
-        purity: '60% Sb content',
+        desc: 'Sourced from mineral-rich deposits in Balochistan, our Antimony Ore is supplied at 60% or higher Sb (antimony) content, suitable for smelting, alloying, and industrial processing applications.',
+        purity: '60%+ Sb content',
+        quality: 'Export Grade',
+        highlights: [
+          '60%+ Sb (Antimony) Content',
+          'Sourced From Balochistan Mineral Deposits',
+          'Suitable for Smelting & Alloy Production',
+          'Assay Documentation Available on Request',
+        ],
         images: [
           { src: 'https://res.cloudinary.com/dptmeakuy/image/upload/v1782126450/antimony2_xppsy9.png' },
           { src: 'https://res.cloudinary.com/dptmeakuy/image/upload/v1782126445/antimony_3_f7maly.png' },
@@ -571,8 +599,14 @@ export const productsfour = [
         key: 'green',
         label: 'Jade Nephrite',
         swatch: '#4f6b4a',
-        desc: 'Premium deep-green nephrite jade, valued for carving, collecting, and fine gemstone work.',
+        desc: 'Naturally formed deep-green nephrite jade from the mineral-rich mountains of Gilgit-Baltistan, graded by tone and translucency and valued by carvers, collectors, and gemstone cutters for its density and workability.',
         purity: 'Gem-grade rough',
+        highlights: [
+          'Sourced From Gilgit-Baltistan, Northern Pakistan',
+          'Graded By Tone & Translucency',
+          'Supplied Rough or Semi-Polished',
+          'Suitable for Carving, Cutting & Collecting',
+        ],
         images: [
           { src: 'https://res.cloudinary.com/dptmeakuy/image/upload/v1782127324/nepherite_sjvbkz.jpg' },
           { src: 'https://res.cloudinary.com/dptmeakuy/image/upload/v1782126986/Nepherite_jade_2026-06-10_at_14.16.08_uo43cy.jpg' },
@@ -607,8 +641,15 @@ export const productsfour = [
         key: 'lump',
         label: 'Quartz Lump',
         swatch: '#f4f3ef',
-        desc: 'Raw quartz lumps as extracted, ideal for crushing to custom specification by the buyer.',
+        desc: 'High-purity white quartz lumps as extracted, with low iron contamination, suitable for glass manufacturing, silica production, and industrial applications — supplied raw or crushed to the buyer\'s specified mesh size.',
         purity: 'White Quartz — 99.9774% SiO₂ purity',
+        quality: 'High-Purity Export Grade',
+        highlights: [
+          '99.9774% SiO₂ Purity',
+          'Low Iron Contamination',
+          'Sourced From Khyber Pakhtunkhwa',
+          'Supplied Raw or Crushed to Custom Mesh Size',
+        ],
         images: [
           { src: 'https://res.cloudinary.com/dptmeakuy/image/upload/v1782130416/Screenshot_2026-06-22_at_5.13.06_PM_dswahr.png' },
           { src: 'https://res.cloudinary.com/dptmeakuy/video/upload/v1782130544/WhatsApp_Video_2026-06-10_at_14.14.52_bdt671.mp4' , is_video : true},
@@ -636,8 +677,8 @@ export const productsfour = [
   name: 'Silica Sand',
   category: 'Industrial Mineral',
   origin: 'Punjab & Sindh, Pakistan',
-  desc: 'Silica sand sourced from Pakistan and supplied in multiple grades for industrial applications. Available in laboratory-tested white and brown variants with custom mesh sizing, washing, grading, and bulk export packaging options.',
-  heroNote: 'Laboratory-tested silica sand available in premium white and industrial-grade brown variants',
+  desc: 'Silica sand sourced from Pakistan, laboratory-tested with purity reaching up to 99.6% SiO₂ in our premium white grade. Supplied in multiple grades for industrial applications, with custom mesh sizing, washing, grading, and bulk export packaging options.',
+  heroNote: 'Laboratory-tested, up to 99.6% SiO₂ in our premium white grade',
 
   applications: [
     'Glass Manufacturing (Premium White Grade)',
@@ -661,12 +702,12 @@ export const productsfour = [
 
       desc: 'High-purity white silica sand supported by chemical analysis showing exceptionally high silica content and very low impurity levels. Suitable for demanding industrial applications including glass manufacturing, foundry operations, ceramics, and filtration systems.',
 
-      purity: '99.615% SiO₂',
+      purity: 'More than 98% SiO₂',
 
       quality: 'Excellent Export Grade',
 
       highlights: [
-        '99.615% Silicon Dioxide (SiO₂)',
+        '98% Silicon Dioxide (SiO₂)',
         'Very Low Iron Content (Fe₂O₃: 0.018%)',
         'Low Calcium and Magnesium Impurities',
         'Consistent Graded Mesh Supply',
@@ -749,8 +790,14 @@ export const productsfour = [
       key: 'ore',
       label: 'Copper Ore & Copper Concentrate',
       swatch: '#8b5a3c',
-      desc: "Copper ore and concentrate sourced from Pakistan's mineral-rich regions and supplied for smelting, refining, electrical, and industrial applications. Available in lump and concentrate forms with reliable quality for domestic and international buyers.",
+      desc: "Copper ore and concentrate sourced from Pakistan's mineral-rich Balochistan regions and supplied for smelting, refining, electrical, and industrial applications. Available in lump and concentrate forms with reliable quality for domestic and international buyers.",
       purity: '',
+      highlights: [
+        'Sourced From Balochistan, Pakistan',
+        'Available in Lump or Concentrate Form',
+        'Suitable for Smelting & Refining',
+        'Domestic & International Supply',
+      ],
       images: [
         { src: 'https://res.cloudinary.com/dptmeakuy/image/upload/v1782134297/copper_mo3uxi.png' },
         // { src: '/images/copper/ore-2.jpg' },

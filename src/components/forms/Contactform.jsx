@@ -1,13 +1,13 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
 /* eslint-disable no-case-declarations */
 import React, { useState } from "react";
-import { Package, MessageSquare, User } from "lucide-react";
+import { Package, MessageSquare, User, Check, ChevronsUpDown } from "lucide-react";
+import { Combobox, ComboboxButton, ComboboxInput, ComboboxOption, ComboboxOptions } from "@headlessui/react";
 import { countries } from "../../lib/utills";
 import api from "../../api";
 import Loader from "../loader";
 import { useSearchParams } from "react-router-dom";
-import LexicalEditorComponent from "../atoms/editor/LexicalEditorComponent";
-//change
+
 export const ContactForm = () => {
   const [formData, setFormData] = useState({
     name: "",
@@ -20,10 +20,16 @@ export const ContactForm = () => {
   const [errors, setErrors] = useState({});
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
+  const [countryQuery, setCountryQuery] = useState("");
   const [searchParams] = useSearchParams();
   const productId = searchParams.get("id");
 
-  // Countries list for dropdown
+  const filteredCountries =
+    countryQuery === ""
+      ? countries
+      : countries.filter((country) =>
+          country.toLowerCase().includes(countryQuery.toLowerCase())
+        );
 
   const validateField = (name, value) => {
     switch (name) {
@@ -37,12 +43,6 @@ export const ContactForm = () => {
         return !emailRegex.test(value)
           ? "Please enter a valid email address"
           : "";
-
-      //   case "phone":
-      //     const phoneRegex = /^[+]?[1-9][\d]{0,15}$/;
-      //     return !phoneRegex.test(value.replace(/[\s\-()]/g, ""))
-      //       ? "Please enter a valid phone number"
-      //       : "";
 
       case "country":
         return !value ? "Please select your country" : "";
@@ -64,6 +64,11 @@ export const ContactForm = () => {
     // Real-time validation
     const error = validateField(name, value);
     setErrors((prev) => ({ ...prev, [name]: error }));
+  };
+
+  const handleCountryChange = (value) => {
+    setFormData((prev) => ({ ...prev, country: value }));
+    setErrors((prev) => ({ ...prev, country: validateField("country", value) }));
   };
 
   const handleSubmit = async () => {
@@ -88,19 +93,12 @@ export const ContactForm = () => {
 
         if (res.data?.success) {
           setIsSubmitted(true);
-          // setResponseMsg(res.data.message || "Email sent successfully!");
-        } else {
-          // setResponseMsg("Something went wrong. Please try again.");
         }
       } catch (error) {
         console.error("Error submitting form:", error);
       } finally {
         setIsLoading(false); // reset loading
       }
-
-      // setIsSubmitted(true);
-      // Here you would typically send the data to your backend
-      console.info("Form submitted:", newPayload);
     }
   };
 
@@ -196,20 +194,16 @@ export const ContactForm = () => {
 
               <div>
                 <label className="block text-sm font-medium text-gray-700 mb-1">
-                  Phone Number *
+                  Phone Number
                 </label>
                 <input
                   type="tel"
                   name="phone"
                   value={formData.phone}
                   onChange={handleInputChange}
-                  className={`w-full px-3 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent ${errors.phone ? "border-red-500" : "border-gray-300"
-                    }`}
+                  className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                   placeholder="+1 (555) 123-4567"
                 />
-                {errors.phone && (
-                  <p className="text-red-500 text-sm mt-1">{errors.phone}</p>
-                )}
               </div>
             </div>
 
@@ -217,20 +211,41 @@ export const ContactForm = () => {
               <label className="block text-sm font-medium text-gray-700 mb-1">
                 Country *
               </label>
-              <select
-                name="country"
-                value={formData.country}
-                onChange={handleInputChange}
-                className={`w-full px-3 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent ${errors.country ? "border-red-500" : "border-gray-300"
-                  }`}
-              >
-                <option value="">Select your country</option>
-                {countries.map((country) => (
-                  <option key={country} value={country}>
-                    {country}
-                  </option>
-                ))}
-              </select>
+              <Combobox value={formData.country} onChange={handleCountryChange}>
+                <div className="relative">
+                  <ComboboxInput
+                    className={`w-full px-3 py-2 pr-9 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent ${errors.country ? "border-red-500" : "border-gray-300"
+                      }`}
+                    displayValue={(value) => value || ""}
+                    onChange={(e) => setCountryQuery(e.target.value)}
+                    placeholder="Type to search your country"
+                    autoComplete="off"
+                  />
+                  <ComboboxButton className="absolute inset-y-0 right-0 flex items-center px-2.5 text-gray-400">
+                    <ChevronsUpDown className="w-4 h-4" />
+                  </ComboboxButton>
+                  <ComboboxOptions
+                    anchor="bottom start"
+                    transition
+                    className="z-50 mt-1 max-h-56 w-[var(--input-width)] overflow-auto rounded-lg bg-white border border-gray-200 shadow-lg text-sm focus:outline-none empty:invisible"
+                  >
+                    {filteredCountries.length === 0 ? (
+                      <div className="px-3 py-2 text-gray-500">No country found.</div>
+                    ) : (
+                      filteredCountries.map((country) => (
+                        <ComboboxOption
+                          key={country}
+                          value={country}
+                          className="group flex items-center gap-2 px-3 py-2 cursor-pointer data-[focus]:bg-blue-50 data-[focus]:text-blue-700"
+                        >
+                          <Check className="w-4 h-4 invisible group-data-[selected]:visible" />
+                          {country}
+                        </ComboboxOption>
+                      ))
+                    )}
+                  </ComboboxOptions>
+                </div>
+              </Combobox>
               {errors.country && (
                 <p className="text-red-500 text-sm mt-1">{errors.country}</p>
               )}
@@ -249,25 +264,15 @@ export const ContactForm = () => {
             <label className="block text-sm font-medium text-gray-700 mb-1">
               Message *
             </label>
-            <LexicalEditorComponent
-              defaultValue={formData?.json}
-              onChange={(val) =>
-                setFormData((prev) => ({
-                  ...prev,
-                  message: val,
-                }))
-              }
-            />
-            {/* <textarea
+            <textarea
               name="message"
               value={formData.message}
               onChange={handleInputChange}
               rows="5"
-              className={`w-full px-3 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent ${
-                errors.message ? "border-red-500" : "border-gray-300"
-              }`}
+              className={`w-full px-3 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent ${errors.message ? "border-red-500" : "border-gray-300"
+                }`}
               placeholder="Tell us about your bulk order requirements, product specifications, quantity needed, or any other details..."
-            /> */}
+            />
             {errors.message && (
               <p className="text-red-500 text-sm mt-1">{errors.message}</p>
             )}

@@ -1,5 +1,6 @@
 import { Mountain, Leaf, Award, Users, Globe, Heart } from "lucide-react";
 import { NavLayoutTwo } from "../components/layouts/NavLayoutTwo";
+import { SEO } from "../components/atoms/SEO";
 
 export const About = () => {
 const values = [
@@ -36,21 +37,26 @@ const values = [
 ];
 
   const stats = [
-    { number: "Export", label: "Licensed Company" },
-    { number: "Premium", label: "Himalayan Source" },
-    { number: "Bulk", label: "Supply Capacity" },
-    { number: "Private", label: "Label Solutions" },
+    { number: "2015", label: "Established In Export Business" },
+    { number: "250+", label: "Tons Bentonite & Minerals Supplied" },
+    { number: "8", label: "Minerals In Export Catalog" },
+    { number: "100%", label: "Direct-From-Source Sourcing" },
   ];
 
   return (
     <NavLayoutTwo>
+      <SEO
+        title="About Us"
+        description="Lumina Earth Minerals is a Pakistan-based mineral export company sourcing Bentonite, Nephrite, Fluorite, Limestone, Silica Sand and Himalayan Salt from the Khewra Salt Range for global B2B buyers."
+        path="/about"
+      />
       <style>{`
-        @import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Mono:wght@300;400;500&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400;1,600;1,700&family=Source+Sans+3:wght@300;400;500;600&family=DM+Mono:wght@300;400;500&display=swap');
 
         .about-page {
-          background: linear-gradient(160deg, #020c06 0%, #041a0c 50%, #020c06 100%);
+          background: linear-gradient(160deg, #051223 0%, #0d1f35 50%, #051223 100%);
           min-height: 100vh;
-          font-family: 'Syne', sans-serif;
+          font-family: 'Source Sans 3', sans-serif;
         }
 
         /* ── Hero ── */
@@ -59,14 +65,14 @@ const values = [
           overflow: hidden;
           padding: 80px 32px 72px;
           text-align: center;
-          border-bottom: 1px solid rgba(74,222,128,0.1);
+          border-bottom: 1px solid rgba(200,170,100,0.1);
         }
         .about-hero::before {
           content: '';
           position: absolute;
           inset: 0;
-          background-image: linear-gradient(rgba(74,222,128,0.03) 1px, transparent 1px),
-                            linear-gradient(90deg, rgba(74,222,128,0.03) 1px, transparent 1px);
+          background-image: linear-gradient(rgba(200,170,100,0.03) 1px, transparent 1px),
+                            linear-gradient(90deg, rgba(200,170,100,0.03) 1px, transparent 1px);
           background-size: 60px 60px;
         }
         .ah-glow {
@@ -74,7 +80,7 @@ const values = [
           top: -80px; left: 50%;
           transform: translateX(-50%);
           width: 700px; height: 400px;
-          background: radial-gradient(ellipse, rgba(22,163,74,0.13) 0%, transparent 70%);
+          background: radial-gradient(ellipse, rgba(168,137,64,0.13) 0%, transparent 70%);
           pointer-events: none;
         }
         .about-hero-inner {
@@ -90,14 +96,14 @@ const values = [
           font-family: 'DM Mono', monospace;
           font-size: 11px;
           letter-spacing: 0.15em;
-          color: rgba(134,239,172,0.55);
+          color: rgba(220,200,150,0.55);
           text-transform: uppercase;
           margin-bottom: 24px;
         }
         .eyebrow-dot {
           width: 6px; height: 6px;
           border-radius: 50%;
-          background: #4ade80;
+          background: #c8aa64;
           animation: pdot 2s ease-in-out infinite;
         }
         @keyframes pdot {
@@ -105,6 +111,7 @@ const values = [
           50% { opacity:0.4; transform:scale(0.7); }
         }
         .about-hero h1 {
+          font-family: 'Playfair Display', serif;
           font-size: clamp(36px, 5vw, 58px);
           font-weight: 800;
           color: #fff;
@@ -113,7 +120,7 @@ const values = [
           margin: 0 0 20px;
         }
         .about-hero h1 span {
-          background: linear-gradient(135deg, #4ade80, #86efac);
+          background: linear-gradient(135deg, #c8aa64, #d4ba78);
           -webkit-background-clip: text;
           -webkit-text-fill-color: transparent;
           background-clip: text;
@@ -122,16 +129,16 @@ const values = [
           font-family: 'DM Mono', monospace;
           font-size: 15px;
           font-weight: 300;
-          color: rgba(134,239,172,0.6);
+          color: rgba(220,200,150,0.6);
           line-height: 1.75;
           margin: 0;
         }
 
         /* ── Stats strip ── */
         .stats-strip {
-          border-bottom: 1px solid rgba(74,222,128,0.08);
-          border-top: 1px solid rgba(74,222,128,0.08);
-          background: rgba(4,20,10,0.5);
+          border-bottom: 1px solid rgba(200,170,100,0.08);
+          border-top: 1px solid rgba(200,170,100,0.08);
+          background: rgba(10,24,40,0.5);
         }
         .stats-inner {
           max-width: 1280px;
@@ -143,13 +150,14 @@ const values = [
         .stat-cell {
           padding: 32px 24px;
           text-align: center;
-          border-right: 1px solid rgba(74,222,128,0.08);
+          border-right: 1px solid rgba(200,170,100,0.08);
         }
         .stat-cell:last-child { border-right: none; }
         .stat-num {
+          font-family: 'Playfair Display', serif;
           font-size: 36px;
           font-weight: 800;
-          color: #4ade80;
+          color: #c8aa64;
           letter-spacing: -0.03em;
           line-height: 1;
           margin-bottom: 6px;
@@ -158,13 +166,13 @@ const values = [
           font-family: 'DM Mono', monospace;
           font-size: 11px;
           letter-spacing: 0.1em;
-          color: rgba(134,239,172,0.4);
+          color: rgba(220,200,150,0.4);
           text-transform: uppercase;
         }
 
         /* ── Light lower half ── */
         .about-light {
-          background: #f8faf8;
+          background: #f2ede3;
           position: relative;
           overflow: hidden;
         }
@@ -172,8 +180,8 @@ const values = [
           content: '';
           position: absolute; inset: 0;
           background-image:
-            linear-gradient(rgba(22,163,74,0.05) 1px, transparent 1px),
-            linear-gradient(90deg, rgba(22,163,74,0.05) 1px, transparent 1px);
+            linear-gradient(rgba(168,137,64,0.05) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(168,137,64,0.05) 1px, transparent 1px);
           background-size: 48px 48px;
           pointer-events: none;
         }
@@ -193,7 +201,7 @@ const values = [
           font-family: 'DM Mono', monospace;
           font-size: 11px;
           letter-spacing: 0.15em;
-          color: #16a34a;
+          color: #a88940;
           text-transform: uppercase;
           margin-bottom: 16px;
           display: flex;
@@ -204,34 +212,35 @@ const values = [
           content: '';
           display: inline-block;
           width: 32px; height: 1px;
-          background: #16a34a;
+          background: #a88940;
         }
         .story-section h2 {
+          font-family: 'Playfair Display', serif;
           font-size: clamp(28px, 3.5vw, 42px);
           font-weight: 800;
-          color: #0f2318;
+          color: #0d1f35;
           letter-spacing: -0.02em;
           margin: 0 0 24px;
           line-height: 1.15;
         }
-        .story-section h2 span { color: #16a34a; }
+        .story-section h2 span { color: #a88940; }
         .story-p {
           font-family: 'DM Mono', monospace;
           font-size: 13px;
           font-weight: 300;
-          color: #4b7060;
+          color: #4a5a4a;
           line-height: 1.85;
           margin-bottom: 16px;
         }
         .story-p:last-of-type { margin-bottom: 0; }
-        .story-p strong { color: #0f2318; font-weight: 500; }
+        .story-p strong { color: #0d1f35; font-weight: 500; }
 
         .story-img-wrap {
           position: relative;
           border-radius: 8px;
           overflow: hidden;
-          border: 1px solid rgba(22,163,74,0.2);
-          box-shadow: 0 32px 64px rgba(0,0,0,0.1), 0 0 30px rgba(22,163,74,0.06);
+          border: 1px solid rgba(168,137,64,0.2);
+          box-shadow: 0 32px 64px rgba(0,0,0,0.1), 0 0 30px rgba(168,137,64,0.06);
         }
         .story-img-wrap img {
           width: 100%;
@@ -243,19 +252,19 @@ const values = [
         .story-img-wrap::after {
           content: '';
           position: absolute; inset: 0;
-          background: linear-gradient(0deg, rgba(15,35,24,0.2) 0%, transparent 50%);
+          background: linear-gradient(0deg, rgba(13,31,53,0.2) 0%, transparent 50%);
         }
         .img-corner {
           position: absolute; width: 20px; height: 20px; z-index: 5;
         }
-        .img-corner-tl { top: 10px; left: 10px; border-top: 2px solid #16a34a; border-left: 2px solid #16a34a; border-radius: 3px 0 0 0; }
-        .img-corner-tr { top: 10px; right: 10px; border-top: 2px solid #16a34a; border-right: 2px solid #16a34a; border-radius: 0 3px 0 0; }
-        .img-corner-bl { bottom: 10px; left: 10px; border-bottom: 2px solid #16a34a; border-left: 2px solid #16a34a; border-radius: 0 0 0 3px; }
-        .img-corner-br { bottom: 10px; right: 10px; border-bottom: 2px solid #16a34a; border-right: 2px solid #16a34a; border-radius: 0 0 3px 0; }
+        .img-corner-tl { top: 10px; left: 10px; border-top: 2px solid #a88940; border-left: 2px solid #a88940; border-radius: 3px 0 0 0; }
+        .img-corner-tr { top: 10px; right: 10px; border-top: 2px solid #a88940; border-right: 2px solid #a88940; border-radius: 0 3px 0 0; }
+        .img-corner-bl { bottom: 10px; left: 10px; border-bottom: 2px solid #a88940; border-left: 2px solid #a88940; border-radius: 0 0 0 3px; }
+        .img-corner-br { bottom: 10px; right: 10px; border-bottom: 2px solid #a88940; border-right: 2px solid #a88940; border-radius: 0 0 3px 0; }
 
         /* ── Values section ── */
         .values-section {
-          border-top: 1px solid rgba(22,163,74,0.1);
+          border-top: 1px solid rgba(168,137,64,0.1);
           padding: 80px 32px;
           position: relative;
         }
@@ -268,18 +277,19 @@ const values = [
           text-align: center; margin-bottom: 56px;
         }
         .values-header h2 {
+          font-family: 'Playfair Display', serif;
           font-size: clamp(28px, 3.5vw, 42px);
-          font-weight: 800; color: #0f2318;
+          font-weight: 800; color: #0d1f35;
           letter-spacing: -0.02em; margin: 12px 0 16px;
         }
-        .values-header h2 span { color: #16a34a; }
+        .values-header h2 span { color: #a88940; }
         .values-header p {
           font-family: 'DM Mono', monospace; font-size: 14px;
-          color: #4b7060; font-weight: 300;
+          color: #4a5a4a; font-weight: 300;
         }
         /* override eyebrow dot color inside light section */
-        .about-light .eyebrow-dot { background: #16a34a; }
-        .about-light .about-eyebrow { color: #16a34a; }
+        .about-light .eyebrow-dot { background: #a88940; }
+        .about-light .about-eyebrow { color: #a88940; }
 
         .values-grid {
           display: grid;
@@ -288,7 +298,7 @@ const values = [
         }
         .value-card {
           background: #fff;
-          border: 1px solid rgba(22,163,74,0.15);
+          border: 1px solid rgba(168,137,64,0.15);
           border-radius: 8px;
           padding: 32px 28px;
           transition: all 0.3s ease;
@@ -299,35 +309,36 @@ const values = [
         .value-card::before {
           content: '';
           position: absolute; top: 0; left: 0; right: 0; height: 2px;
-          background: linear-gradient(90deg, transparent, #16a34a, transparent);
+          background: linear-gradient(90deg, transparent, #a88940, transparent);
           transform: scaleX(0);
           transition: transform 0.3s ease;
         }
         .value-card:hover {
-          border-color: rgba(22,163,74,0.35);
-          box-shadow: 0 16px 48px rgba(0,0,0,0.08), 0 0 20px rgba(22,163,74,0.06);
+          border-color: rgba(168,137,64,0.35);
+          box-shadow: 0 16px 48px rgba(0,0,0,0.08), 0 0 20px rgba(168,137,64,0.06);
           transform: translateY(-3px);
         }
         .value-card:hover::before { transform: scaleX(1); }
 
         .value-icon-wrap {
           width: 48px; height: 48px; border-radius: 10px;
-          background: rgba(22,163,74,0.07);
-          border: 1px solid rgba(22,163,74,0.18);
+          background: rgba(168,137,64,0.07);
+          border: 1px solid rgba(168,137,64,0.18);
           display: flex; align-items: center; justify-content: center;
           margin-bottom: 20px; transition: all 0.3s ease;
         }
         .value-card:hover .value-icon-wrap {
-          background: rgba(22,163,74,0.13);
-          box-shadow: 0 0 18px rgba(22,163,74,0.12);
+          background: rgba(168,137,64,0.13);
+          box-shadow: 0 0 18px rgba(168,137,64,0.12);
         }
         .value-card h3 {
-          font-size: 17px; font-weight: 700; color: #0f2318;
+          font-family: 'Playfair Display', serif;
+          font-size: 17px; font-weight: 700; color: #0d1f35;
           margin: 0 0 10px; letter-spacing: -0.01em;
         }
         .value-card p {
           font-family: 'DM Mono', monospace; font-size: 13px;
-          font-weight: 300; color: #4b7060; line-height: 1.7; margin: 0;
+          font-weight: 300; color: #4a5a4a; line-height: 1.7; margin: 0;
         }
 
         /* ── Responsive ── */
@@ -336,7 +347,7 @@ const values = [
           .story-section { gap: 48px; }
           .stats-inner { grid-template-columns: repeat(2, 1fr); }
           .stat-cell:nth-child(2) { border-right: none; }
-          .stat-cell:nth-child(3) { border-right: 1px solid rgba(74,222,128,0.08); }
+          .stat-cell:nth-child(3) { border-right: 1px solid rgba(200,170,100,0.08); }
           .stat-cell:nth-child(4) { border-right: none; }
         }
         @media (max-width: 768px) {
@@ -435,7 +446,7 @@ const values = [
 </div>
 
 <p className="story-p">
-  Our minerals are sourced from Pakistan's rich geological regions and supplied to
+  Our minerals are sourced from Pakistan&apos;s rich geological regions and supplied to
   global buyers with a focus on quality, consistency, and reliable export solutions.
 </p>
 
@@ -504,7 +515,7 @@ const values = [
                   return (
                     <div className="value-card" key={i}>
                       <div className="value-icon-wrap">
-                        <Icon size={22} color="#16a34a" />
+                        <Icon size={22} color="#a88940" />
                       </div>
                       <h3>{v.title}</h3>
                       <p>{v.desc}</p>

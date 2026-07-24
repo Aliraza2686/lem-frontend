@@ -18,6 +18,7 @@ export const Navbar = () => {
     { to: "/faq", label: "FAQ" },
     { to: "/workspace-images", label: "Gallery" },
     { to: "/private-label", label: "Private Labeling" },
+
   ];
 
   const isActive = (path) => path === currentPath;

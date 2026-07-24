@@ -1,13 +1,13 @@
 
  .mobile-cta {
           display: block;
-          font-family: 'Syne', sans-serif;
+          font-family: 'Source Sans 3', sans-serif;
           font-size: 14px;
           font-weight: 700;
           letter-spacing: 0.06em;
-          background: linear-gradient(135deg, #16a34a, #15803d);
+          background: linear-gradient(135deg, #a88940, #8a6f3a);
           color: white;
-          border: 1px solid rgba(74,222,128,0.3);
+          border: 1px solid rgba(200,170,100,0.3);
           padding: 12px 20px;
           border-radius: 4px;
           text-decoration: none;
@@ -15,4 +15,4 @@
           margin-top: 12px;
           transition: all 0.25s ease;
         }
-        .mobile-cta:hover { box-shadow: 0 0 20px rgba(74,222,128,0.25); }
+        .mobile-cta:hover { box-shadow: 0 0 20px rgba(200,170,100,0.25); }

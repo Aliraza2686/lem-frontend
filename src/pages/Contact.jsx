@@ -3,6 +3,7 @@ import { Clock, Mail, MapPin, Phone } from "lucide-react";
 import { ContactForm } from "../components/forms/Contactform";
 import { ADDRESS, EMAIL, PHONE_NUMBER } from "../lib/utills";
 import { NavLayoutTwo } from "../components/layouts/NavLayoutTwo";
+import { SEO } from "../components/atoms/SEO";
 
 export const Contact = () => {
   const infoCards = [
@@ -37,28 +38,33 @@ export const Contact = () => {
 
   return (
     <NavLayoutTwo>
+      <SEO
+        title="Contact Us"
+        description="Contact Lumina Earth Minerals for bulk mineral supply, export inquiries and custom quotations. Reliable sourcing of Bentonite, Nephrite, Fluorite, Limestone, Silica Sand and Himalayan Salt. We respond within 24 hours."
+        path="/contact"
+      />
       <style>{`
-        @import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Mono:wght@300;400;500&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400;1,600;1,700&family=Source+Sans+3:wght@300;400;500;600&family=DM+Mono:wght@300;400;500&display=swap');
 
-        .contact-page { font-family: 'Syne', sans-serif; }
+        .contact-page { font-family: 'Source Sans 3', sans-serif; }
 
         /* ── Dark Hero ── */
         .contact-hero {
-          background: linear-gradient(160deg, #020c06 0%, #041a0c 50%, #020c06 100%);
+          background: linear-gradient(160deg, #051223 0%, #0d1f35 50%, #051223 100%);
           position: relative; overflow: hidden;
           padding: 80px 32px 72px; text-align: center;
-          border-bottom: 1px solid rgba(74,222,128,0.1);
+          border-bottom: 1px solid rgba(200,170,100,0.1);
         }
         .contact-hero::before {
           content: ''; position: absolute; inset: 0;
-          background-image: linear-gradient(rgba(74,222,128,0.03) 1px, transparent 1px),
-                            linear-gradient(90deg, rgba(74,222,128,0.03) 1px, transparent 1px);
+          background-image: linear-gradient(rgba(200,170,100,0.03) 1px, transparent 1px),
+                            linear-gradient(90deg, rgba(200,170,100,0.03) 1px, transparent 1px);
           background-size: 60px 60px;
         }
         .ch-glow {
           position: absolute; top: -80px; left: 50%; transform: translateX(-50%);
           width: 700px; height: 400px;
-          background: radial-gradient(ellipse, rgba(22,163,74,0.13) 0%, transparent 70%);
+          background: radial-gradient(ellipse, rgba(168,137,64,0.13) 0%, transparent 70%);
           pointer-events: none;
         }
         .contact-hero-inner {
@@ -67,11 +73,11 @@ export const Contact = () => {
         .contact-eyebrow {
           display: inline-flex; align-items: center; gap: 8px;
           font-family: 'DM Mono', monospace; font-size: 11px;
-          letter-spacing: 0.15em; color: rgba(134,239,172,0.55);
+          letter-spacing: 0.15em; color: rgba(220,200,150,0.55);
           text-transform: uppercase; margin-bottom: 24px;
         }
         .eyebrow-dot {
-          width: 6px; height: 6px; border-radius: 50%; background: #4ade80;
+          width: 6px; height: 6px; border-radius: 50%; background: #c8aa64;
           animation: pdot 2s ease-in-out infinite;
         }
         @keyframes pdot {
@@ -79,27 +85,28 @@ export const Contact = () => {
           50% { opacity:0.4; transform:scale(0.7); }
         }
         .contact-hero h1 {
+          font-family: 'Playfair Display', serif;
           font-size: clamp(34px, 5vw, 56px); font-weight: 800;
           color: #fff; letter-spacing: -0.02em; line-height: 1.08; margin: 0 0 20px;
         }
         .contact-hero h1 span {
-          background: linear-gradient(135deg, #4ade80, #86efac);
+          background: linear-gradient(135deg, #c8aa64, #d4ba78);
           -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
         }
         .contact-hero p {
           font-family: 'DM Mono', monospace; font-size: 14px; font-weight: 300;
-          color: rgba(134,239,172,0.6); line-height: 1.75; margin: 0;
+          color: rgba(220,200,150,0.6); line-height: 1.75; margin: 0;
         }
 
         /* ── Light section ── */
         .contact-light {
-          background: #f8faf8; position: relative; overflow: hidden;
+          background: #f2ede3; position: relative; overflow: hidden;
         }
         .contact-light::before {
           content: ''; position: absolute; inset: 0;
           background-image:
-            linear-gradient(rgba(22,163,74,0.05) 1px, transparent 1px),
-            linear-gradient(90deg, rgba(22,163,74,0.05) 1px, transparent 1px);
+            linear-gradient(rgba(168,137,64,0.05) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(168,137,64,0.05) 1px, transparent 1px);
           background-size: 48px 48px; pointer-events: none;
         }
 
@@ -116,19 +123,19 @@ export const Contact = () => {
         .info-stack { display: flex; flex-direction: column; gap: 14px; }
         .info-card {
           background: #fff;
-          border: 1px solid rgba(22,163,74,0.13);
+          border: 1px solid rgba(168,137,64,0.13);
           border-radius: 8px; padding: 20px 22px;
           transition: all 0.25s ease; position: relative; overflow: hidden;
           box-shadow: 0 2px 10px rgba(0,0,0,0.04);
         }
         .info-card::before {
           content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px;
-          background: linear-gradient(90deg, transparent, #16a34a, transparent);
+          background: linear-gradient(90deg, transparent, #a88940, transparent);
           transform: scaleX(0); transition: transform 0.3s ease;
         }
         .info-card:hover {
-          border-color: rgba(22,163,74,0.3);
-          box-shadow: 0 10px 32px rgba(0,0,0,0.08), 0 0 16px rgba(22,163,74,0.05);
+          border-color: rgba(168,137,64,0.3);
+          box-shadow: 0 10px 32px rgba(0,0,0,0.08), 0 0 16px rgba(168,137,64,0.05);
           transform: translateY(-2px);
         }
         .info-card:hover::before { transform: scaleX(1); }
@@ -137,52 +144,53 @@ export const Contact = () => {
         }
         .info-icon-wrap {
           width: 34px; height: 34px; border-radius: 8px; flex-shrink: 0;
-          background: rgba(22,163,74,0.07);
-          border: 1px solid rgba(22,163,74,0.18);
+          background: rgba(168,137,64,0.07);
+          border: 1px solid rgba(168,137,64,0.18);
           display: flex; align-items: center; justify-content: center;
         }
         .info-card-title {
           font-family: 'DM Mono', monospace; font-size: 11px; letter-spacing: 0.12em;
-          color: #16a34a; text-transform: uppercase; font-weight: 500;
+          color: #a88940; text-transform: uppercase; font-weight: 500;
         }
-        .info-primary { font-weight: 700; font-size: 14px; color: #0f2318; margin-bottom: 4px; }
+        .info-primary { font-weight: 700; font-size: 14px; color: #0d1f35; margin-bottom: 4px; }
         .info-secondary {
           font-family: 'DM Mono', monospace; font-size: 12px; font-weight: 300;
-          color: #4b7060; line-height: 1.5;
+          color: #4a5a4a; line-height: 1.5;
         }
         .hours-row {
           display: flex; justify-content: space-between; align-items: center;
-          padding: 5px 0; border-bottom: 1px solid rgba(22,163,74,0.07);
+          padding: 5px 0; border-bottom: 1px solid rgba(168,137,64,0.07);
         }
         .hours-row:last-child { border-bottom: none; padding-bottom: 0; }
         .hours-label {
-          font-family: 'DM Mono', monospace; font-size: 11px; color: #4b7060;
+          font-family: 'DM Mono', monospace; font-size: 11px; color: #4a5a4a;
         }
         .hours-value {
-          font-family: 'DM Mono', monospace; font-size: 11px; font-weight: 500; color: #16a34a;
+          font-family: 'DM Mono', monospace; font-size: 11px; font-weight: 500; color: #a88940;
         }
 
         /* ── Form card ── */
         .form-card {
           background: #fff;
-          border: 1px solid rgba(22,163,74,0.13);
+          border: 1px solid rgba(168,137,64,0.13);
           border-radius: 8px; padding: 40px;
           position: relative; overflow: hidden;
           box-shadow: 0 2px 16px rgba(0,0,0,0.05);
         }
         .form-card::before {
           content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
-          background: linear-gradient(90deg, transparent, #16a34a, transparent);
+          background: linear-gradient(90deg, transparent, #a88940, transparent);
         }
         .form-card-header { margin-bottom: 32px; }
         .form-card-title {
-          font-size: 22px; font-weight: 800; color: #0f2318;
+          font-family: 'Playfair Display', serif;
+          font-size: 22px; font-weight: 800; color: #0d1f35;
           letter-spacing: -0.02em; margin: 0 0 8px;
         }
-        .form-card-title span { color: #16a34a; }
+        .form-card-title span { color: #a88940; }
         .form-card-desc {
           font-family: 'DM Mono', monospace; font-size: 13px; font-weight: 300;
-          color: #4b7060; margin: 0; line-height: 1.6;
+          color: #4a5a4a; margin: 0; line-height: 1.6;
         }
 
         /* ── Form field overrides ── */
@@ -191,10 +199,10 @@ export const Contact = () => {
         .form-card select {
           font-family: 'DM Mono', monospace !important;
           font-size: 13px !important; font-weight: 300 !important;
-          background: #f8faf8 !important;
-          border: 1px solid rgba(22,163,74,0.2) !important;
+          background: #f2ede3 !important;
+          border: 1px solid rgba(168,137,64,0.2) !important;
           border-radius: 5px !important;
-          color: #0f2318 !important;
+          color: #0d1f35 !important;
           transition: border-color 0.2s ease, box-shadow 0.2s ease !important;
         }
         .form-card input::placeholder,
@@ -204,26 +212,26 @@ export const Contact = () => {
         .form-card input:focus,
         .form-card textarea:focus,
         .form-card select:focus {
-          border-color: rgba(22,163,74,0.5) !important;
-          box-shadow: 0 0 0 3px rgba(22,163,74,0.08) !important;
+          border-color: rgba(168,137,64,0.5) !important;
+          box-shadow: 0 0 0 3px rgba(168,137,64,0.08) !important;
           outline: none !important;
           background: #fff !important;
         }
         .form-card label {
-          font-family: 'Syne', sans-serif !important;
+          font-family: 'Source Sans 3', sans-serif !important;
           font-size: 13px !important; font-weight: 600 !important;
-          color: #0f2318 !important;
+          color: #0d1f35 !important;
         }
 
         /* ── Submit button ── */
         .form-card button[type="submit"],
         .form-card form button[type="submit"] {
-          font-family: 'Syne', sans-serif !important;
+          font-family: 'Source Sans 3', sans-serif !important;
           font-size: 14px !important; font-weight: 700 !important;
           letter-spacing: 0.06em !important;
-          background: linear-gradient(135deg, #16a34a, #15803d) !important;
+          background: linear-gradient(135deg, #a88940, #8a6f3a) !important;
           color: #fff !important;
-          border: 1px solid rgba(22,163,74,0.35) !important;
+          border: 1px solid rgba(168,137,64,0.35) !important;
           border-radius: 4px !important;
           padding: 13px 32px !important;
           cursor: pointer !important;
@@ -234,8 +242,8 @@ export const Contact = () => {
         }
         .form-card button[type="submit"]:hover,
         .form-card form button[type="submit"]:hover {
-          background: linear-gradient(135deg, #15803d, #166534) !important;
-          box-shadow: 0 8px 24px rgba(22,163,74,0.25) !important;
+          background: linear-gradient(135deg, #8a6f3a, #6b5530) !important;
+          box-shadow: 0 8px 24px rgba(168,137,64,0.25) !important;
           transform: translateY(-1px) !important;
         }
         .form-card button[type="submit"]:disabled,
@@ -287,7 +295,7 @@ export const Contact = () => {
                   <div className="info-card" key={i}>
                     <div className="info-card-header">
                       <div className="info-icon-wrap">
-                        <Icon size={16} color="#16a34a" />
+                        <Icon size={16} color="#a88940" />
                       </div>
                       <span className="info-card-title">{card.title}</span>
                     </div>

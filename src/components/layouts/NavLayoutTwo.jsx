@@ -15,6 +15,8 @@ const NAV_LINKS = [
   { label: "About",         to: "/about" },
   { label: "FAQ",           to: "/faq" },
   { label: "Contact",       to: "/contact" },
+    { to: "/terms", label: "Terms & Conditions" },
+
 ];
 
 export function NavLayoutTwo({ children }) {

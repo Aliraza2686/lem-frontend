@@ -1,4 +1,3 @@
-/* eslint-disable jsx-a11y/media-has-caption */
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 import React, { useState, useMemo } from 'react';
@@ -6,10 +5,12 @@ import { useParams, Link } from 'react-router-dom';
 import {
   CheckCircle, Download, FlaskConical, Package, Mountain,
   ChevronLeft, ChevronRight, X, FileText, Truck, ArrowLeft,
-  Layers, Globe2, ZoomIn,
+  Layers, Globe2, ZoomIn, Award,
 } from 'lucide-react';
 import { NavLayoutTwo } from '../../components/layouts/NavLayoutTwo';
 import { productsTwo } from '../../lib/utills';
+import { SEO } from '../../components/atoms/SEO';
+import { canonicalFor } from '../../lib/seo';
 
 /* ─────────────────────────────────────────────────────────────────────────
    PRODUCT DATA
@@ -102,6 +103,11 @@ const PDetails = () => {
   if (!product) {
     return (
       <NavLayoutTwo>
+        <SEO
+          title="Product Not Found"
+          description="The mineral product you're looking for could not be found. Browse our full export catalog of Himalayan salt and industrial minerals."
+          path={`/product-details/${id}`}
+        />
         <div className="min-h-[70vh] flex flex-col items-center justify-center text-center px-6">
           <Mountain className="w-12 h-12 text-stone-300 mb-4" />
           <h1 className="text-2xl font-bold text-stone-800 mb-2">Product not found</h1>
@@ -119,8 +125,26 @@ const PDetails = () => {
   const prevImg = () => setLightbox((lb) => ({ ...lb, index: (lb.index - 1 + lb.images.length) % lb.images.length }));
   const nextImg = () => setLightbox((lb) => ({ ...lb, index: (lb.index + 1) % lb.images.length }));
 
+  const productJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Product",
+    name: product.name,
+    description: product.desc,
+    category: product.category,
+    image: activeVariant?.images?.filter((img) => !img.is_video).map((img) => img.src),
+    brand: { "@type": "Brand", name: "Lumina Earth Minerals" },
+    url: canonicalFor(`/product-details/${product.id}`),
+  };
+
   return (
     <NavLayoutTwo>
+      <SEO
+        title={product.name}
+        description={`${product.desc} Sourced from ${product.origin}. Request a bulk quotation and export samples from Lumina Earth Minerals.`}
+        path={`/product-details/${product.id}`}
+        image={activeVariant?.images?.find((img) => !img.is_video)?.src}
+        jsonLd={productJsonLd}
+      />
       {lightbox && (
         <Lightbox images={lightbox.images} index={lightbox.index} onClose={closeLightbox} onPrev={prevImg} onNext={nextImg} />
       )}
@@ -154,7 +178,7 @@ const PDetails = () => {
               </p>
             </div>
 
-            <div className="bg-stone-900 text-white rounded-2xl px-6 py-5 min-w-[220px]">
+            <div className="bg-[#0d1f35] text-white rounded-2xl px-6 py-5 min-w-[220px]">
               <Mountain className="w-6 h-6 text-amber-400 mb-2" />
               <p className="text-xs text-stone-400 uppercase tracking-wide mb-1">Sourcing Note</p>
               <p className="text-sm font-medium leading-snug">{product.heroNote}</p>
@@ -253,19 +277,40 @@ const PDetails = () => {
                 <div className="p-6 lg:py-8 lg:pr-8 border-t lg:border-t-0 lg:border-l border-stone-100 flex flex-col">
                   <h3 className="text-2xl font-extrabold text-stone-900 mb-2">{activeVariant.label}</h3>
                   <p className="text-stone-600 leading-relaxed mb-5">{activeVariant.desc}</p>
-{activeVariant.purity && 
-<div className="bg-amber-50 border border-amber-100 rounded-xl px-4 py-3 mb-6 inline-flex items-center gap-2 w-fit">
-                    <FlaskConical className="w-4 h-4 text-amber-700" />
-                    <span className="text-sm font-bold text-amber-900">{activeVariant.purity}</span>
-                  </div>
-}
-                  
+
+                  {(activeVariant.purity || activeVariant.quality) && (
+                    <div className="flex flex-wrap gap-3 mb-5">
+                      {activeVariant.purity && (
+                        <div className="bg-amber-50 border border-amber-100 rounded-xl px-4 py-3 inline-flex items-center gap-2 w-fit">
+                          <FlaskConical className="w-4 h-4 text-amber-700 flex-shrink-0" />
+                          <span className="text-sm font-bold text-amber-900">{activeVariant.purity}</span>
+                        </div>
+                      )}
+                      {activeVariant.quality && (
+                        <div className="bg-[#0d1f35]/5 border border-[#0d1f35]/15 rounded-xl px-4 py-3 inline-flex items-center gap-2 w-fit">
+                          <Award className="w-4 h-4 text-[#0d1f35] flex-shrink-0" />
+                          <span className="text-sm font-bold text-[#0d1f35]">{activeVariant.quality}</span>
+                        </div>
+                      )}
+                    </div>
+                  )}
+
+                  {activeVariant.highlights?.length > 0 && (
+                    <ul className="space-y-2 mb-6">
+                      {activeVariant.highlights.map((h, i) => (
+                        <li key={i} className="flex items-start gap-2 text-sm text-stone-700">
+                          <CheckCircle className="w-4 h-4 text-amber-600 mt-0.5 flex-shrink-0" />
+                          {h}
+                        </li>
+                      ))}
+                    </ul>
+                  )}
 
                   {/* Sample chip */}
                   <div className="mt-auto flex flex-wrap gap-3">
                     <Link
                       to="/contact"
-                      className="inline-flex items-center gap-2 bg-stone-900 text-white px-5 py-3 rounded-xl font-semibold text-sm hover:bg-stone-800 transition"
+                      className="inline-flex items-center gap-2 bg-[#0d1f35] text-white px-5 py-3 rounded-xl font-semibold text-sm hover:bg-[#132844] transition"
                     >
                       <Truck className="w-4 h-4" /> Request a Quotation
                     </Link>
@@ -308,7 +353,7 @@ const PDetails = () => {
 
         {/* ── Lab Reports ── */}
         <div className="max-w-6xl mx-auto px-6 py-8">
-          <div className="bg-stone-900 rounded-3xl p-8 w-full border border-red-900">
+          <div className="bg-[#0d1f35] rounded-3xl p-8 w-full">
             <div className="flex items-center gap-2 mb-1">
               <FlaskConical className="w-5 h-5 text-amber-400" />
               <h3 className="text-sm font-bold uppercase tracking-widest text-amber-400">Quality Assurance</h3>
@@ -370,7 +415,7 @@ const PDetails = () => {
               Request a free sample, ask for a custom quotation, or speak with our export team about your requirements.
             </p>
             <div className="flex flex-wrap justify-center gap-3">
-              <Link to="/contact" className="bg-stone-900 text-white px-7 py-3 rounded-xl font-semibold hover:bg-stone-800 transition">
+              <Link to="/contact" className="bg-[#0d1f35] text-white px-7 py-3 rounded-xl font-semibold hover:bg-[#132844] transition">
                 Request a Sample
               </Link>
               <Link to="/contact" className="bg-white text-stone-900 border border-stone-300 px-7 py-3 rounded-xl font-semibold hover:bg-stone-50 transition">

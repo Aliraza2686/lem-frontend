@@ -12,6 +12,8 @@ import ScrollToTop from "./components/atoms/ScrollToTop";
 import { useEffect } from "react";
 import trackVisit from "./utills/tracker";
 import PDetails from "./pages/product-details/PDetails";
+import { WhatsAppButton } from "./components/atoms/WhatsAppButton";
+import { Terms } from "./pages/Terms";
 
 function App() {
    useEffect(() => {
@@ -21,6 +23,7 @@ function App() {
     <>
       <BrowserRouter>
         <ScrollToTop />
+        <WhatsAppButton />
 
         <Routes>
           <Route path="/" element={<Home />} />
@@ -31,10 +34,7 @@ function App() {
           <Route path="/private-label" element={<PrivateLabelingPage />} />
           <Route path="/workspace-images" element={<Gallery />} />
           <Route path="/product-details/:id" element={<PDetails />} />
-
-
-
-
+          <Route path="/terms" element={<Terms />} />
         </Routes>
       </BrowserRouter>
     </>

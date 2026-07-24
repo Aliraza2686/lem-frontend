@@ -35,44 +35,44 @@ export const MiniJumbo = () => {
   return (
     <>
       <style>{`
-        @import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Mono:wght@300;400;500&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400;1,600;1,700&family=Source+Sans+3:wght@300;400;500;600&family=DM+Mono:wght@300;400;500&display=swap');
 
-        .products-page { font-family: 'Syne', sans-serif; }
+        .products-page { font-family: 'Source Sans 3', sans-serif; }
 
         /* ── Dark Hero ── */
         .products-hero {
-          background: linear-gradient(160deg, #020c06 0%, #041a0c 50%, #020c06 100%);
+          background: linear-gradient(160deg, #051223 0%, #0d1f35 50%, #051223 100%);
           position: relative; overflow: hidden;
           padding: 72px 32px 64px;
-          border-bottom: 1px solid rgba(74,222,128,0.1);
+          border-bottom: 1px solid rgba(200,170,100,0.1);
         }
         .products-hero::before {
           content: ''; position: absolute; inset: 0;
-          background-image: linear-gradient(rgba(74,222,128,0.03) 1px, transparent 1px),
-                            linear-gradient(90deg, rgba(74,222,128,0.03) 1px, transparent 1px);
+          background-image: linear-gradient(rgba(200,170,100,0.03) 1px, transparent 1px),
+                            linear-gradient(90deg, rgba(200,170,100,0.03) 1px, transparent 1px);
           background-size: 60px 60px;
         }
         .hero-glow {
           position: absolute; top: -100px; left: -100px;
           width: 500px; height: 500px;
-          background: radial-gradient(circle, rgba(22,163,74,0.14) 0%, transparent 70%);
+          background: radial-gradient(circle, rgba(168,137,64,0.14) 0%, transparent 70%);
           pointer-events: none;
         }
         .hero-glow-2 {
           position: absolute; bottom: -80px; right: 5%;
           width: 400px; height: 400px;
-          background: radial-gradient(circle, rgba(4,120,87,0.1) 0%, transparent 70%);
+          background: radial-gradient(circle, rgba(138,111,58,0.1) 0%, transparent 70%);
           pointer-events: none;
         }
         .hero-inner { position: relative; z-index: 2; max-width: 1280px; margin: 0 auto; }
         .hero-eyebrow {
           display: inline-flex; align-items: center; gap: 8px;
           font-family: 'DM Mono', monospace; font-size: 12px;
-          letter-spacing: 0.15em; color: rgba(134,239,172,0.6);
+          letter-spacing: 0.15em; color: rgba(220,200,150,0.6);
           text-transform: uppercase; margin-bottom: 20px;
         }
         .hero-eyebrow-dot {
-          width: 6px; height: 6px; border-radius: 50%; background: #4ade80;
+          width: 6px; height: 6px; border-radius: 50%; background: #c8aa64;
           animation: pulse-dot 2s ease-in-out infinite;
         }
         @keyframes pulse-dot {
@@ -80,11 +80,12 @@ export const MiniJumbo = () => {
           50% { opacity:0.5; transform:scale(0.7); }
         }
         .hero-title {
+          font-family: 'Playfair Display', serif;
           font-size: clamp(32px, 5vw, 56px); font-weight: 800;
           color: #fff; margin: 0 0 16px; letter-spacing: -0.02em; line-height: 1.08;
         }
         .hero-title span {
-          background: linear-gradient(135deg, #4ade80, #86efac);
+          background: linear-gradient(135deg, #c8aa64, #d4ba78);
           -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
         }
         .hero-badges { display: flex; flex-wrap: wrap; gap: 10px; }
@@ -93,20 +94,20 @@ export const MiniJumbo = () => {
           letter-spacing: 0.08em; padding: 6px 14px;
           border-radius: 3px; font-weight: 500;
         }
-        .hbadge-green { background: rgba(22,163,74,0.12); border: 1px solid rgba(74,222,128,0.25); color: #4ade80; }
+        .hbadge-green { background: rgba(168,137,64,0.12); border: 1px solid rgba(200,170,100,0.25); color: #c8aa64; }
         .hbadge-orange { background: rgba(249,115,22,0.1); border: 1px solid rgba(249,115,22,0.25); color: #fb923c; }
         .hbadge-red { background: rgba(239,68,68,0.1); border: 1px solid rgba(239,68,68,0.25); color: #f87171; }
 
         /* ── Light section ── */
         .products-light {
-          background: #f8faf8;
+          background: #f2ede3;
           position: relative; overflow: hidden;
         }
         .products-light::before {
           content: ''; position: absolute; inset: 0;
           background-image:
-            linear-gradient(rgba(22,163,74,0.05) 1px, transparent 1px),
-            linear-gradient(90deg, rgba(22,163,74,0.05) 1px, transparent 1px);
+            linear-gradient(rgba(168,137,64,0.05) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(168,137,64,0.05) 1px, transparent 1px);
           background-size: 48px 48px;
           pointer-events: none;
         }
@@ -119,17 +120,17 @@ export const MiniJumbo = () => {
         .filter-bar { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; margin-bottom: 36px; }
         .filter-label {
           font-family: 'DM Mono', monospace; font-size: 11px;
-          letter-spacing: 0.12em; color: #4b7060;
+          letter-spacing: 0.12em; color: #4a5a4a;
           text-transform: uppercase; margin-right: 4px;
         }
         .filter-btn {
-          font-family: 'Syne', sans-serif; font-size: 12px; font-weight: 600;
+          font-family: 'Source Sans 3', sans-serif; font-size: 12px; font-weight: 600;
           letter-spacing: 0.04em; padding: 7px 16px; border-radius: 3px;
-          border: 1px solid rgba(22,163,74,0.2); background: #fff;
-          color: #4b7060; cursor: pointer; transition: all 0.2s ease;
+          border: 1px solid rgba(168,137,64,0.2); background: #fff;
+          color: #4a5a4a; cursor: pointer; transition: all 0.2s ease;
         }
-        .filter-btn:hover { border-color: rgba(22,163,74,0.5); color: #16a34a; background: rgba(22,163,74,0.04); }
-        .filter-btn.active { background: rgba(22,163,74,0.1); border-color: #16a34a; color: #16a34a; }
+        .filter-btn:hover { border-color: rgba(168,137,64,0.5); color: #a88940; background: rgba(168,137,64,0.04); }
+        .filter-btn.active { background: rgba(168,137,64,0.1); border-color: #a88940; color: #a88940; }
 
         /* ── Grid ── */
         .products-grid {
@@ -142,15 +143,15 @@ export const MiniJumbo = () => {
         /* ── Card ── */
         .product-card {
           background: #fff;
-          border: 1px solid rgba(22,163,74,0.13);
+          border: 1px solid rgba(168,137,64,0.13);
           border-radius: 10px; overflow: hidden;
           transition: all 0.3s ease;
           display: flex; flex-direction: column;
           box-shadow: 0 2px 12px rgba(0,0,0,0.05);
         }
         .product-card:hover {
-          border-color: rgba(22,163,74,0.35);
-          box-shadow: 0 20px 56px rgba(0,0,0,0.1), 0 0 20px rgba(22,163,74,0.07);
+          border-color: rgba(168,137,64,0.35);
+          box-shadow: 0 20px 56px rgba(0,0,0,0.1), 0 0 20px rgba(168,137,64,0.07);
           transform: translateY(-4px);
         }
 
@@ -164,7 +165,7 @@ export const MiniJumbo = () => {
         .product-card:hover .card-img-wrap img { transform: scale(1.06); filter: brightness(1); }
         .card-img-overlay {
           position: absolute; inset: 0;
-          background: linear-gradient(0deg, rgba(15,35,24,0.3) 0%, transparent 55%);
+          background: linear-gradient(0deg, rgba(13,31,53,0.3) 0%, transparent 55%);
           opacity: 0; transition: opacity 0.3s ease;
         }
         .product-card:hover .card-img-overlay { opacity: 1; }
@@ -175,10 +176,10 @@ export const MiniJumbo = () => {
           opacity: 0; transition: opacity 0.3s ease; z-index: 5;
         }
         .product-card:hover .card-corner { opacity: 1; }
-        .card-corner-tl { top: 8px; left: 8px; border-top: 2px solid #16a34a; border-left: 2px solid #16a34a; border-radius: 3px 0 0 0; }
-        .card-corner-tr { top: 8px; right: 8px; border-top: 2px solid #16a34a; border-right: 2px solid #16a34a; border-radius: 0 3px 0 0; }
-        .card-corner-bl { bottom: 8px; left: 8px; border-bottom: 2px solid #16a34a; border-left: 2px solid #16a34a; border-radius: 0 0 0 3px; }
-        .card-corner-br { bottom: 8px; right: 8px; border-bottom: 2px solid #16a34a; border-right: 2px solid #16a34a; border-radius: 0 0 3px 0; }
+        .card-corner-tl { top: 8px; left: 8px; border-top: 2px solid #a88940; border-left: 2px solid #a88940; border-radius: 3px 0 0 0; }
+        .card-corner-tr { top: 8px; right: 8px; border-top: 2px solid #a88940; border-right: 2px solid #a88940; border-radius: 0 3px 0 0; }
+        .card-corner-bl { bottom: 8px; left: 8px; border-bottom: 2px solid #a88940; border-left: 2px solid #a88940; border-radius: 0 0 0 3px; }
+        .card-corner-br { bottom: 8px; right: 8px; border-bottom: 2px solid #a88940; border-right: 2px solid #a88940; border-radius: 0 0 3px 0; }
 
         .card-badge-mine {
           position: absolute; top: 10px; left: 10px;
@@ -191,7 +192,7 @@ export const MiniJumbo = () => {
           position: absolute; top: 10px; right: 10px;
           font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: 0.1em;
           padding: 4px 10px; border-radius: 3px;
-          background: rgba(22,163,74,0.88); border: 1px solid rgba(22,163,74,0.5);
+          background: rgba(168,137,64,0.88); border: 1px solid rgba(168,137,64,0.5);
           color: #fff; z-index: 4; backdrop-filter: blur(6px);
         }
 
@@ -199,15 +200,16 @@ export const MiniJumbo = () => {
         .card-body { padding: 18px 18px 20px; flex: 1; display: flex; flex-direction: column; }
         .card-category {
           font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: 0.12em;
-          color: #16a34a; text-transform: uppercase; margin-bottom: 6px;
+          color: #a88940; text-transform: uppercase; margin-bottom: 6px;
         }
         .card-title {
-          font-weight: 700; font-size: 15px; color: #0f2318;
+          font-family: 'Playfair Display', serif;
+          font-weight: 700; font-size: 15px; color: #0d1f35;
           margin: 0 0 8px; letter-spacing: -0.01em; line-height: 1.3;
         }
         .card-desc {
           font-family: 'DM Mono', monospace; font-size: 12px; font-weight: 300;
-          color: #4b7060; line-height: 1.65; margin: 0 0 14px; flex: 1;
+          color: #4a5a4a; line-height: 1.65; margin: 0 0 14px; flex: 1;
         }
         .card-meta {
           display: flex; align-items: center; justify-content: space-between;
@@ -218,19 +220,19 @@ export const MiniJumbo = () => {
           font-family: 'DM Mono', monospace; font-size: 10px;
           color: #9ca3af; letter-spacing: 0.05em;
         }
-        .card-divider { height: 1px; background: rgba(22,163,74,0.1); margin-bottom: 14px; }
+        .card-divider { height: 1px; background: rgba(168,137,64,0.1); margin-bottom: 14px; }
         .card-cta {
           display: flex; align-items: center; justify-content: center; gap: 8px;
           width: 100%; padding: 11px;
-          font-family: 'Syne', sans-serif; font-size: 13px; font-weight: 700;
+          font-family: 'Source Sans 3', sans-serif; font-size: 13px; font-weight: 700;
           letter-spacing: 0.05em;
-          background: linear-gradient(135deg, #16a34a, #15803d);
+          background: linear-gradient(135deg, #a88940, #8a6f3a);
           color: #fff; border: none; border-radius: 4px;
           text-decoration: none; transition: all 0.25s ease; text-align: center;
         }
         .card-cta:hover {
-          background: linear-gradient(135deg, #15803d, #166534);
-          box-shadow: 0 6px 20px rgba(22,163,74,0.25);
+          background: linear-gradient(135deg, #8a6f3a, #6b5530);
+          box-shadow: 0 6px 20px rgba(168,137,64,0.25);
         }
 
         /* ── Responsive ── */
