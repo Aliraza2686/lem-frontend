@@ -1,10 +1,10 @@
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 import { useState, useEffect } from "react";
-import { ArrowRight, Ship, Globe, Award, Package, Phone, Mail, ChevronDown, FileText, Menu, X } from "lucide-react";
+import { ArrowRight, Ship, Globe, Award, Package, Phone, Mail, ChevronDown, FileText, Menu, X, ShieldCheck, Clock, Download } from "lucide-react";
 import { Link, useLocation } from "react-router-dom";
 import { Logo } from "./atoms/Logo";
-import { EMAIL, minerals, PHONE_NUMBER } from "../lib/utills";
+import { EMAIL, minerals, PHONE_NUMBER, CATALOG_URL } from "../lib/utills";
 
 const NAV_LINKS = [
   { label: "Home", to: "/" },
@@ -377,6 +377,18 @@ function Header() {
         }
         .drawer-quote:hover { background: linear-gradient(135deg, #d4ba78, #b89848); }
 
+        .drawer-catalog {
+          margin: 0 20px 12px;
+          display: flex; align-items: center; justify-content: center; gap: 8px;
+          font-family: 'Source Sans 3', sans-serif; font-size: 13px; font-weight: 600;
+          letter-spacing: 0.1em; text-transform: uppercase;
+          padding: 13px 24px; text-decoration: none;
+          background: transparent; color: #c8aa64;
+          border: 1px solid rgba(200,170,100,0.5);
+          transition: all 0.2s ease;
+        }
+        .drawer-catalog:hover { background: rgba(200,170,100,0.1); border-color: rgba(200,170,100,0.8); }
+
         .drawer-foot {
           padding: 14px 24px 24px;
           border-top: 1px solid rgba(200,170,100,0.1);
@@ -420,6 +432,31 @@ function Header() {
           line-height: 1.8; max-width: 500px; margin-bottom: 44px;
         }
         .hero-actions { display: flex; align-items: center; gap: 14px; flex-wrap: wrap; }
+        .trust-strip {
+          display: flex; align-items: stretch; gap: 14px; flex-wrap: wrap;
+          margin-top: 40px;
+        }
+        .trust-item {
+          display: flex; align-items: center; gap: 13px;
+          background: rgba(13,31,53,0.55);
+          border: 1px solid rgba(200,170,100,0.5);
+          border-radius: 6px;
+          padding: 14px 20px;
+          backdrop-filter: blur(8px);
+          box-shadow: 0 8px 24px rgba(0,0,0,0.25);
+        }
+        .trust-icon-wrap {
+          width: 38px; height: 38px; flex-shrink: 0;
+          background: rgba(200,170,100,0.18);
+          border: 1px solid rgba(200,170,100,0.6);
+          border-radius: 50%;
+          display: flex; align-items: center; justify-content: center;
+          color: #c8aa64;
+        }
+        .trust-item span {
+          font-family: 'Source Sans 3', sans-serif; font-size: 13px; font-weight: 700;
+          color: #fff; letter-spacing: 0.01em; line-height: 1.3;
+        }
         .btn-primary {
           display: inline-flex; align-items: center; gap: 10px;
           font-family: 'Source Sans 3', sans-serif; font-size: 13px;
@@ -438,6 +475,21 @@ function Header() {
           border: 1px solid rgba(255,255,255,0.28); transition: all 0.25s ease;
         }
         .btn-secondary:hover { border-color: rgba(255,255,255,0.58); background: rgba(255,255,255,0.07); color: #fff; }
+        .btn-catalog {
+          display: inline-flex; align-items: center; gap: 10px;
+          font-family: 'Source Sans 3', sans-serif; font-size: 13px;
+          font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase;
+          padding: 14px 30px; text-decoration: none;
+          background: rgba(255,255,255,0.96); color: #0d1f35;
+          border: 1px solid rgba(255,255,255,0.96); transition: all 0.25s ease;
+          box-shadow: 0 4px 24px rgba(0,0,0,0.2);
+        }
+        .btn-catalog:hover { background: #fff; box-shadow: 0 8px 32px rgba(0,0,0,0.3); transform: translateY(-2px); }
+        .btn-catalog .pdf-tag {
+          font-family: 'DM Mono', monospace; font-size: 9px; font-weight: 700;
+          background: #0d1f35; color: #c8aa64; padding: 2px 6px; border-radius: 3px;
+          letter-spacing: 0.05em;
+        }
 
         /* scroll hint */
         .scroll-hint {
@@ -527,6 +579,8 @@ function Header() {
           .hero-topbar  { padding: 8px 16px; }
           .hero-content { padding: 20px 20px 72px; }
           .hero-actions { flex-direction: column; align-items: flex-start; }
+          .trust-strip { flex-direction: column; align-items: stretch; gap: 12px; }
+          .trust-item { width: 100%; }
           .services-strip, .about-strip, .cta-banner { padding: 52px 20px; }
           .services-grid { grid-template-columns: 1fr; }
           .cta-title { font-size: 32px; }
@@ -583,6 +637,9 @@ function Header() {
         <Link to="/contact" className="drawer-quote" onClick={() => setMenuOpen(false)}>
           Request a Quote <ArrowRight size={14} />
         </Link>
+        <a href={CATALOG_URL} download className="drawer-catalog" onClick={() => setMenuOpen(false)}>
+          <Download size={14} /> Download Catalog
+        </a>
 
         {/* Footer contact */}
         <div className="drawer-foot">
@@ -675,6 +732,24 @@ function Header() {
                 <Link to="/products" className="btn-secondary">
                   <Ship size={14} /> View Our Products
                 </Link>
+                <a href={CATALOG_URL} download className="btn-catalog">
+                  <Download size={14} /> Download Catalog <span className="pdf-tag">PDF</span>
+                </a>
+              </div>
+
+              <div className="trust-strip">
+                <div className="trust-item">
+                  <div className="trust-icon-wrap"><ShieldCheck size={18} /></div>
+                  <span>Registered — Pakistan<br />Chamber of Commerce</span>
+                </div>
+                <div className="trust-item">
+                  <div className="trust-icon-wrap"><Clock size={18} /></div>
+                  <span>Years of Proven<br />Export Experience</span>
+                </div>
+                <div className="trust-item">
+                  <div className="trust-icon-wrap"><Globe size={18} /></div>
+                  <span>Direct-from-Mine Sourcing<br />Worldwide Export</span>
+                </div>
               </div>
             </div>
 

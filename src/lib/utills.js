@@ -8,6 +8,7 @@ export function cn(...inputs) {
 export const PHONE_NUMBER = "+92 3271177788"
 export const EMAIL = "contact@luminaearthminerals.com"
 export const ADDRESS = "Main pink salt market Khewra Punjab, Pakistan"
+export const CATALOG_URL = "/downloads/lumina-earth-minerals-catalog.pdf"
 
 export const topSellingProducts = [
   {

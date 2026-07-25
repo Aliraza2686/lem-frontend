@@ -1,9 +1,9 @@
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 import { useState, useEffect } from "react";
-import { ArrowRight, Phone, Mail, Menu, X } from "lucide-react";
+import { ArrowRight, Phone, Mail, Menu, X, Download } from "lucide-react";
 import { Link, useLocation } from "react-router-dom";
-import { EMAIL, PHONE_NUMBER } from "../../lib/utills";
+import { EMAIL, PHONE_NUMBER, CATALOG_URL } from "../../lib/utills";
 import { Logo } from "../atoms/Logo";
 import Footer from "../Footer";
 
@@ -124,6 +124,17 @@ export function NavLayoutTwo({ children }) {
         }
         .nl-cta:hover { background: rgba(200,170,100,0.12); border-color: rgba(200,170,100,0.9); color: #fff; }
 
+        /* Catalog download CTA */
+        .nl-catalog {
+          display: inline-flex; align-items: center; gap: 8px;
+          font-family: 'Source Sans 3', sans-serif; font-size: 12px; font-weight: 600;
+          letter-spacing: 0.1em; text-transform: uppercase;
+          padding: 10px 20px; background: linear-gradient(135deg, #c8aa64, #a88940);
+          color: #0d1f35; text-decoration: none;
+          transition: all 0.25s ease; white-space: nowrap;
+        }
+        .nl-catalog:hover { background: linear-gradient(135deg, #d4ba78, #b89848); box-shadow: 0 4px 18px rgba(200,170,100,0.35); }
+
         /* Hamburger */
         .nl-hamburger {
           display: none;
@@ -199,6 +210,18 @@ export function NavLayoutTwo({ children }) {
         }
         .nl-drawer-quote:hover { background: linear-gradient(135deg, #d4ba78, #b89848); }
 
+        .nl-drawer-catalog {
+          margin: 0 20px 12px;
+          display: flex; align-items: center; justify-content: center; gap: 8px;
+          font-family: 'Source Sans 3', sans-serif; font-size: 13px; font-weight: 600;
+          letter-spacing: 0.1em; text-transform: uppercase;
+          padding: 13px 24px; text-decoration: none;
+          background: transparent; color: #c8aa64;
+          border: 1px solid rgba(200,170,100,0.5);
+          transition: all 0.2s ease;
+        }
+        .nl-drawer-catalog:hover { background: rgba(200,170,100,0.1); border-color: rgba(200,170,100,0.8); }
+
         .nl-drawer-foot  {
           padding: 14px 24px 24px;
           border-top: 1px solid rgba(200,170,100,0.1); flex-shrink: 0;
@@ -218,6 +241,7 @@ export function NavLayoutTwo({ children }) {
           .nl-hamburger { display: flex !important; }
           .nl-links     { display: none !important; }
           .nl-cta       { display: none !important; }
+          .nl-catalog   { display: none !important; }
           .nl-overlay   { display: block; }
 
           .nl-topbar, .nl-nav { padding: 10px 16px; }
@@ -267,6 +291,9 @@ export function NavLayoutTwo({ children }) {
         <Link to="/contact" className="nl-drawer-quote" onClick={() => setMenuOpen(false)}>
           Request a Quote <ArrowRight size={14} />
         </Link>
+        <a href={CATALOG_URL} download className="nl-drawer-catalog" onClick={() => setMenuOpen(false)}>
+          <Download size={14} /> Download Catalog
+        </a>
 
         <div className="nl-drawer-foot">
           <div className="nl-drawer-foot-row"><Phone size={11} /> {PHONE_NUMBER}</div>
@@ -318,7 +345,12 @@ export function NavLayoutTwo({ children }) {
         </div>
 
         {/* Desktop CTA */}
-        <Link to="/contact" className="nl-cta">Request a Quote</Link>
+        <div style={{ display: "flex", alignItems: "center", gap: "10px" }}>
+          <a href={CATALOG_URL} download className="nl-catalog">
+            <Download size={13} /> Catalog PDF
+          </a>
+          <Link to="/contact" className="nl-cta">Request a Quote</Link>
+        </div>
       </nav>
 
       {/* ── Page content ── */}

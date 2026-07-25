@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import { ArrowRight, Package, Flame } from "lucide-react";
-import {  productsTwo } from "../lib/utills";
+import { ArrowRight, Package, Flame, Download } from "lucide-react";
+import { productsTwo, CATALOG_URL } from "../lib/utills";
 
 export const products = [
   // ...productsThree,
@@ -97,6 +97,31 @@ export const MiniJumbo = () => {
         .hbadge-green { background: rgba(168,137,64,0.12); border: 1px solid rgba(200,170,100,0.25); color: #c8aa64; }
         .hbadge-orange { background: rgba(249,115,22,0.1); border: 1px solid rgba(249,115,22,0.25); color: #fb923c; }
         .hbadge-red { background: rgba(239,68,68,0.1); border: 1px solid rgba(239,68,68,0.25); color: #f87171; }
+
+        .catalog-banner {
+          margin-top: 28px;
+          display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 16px;
+          background: rgba(255,255,255,0.04);
+          border: 1px solid rgba(200,170,100,0.3);
+          border-radius: 10px; padding: 18px 24px;
+        }
+        .catalog-banner-text h3 {
+          font-family: 'Playfair Display', serif; font-size: 17px; font-weight: 700;
+          color: #fff; margin-bottom: 3px;
+        }
+        .catalog-banner-text p {
+          font-family: 'DM Mono', monospace; font-size: 11.5px; color: rgba(220,200,150,0.6);
+        }
+        .catalog-banner-btn {
+          display: inline-flex; align-items: center; gap: 9px; flex-shrink: 0;
+          font-family: 'Source Sans 3', sans-serif; font-size: 13px; font-weight: 700;
+          letter-spacing: 0.06em; text-transform: uppercase;
+          padding: 13px 28px; text-decoration: none;
+          background: linear-gradient(135deg, #c8aa64, #a88940); color: #0d1f35;
+          border-radius: 6px; transition: all 0.25s ease;
+          box-shadow: 0 4px 20px rgba(200,170,100,0.3);
+        }
+        .catalog-banner-btn:hover { background: linear-gradient(135deg, #d4ba78, #b89848); box-shadow: 0 8px 28px rgba(200,170,100,0.4); transform: translateY(-2px); }
 
         /* ── Light section ── */
         .products-light {
@@ -276,6 +301,16 @@ export const MiniJumbo = () => {
                 <Flame size={12} style={{ display: "inline", marginRight: 5 }} />
                 Export Ready
               </span>
+            </div>
+
+            <div className="catalog-banner">
+              <div className="catalog-banner-text">
+                <h3>Want the full catalog offline?</h3>
+                <p>Company profile, specifications &amp; packaging — one PDF download.</p>
+              </div>
+              <a href={CATALOG_URL} download className="catalog-banner-btn">
+                <Download size={15} /> Download Catalog (PDF)
+              </a>
             </div>
           </div>
         </section>

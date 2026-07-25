@@ -1,6 +1,6 @@
-import { Mountain, Phone, Mail, MapPin, Facebook, Twitter, Instagram, ArrowRight } from "lucide-react";
+import { Mountain, Phone, Mail, MapPin, Facebook, Twitter, Instagram, ArrowRight, Download } from "lucide-react";
 import { Link } from "react-router-dom";
-import { ADDRESS, EMAIL, PHONE_NUMBER } from "../lib/utills";
+import { ADDRESS, EMAIL, PHONE_NUMBER, CATALOG_URL } from "../lib/utills";
 
 export default function Footer() {
   return (
@@ -64,6 +64,17 @@ export default function Footer() {
         }
 
         /* Socials */
+        .footer-catalog-btn {
+          display: inline-flex; align-items: center; gap: 9px;
+          font-family: 'Source Sans 3', sans-serif; font-size: 12px; font-weight: 700;
+          letter-spacing: 0.06em; text-transform: uppercase;
+          padding: 11px 22px; margin-bottom: 20px; text-decoration: none;
+          background: linear-gradient(135deg, #c8aa64, #a88940); color: #0d1f35;
+          border-radius: 6px; transition: all 0.25s ease;
+          box-shadow: 0 4px 18px rgba(200,170,100,0.2);
+        }
+        .footer-catalog-btn:hover { background: linear-gradient(135deg, #d4ba78, #b89848); box-shadow: 0 6px 24px rgba(200,170,100,0.3); transform: translateY(-1px); }
+
         .footer-socials { display: flex; gap: 10px; }
         .footer-social-btn {
           width: 34px; height: 34px; border-radius: 7px;
@@ -175,6 +186,9 @@ export default function Footer() {
   Your trusted export partner for Himalayan salt and premium minerals from Pakistan.
   Reliable sourcing, quality assurance, and worldwide bulk supply.
 </p>
+            <a href={CATALOG_URL} download className="footer-catalog-btn">
+              <Download size={14} /> Download Company Catalog (PDF)
+            </a>
             <div className="footer-socials">
               <Link to="https://web.facebook.com/LuminaEarthMineralsLLP" target="_blank" className="footer-social-btn" aria-label="Facebook">
                 <Facebook size={15} />

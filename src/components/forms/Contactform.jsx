@@ -1,21 +1,37 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
 /* eslint-disable no-case-declarations */
 import React, { useState } from "react";
-import { Package, MessageSquare, User, Check, ChevronsUpDown } from "lucide-react";
+import { Package, MessageSquare, User, Check, ChevronsUpDown, Truck, ChevronDown, MapPin } from "lucide-react";
 import { Combobox, ComboboxButton, ComboboxInput, ComboboxOption, ComboboxOptions } from "@headlessui/react";
-import { countries } from "../../lib/utills";
+import { countries, productsTwo } from "../../lib/utills";
 import api from "../../api";
 import Loader from "../loader";
 import { useSearchParams } from "react-router-dom";
 
+const UNIT_OPTIONS = ["Kilograms (KG)", "Metric Tons (MT)", "20ft Container", "40ft Container"];
+const INCOTERM_OPTIONS = ["FOB", "CIF", "CFR", "EXW", "Not sure / need guidance"];
+const DEFAULT_PACKAGING_OPTIONS = [
+  "25kg / 50kg PP bags",
+  "Jumbo bags (1 ton)",
+  "Bulk loose (truck/container)",
+  "Custom / private label packaging",
+];
+
+const emptyFormData = {
+  name: "",
+  email: "",
+  phone: "",
+  country: "",
+  message: "",
+  quantity: "",
+  unit: "",
+  packaging: "",
+  incoterm: "",
+  destinationPort: "",
+};
+
 export const ContactForm = () => {
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    phone: "",
-    country: "",
-    message: "",
-  });
+  const [formData, setFormData] = useState(emptyFormData);
 
   const [errors, setErrors] = useState({});
   const [isSubmitted, setIsSubmitted] = useState(false);
@@ -23,6 +39,10 @@ export const ContactForm = () => {
   const [countryQuery, setCountryQuery] = useState("");
   const [searchParams] = useSearchParams();
   const productId = searchParams.get("id");
+  const product = productsTwo.find((p) => p.id === productId);
+  const [showShipmentDetails, setShowShipmentDetails] = useState(!!productId);
+
+  const packagingOptions = product?.packaging?.length ? product.packaging : DEFAULT_PACKAGING_OPTIONS;
 
   const filteredCountries =
     countryQuery === ""
@@ -50,6 +70,11 @@ export const ContactForm = () => {
       case "message":
         return value.trim().length < 10
           ? "Please provide more details (minimum 10 characters)"
+          : "";
+
+      case "quantity":
+        return value && (isNaN(value) || Number(value) <= 0)
+          ? "Please enter a valid quantity"
           : "";
 
       default:
@@ -119,13 +144,7 @@ export const ContactForm = () => {
           <button
             onClick={() => {
               setIsSubmitted(false);
-              setFormData({
-                name: "",
-                email: "",
-                phone: "",
-                country: "",
-                message: "",
-              });
+              setFormData(emptyFormData);
             }}
             className="bg-green-600 text-white px-6 py-2 rounded-lg hover:bg-green-700 transition-colors"
           >
@@ -251,6 +270,117 @@ export const ContactForm = () => {
               )}
             </div>
           </div>
+        </div>
+
+        {/* Shipment / RFQ Details */}
+        <div className="border border-gray-200 rounded-lg">
+          <button
+            type="button"
+            onClick={() => setShowShipmentDetails((prev) => !prev)}
+            className="w-full flex items-center justify-between px-4 py-3 text-left"
+          >
+            <span className="text-xl font-semibold text-gray-800 flex items-center">
+              <Truck className="w-5 h-5 mr-2" />
+              Order Details {product ? `— ${product.name}` : ""}
+              <span className="ml-2 text-sm font-normal text-gray-500">(optional, helps us quote faster)</span>
+            </span>
+            <ChevronDown
+              className={`w-5 h-5 text-gray-400 transition-transform ${showShipmentDetails ? "rotate-180" : ""}`}
+            />
+          </button>
+
+          {showShipmentDetails && (
+            <div className="px-4 pb-4 space-y-4">
+              <div className="grid md:grid-cols-2 gap-4">
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-1">
+                    Quantity Needed
+                  </label>
+                  <input
+                    type="text"
+                    inputMode="decimal"
+                    name="quantity"
+                    value={formData.quantity}
+                    onChange={handleInputChange}
+                    className={`w-full px-3 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent ${errors.quantity ? "border-red-500" : "border-gray-300"
+                      }`}
+                    placeholder="e.g. 5000"
+                  />
+                  {errors.quantity && (
+                    <p className="text-red-500 text-sm mt-1">{errors.quantity}</p>
+                  )}
+                </div>
+
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-1">
+                    Unit
+                  </label>
+                  <select
+                    name="unit"
+                    value={formData.unit}
+                    onChange={handleInputChange}
+                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-white"
+                  >
+                    <option value="">Select unit</option>
+                    {UNIT_OPTIONS.map((unit) => (
+                      <option key={unit} value={unit}>{unit}</option>
+                    ))}
+                  </select>
+                </div>
+              </div>
+
+              <div className="grid md:grid-cols-2 gap-4">
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-1">
+                    Preferred Packaging
+                  </label>
+                  <select
+                    name="packaging"
+                    value={formData.packaging}
+                    onChange={handleInputChange}
+                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-white"
+                  >
+                    <option value="">Select packaging</option>
+                    {packagingOptions.map((option) => (
+                      <option key={option} value={option}>{option}</option>
+                    ))}
+                  </select>
+                </div>
+
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-1">
+                    Preferred Incoterm
+                  </label>
+                  <select
+                    name="incoterm"
+                    value={formData.incoterm}
+                    onChange={handleInputChange}
+                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-white"
+                  >
+                    <option value="">Select Incoterm</option>
+                    {INCOTERM_OPTIONS.map((term) => (
+                      <option key={term} value={term}>{term}</option>
+                    ))}
+                  </select>
+                </div>
+              </div>
+
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-1 flex items-center">
+                  <MapPin className="w-3.5 h-3.5 mr-1" />
+                  Destination Port
+                </label>
+                <input
+                  type="text"
+                  name="destinationPort"
+                  value={formData.destinationPort}
+                  onChange={handleInputChange}
+                  className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                  placeholder="e.g. Port of Shanghai"
+                />
+              </div>
+            </div>
+          )}
         </div>
 
         {/* Message */}
