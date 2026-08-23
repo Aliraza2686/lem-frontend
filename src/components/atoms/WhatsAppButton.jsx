@@ -9,7 +9,7 @@ export const WhatsAppButton = () => {
       <style>{`
         .wa-fab {
           position: fixed;
-          right: 22px;
+          left: 22px;
           bottom: 22px;
           z-index: 500;
           width: 76px;

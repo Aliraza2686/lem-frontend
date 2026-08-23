@@ -1,1 +1,35 @@
 @import "tailwindcss";
+
+/*
+  Zoho SalesIQ launcher overrides.
+  Selectors confirmed by inspecting the live rendered DOM (not guessed):
+  - #zsiq_float is the fixed-position circular wrapper (holds the click/drag
+    handler and the "Hey there! Live chat" tooltip, #zs-fl-tip, as a sibling).
+  - #zs_fl_logo is the circular <img> that is the actual visible button face.
+  Scaling/animating #zs_fl_logo (not the wrapper) enlarges only the visible
+  button and leaves the tooltip and the wrapper's click/drag box untouched,
+  so Zoho's own event handling keeps working unmodified.
+*/
+#zs_fl_logo {
+  transform: scale(1.5) !important;
+  animation: zsiq-launcher-pulse 2s ease-in-out infinite;
+}
+
+@keyframes zsiq-launcher-pulse {
+  0%,
+  100% {
+    transform: scale(1.5);
+    box-shadow: 0 0 0 0 rgba(13, 31, 53, 0.5);
+  }
+  50% {
+    transform: scale(1.6);
+    box-shadow: 0 0 0 14px rgba(13, 31, 53, 0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  #zs_fl_logo {
+    animation: none !important;
+    transform: scale(1.5) !important;
+  }
+}
