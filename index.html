@@ -7,25 +7,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="theme-color" content="#0d1f35" />
 
-    <title>Lumina Earth Minerals | Himalayan Salt & Mineral Exporter, Pakistan</title>
-    <meta name="description" content="Bulk exporter of Himalayan salt, Bentonite, Limestone, Antimony, Nephrite Jade, White Quartz, Silica Sand and Copper from Khewra, Pakistan. Private labeling, custom packaging and worldwide shipping for importers, distributors and manufacturers." />
+    <!--
+      title/description/canonical/og:*/twitter:* are intentionally NOT
+      duplicated here — every route renders <SEO> (src/components/atoms/SEO.jsx),
+      which sets them dynamically via react-helmet-async. Static duplicates here
+      previously caused two of each tag in the DOM, with tools that read the
+      first match (e.g. querySelector) picking up these stale site-wide
+      defaults instead of the per-page values. robots stays static since SEO.jsx
+      does not manage it.
+    -->
     <meta name="robots" content="index, follow" />
-    <link rel="canonical" href="https://luminaearthminerals.com/" />
-
-    <!-- Open Graph -->
-    <meta property="og:type" content="website" />
-    <meta property="og:site_name" content="Lumina Earth Minerals" />
-    <meta property="og:title" content="Lumina Earth Minerals | Himalayan Salt & Mineral Exporter, Pakistan" />
-    <meta property="og:description" content="Bulk exporter of Himalayan salt, Bentonite, Limestone, Antimony, Nephrite Jade, White Quartz, Silica Sand and Copper from Khewra, Pakistan. Private labeling, custom packaging and worldwide shipping." />
-    <meta property="og:url" content="https://luminaearthminerals.com/" />
-    <meta property="og:image" content="https://res.cloudinary.com/dptmeakuy/image/upload/v1755945081/7ccf29e1-b647-4a76-8fb4-b24aa23b964f_jwhnxt.jpg" />
-    <meta property="og:locale" content="en_US" />
-
-    <!-- Twitter -->
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Lumina Earth Minerals | Himalayan Salt & Mineral Exporter, Pakistan" />
-    <meta name="twitter:description" content="Bulk exporter of Himalayan salt, Bentonite, Limestone, Antimony, Nephrite Jade, White Quartz, Silica Sand and Copper from Khewra, Pakistan." />
-    <meta name="twitter:image" content="https://res.cloudinary.com/dptmeakuy/image/upload/v1755945081/7ccf29e1-b647-4a76-8fb4-b24aa23b964f_jwhnxt.jpg" />
 
     <script type="application/ld+json">
       {

@@ -1,6 +1,6 @@
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 /* eslint-disable jsx-a11y/no-static-element-interactions */
-import React, { useState, useMemo } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import {
   CheckCircle, Download, FlaskConical, Package, Mountain,
@@ -8,9 +8,10 @@ import {
   Layers, Globe2, ZoomIn, Award,
 } from 'lucide-react';
 import { NavLayoutTwo } from '../../components/layouts/NavLayoutTwo';
-import { productsTwo } from '../../lib/utills';
+import { getProduct } from '../../lib/products';
 import { SEO } from '../../components/atoms/SEO';
 import { canonicalFor } from '../../lib/seo';
+import { ProductImage } from '../../components/ProductImage';
 
 /* ─────────────────────────────────────────────────────────────────────────
    PRODUCT DATA
@@ -93,14 +94,49 @@ function Lightbox({ images, index, onClose, _onPrev, onNext }) {
 ───────────────────────────────────────────────────────────────────────── */
 const PDetails = () => {
   const { id } = useParams();
-  const product = useMemo(() => productsTwo.find((p) => p.id === id), [id]);
+  const [product, setProduct] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const [notFound, setNotFound] = useState(false);
 
-  const [activeVariantKey, setActiveVariantKey] = useState(product?.variants?.[0]?.key);
+  const [activeVariantKey, setActiveVariantKey] = useState(undefined);
   const [lightbox, setLightbox] = useState(null); // { images, index }
+
+  useEffect(() => {
+    let cancelled = false;
+    setLoading(true);
+    setNotFound(false);
+
+    getProduct(id)
+      .then((data) => {
+        if (cancelled) return;
+        setProduct(data);
+        setActiveVariantKey(data?.variants?.[0]?.key);
+      })
+      .catch(() => {
+        if (!cancelled) setNotFound(true);
+      })
+      .finally(() => {
+        if (!cancelled) setLoading(false);
+      });
+
+    return () => {
+      cancelled = true;
+    };
+  }, [id]);
 
   const activeVariant = product?.variants?.find((v) => v.key === activeVariantKey) || product?.variants?.[0];
 
-  if (!product) {
+  if (loading) {
+    return (
+      <NavLayoutTwo>
+        <div className="min-h-[70vh] flex items-center justify-center text-stone-500">
+          Loading product...
+        </div>
+      </NavLayoutTwo>
+    );
+  }
+
+  if (notFound || !product) {
     return (
       <NavLayoutTwo>
         <SEO
@@ -112,7 +148,7 @@ const PDetails = () => {
           <Mountain className="w-12 h-12 text-stone-300 mb-4" />
           <h1 className="text-2xl font-bold text-stone-800 mb-2">Product not found</h1>
           <p className="text-stone-500 mb-6">We couldn&apos;t find a product matching that ID.</p>
-          <Link to="/productsTwo" className="inline-flex items-center gap-2 bg-stone-800 text-white px-5 py-2.5 rounded-lg font-semibold hover:bg-stone-700 transition">
+          <Link to="/products" className="inline-flex items-center gap-2 bg-stone-800 text-white px-5 py-2.5 rounded-lg font-semibold hover:bg-stone-700 transition">
             <ArrowLeft className="w-4 h-4" /> Back to Products
           </Link>
         </div>
@@ -229,14 +265,10 @@ const PDetails = () => {
                     onClick={() => openLightbox(activeVariant.images, 0)}
                   >
 
-                    <img
+                    <ProductImage
                       src={activeVariant.images[0]?.src}
                       alt={activeVariant.label}
-                      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-                      onError={(e) => {
-                        e.target.style.display = 'none';
-                        e.target.parentElement.style.background = `linear-gradient(135deg, ${activeVariant.swatch}, #d9cdb8)`;
-                      }}
+                      className="transition-transform duration-500 group-hover:scale-105"
                     />
                     <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 bg-black/20 transition-opacity">
                       <ZoomIn className="w-8 h-8 text-white" />
@@ -260,11 +292,7 @@ const PDetails = () => {
                               onError={(e) => { e.target.style.display = 'none'; e.target.parentElement.style.background = `linear-gradient(135deg, ${activeVariant.swatch}, #d9cdb8)`; }}
                             />
                           </div> :
-                            <img
-                              src={img.src} alt=""
-                              className="w-full h-full object-cover"
-                              onError={(e) => { e.target.style.display = 'none'; e.target.parentElement.style.background = `linear-gradient(135deg, ${activeVariant.swatch}, #d9cdb8)`; }}
-                            />
+                            <ProductImage src={img.src} alt="" />
                           }
 
                         </button>

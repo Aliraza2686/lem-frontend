@@ -1,32 +1,30 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { ArrowRight, Package, Flame, Download } from "lucide-react";
-import { productsTwo, CATALOG_URL } from "../lib/utills";
-
-export const products = [
-  // ...productsThree,
-
-  ...productsTwo,
-
-];
-
-// const categories = [
-//   "All",
-//   "Salt Lamps",
-//   "Salt Bricks",
-//   "Edible Salt",
-//   "Animal Products",
-//   "Minerals",
-//   "Gemstones & Ornamental",
-// ];
-const categories = [
-  "All",
-  ...new Set(products.map((p) => p.category)),
-];
-// const categories = ["All", "Salt Lamps", "Salt Bricks", "Edible Salt", "Animal Products"];
+import { CATALOG_URL } from "../lib/utills";
+import { getProducts } from "../lib/products";
+import { ProductImage } from "./ProductImage";
 
 export const MiniJumbo = () => {
+  const [products, setProducts] = useState([]);
+  const [loading, setLoading] = useState(true);
   const [activeCategory, setActiveCategory] = useState("All");
+
+  useEffect(() => {
+    let cancelled = false;
+    getProducts()
+      .then((data) => {
+        if (!cancelled) setProducts(data);
+      })
+      .finally(() => {
+        if (!cancelled) setLoading(false);
+      });
+    return () => {
+      cancelled = true;
+    };
+  }, []);
+
+  const categories = ["All", ...new Set(products.map((p) => p.category))];
 
   const filtered = activeCategory === "All"
     ? products
@@ -335,11 +333,18 @@ export const MiniJumbo = () => {
           </div>
 
           {/* Products grid */}
+          {loading ? (
+            <div className="products-grid !mt-20">
+              <p style={{ gridColumn: "1 / -1", textAlign: "center", color: "#4a5a4a" }}>
+                Loading products...
+              </p>
+            </div>
+          ) : (
           <div className="products-grid !mt-20">
             {filtered.map((product) => (
               <div className="product-card" key={product.id}>
                 <div className="card-img-wrap">
-                  <img
+                  <ProductImage
                     src={
                       product.variants?.[0]?.images?.find(
                         (img) => !img.is_video
@@ -347,7 +352,6 @@ export const MiniJumbo = () => {
                     }
                     alt={product.name}
                   />
-                  {/* <img src={product.image} alt={product.name} /> */}
                   <div className="card-img-overlay" />
                   <div className="card-corner card-corner-tl" />
                   <div className="card-corner card-corner-tr" />
@@ -396,6 +400,7 @@ export const MiniJumbo = () => {
               </div>
             ))}
           </div>
+          )}
 
         </div>
       </div>

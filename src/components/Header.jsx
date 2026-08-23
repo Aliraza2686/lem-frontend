@@ -1,16 +1,21 @@
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 import { useState, useEffect } from "react";
-import { ArrowRight, Ship, Globe, Award, Package, Phone, Mail, ChevronDown, FileText, Menu, X, ShieldCheck, Clock, Download } from "lucide-react";
+import { ArrowRight, Ship, Globe, Award, Package, Phone, Mail, ChevronDown, FileText, Menu, X, ShieldCheck, Download, FlaskConical } from "lucide-react";
 import { Link, useLocation } from "react-router-dom";
 import { Logo } from "./atoms/Logo";
 import { EMAIL, minerals, PHONE_NUMBER, CATALOG_URL } from "../lib/utills";
+import { getProducts } from "../lib/products";
+
+const mineralLink = (mineral, catalogedIds) =>
+  catalogedIds.has(mineral.id) ? `/product-details/${mineral.id}` : "/contact";
 
 const NAV_LINKS = [
   { label: "Home", to: "/" },
   { label: "Products", to: "/products" },
   { label: "Private Label", to: "/private-label" },
   { label: "Gallery", to: "/workspace-images" },
+  { label: "Blog", to: "/blog" },
   { label: "About", to: "/about" },
   { label: "FAQ", to: "/faq" },
   { label: "Contact", to: "/contact" },
@@ -45,12 +50,23 @@ const services = [
 function Header() {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
+  const [catalogedMineralIds, setCatalogedMineralIds] = useState(new Set());
   const location = useLocation();
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 40);
     window.addEventListener("scroll", onScroll);
     return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
+  useEffect(() => {
+    let cancelled = false;
+    getProducts().then((data) => {
+      if (!cancelled) setCatalogedMineralIds(new Set(data.map((p) => p.id)));
+    });
+    return () => {
+      cancelled = true;
+    };
   }, []);
 
   useEffect(() => { setMenuOpen(false); }, [location.pathname]);
@@ -70,31 +86,38 @@ function Header() {
 
 .minerals-strip {
   background: #f2ede3;
-  padding: 80px 48px;
+  padding: 52px 40px;
   font-family: 'Source Sans 3', sans-serif;
+  display: flex;
+  justify-content: center;
 }
 
 
 .minerals-grid {
-  max-width: 900px;
+  max-width: 980px;
   margin: 0 auto;
 
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 24px;
+  gap: 18px;
 }
 
 
 .mineral-card {
   background: #ffffff;
-  padding: 34px 30px;
+  padding: 28px 22px 24px;
+  min-height: 172px;
 
   border: 1px solid rgba(200,170,100,0.25);
 
   position: relative;
   overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
 
-  transition: all 0.3s ease;
+  transition: all 0.25s ease;
 }
 
 
@@ -118,8 +141,8 @@ function Header() {
 
 
 .mineral-card:hover {
-  transform: translateY(-8px);
-  box-shadow:0 15px 35px rgba(0,0,0,.08);
+  transform: translateY(-5px);
+  box-shadow:0 12px 28px rgba(0,0,0,.08);
 }
 
 
@@ -133,15 +156,15 @@ function Header() {
 
   font-family:'DM Mono', monospace;
 
-  font-size:10px;
+  font-size:8.5px;
 
-  letter-spacing:.15em;
+  letter-spacing:.12em;
 
   text-transform:uppercase;
 
   color:#8a6f3a;
 
-  margin-bottom:14px;
+  margin-bottom:6px;
 
 }
 
@@ -152,22 +175,50 @@ function Header() {
   font-family:'Playfair Display', serif;
 
   font-size:24px;
+  font-weight: 800;
+  line-height: 1.15;
 
   color:#0d1f35;
 
-  margin-bottom:14px;
+  margin-bottom:10px;
 
 }
 
 
+.mineral-desc {
+  font-size: 12px;
+  color: #667;
+  line-height: 1.6;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
 
-.mineral-card p {
 
-  font-size:14px;
+.mineral-arrow {
+  margin-top: auto;
+  padding-top: 14px;
+  color: #a88940;
+  opacity: 0;
+  transform: translateY(3px);
+  transition: all 0.25s ease;
+}
 
-  color:#556;
+.mineral-card:hover .mineral-arrow {
+  opacity: 1;
+  transform: translateY(0);
+}
 
-  line-height:1.8;
+
+
+@media(max-width:1200px){
+
+  .minerals-grid{
+
+    grid-template-columns:repeat(2,1fr);
+
+  }
 
 }
 
@@ -189,15 +240,25 @@ function Header() {
 
   .minerals-strip{
 
-    padding:60px 20px;
+    padding:32px 20px;
 
   }
 
 
   .minerals-grid{
 
-    grid-template-columns:1fr;
+    grid-template-columns:repeat(2,1fr);
+    gap: 12px;
 
+  }
+
+  .mineral-card {
+    min-height: 150px;
+    padding: 22px 16px 18px;
+  }
+
+  .mineral-card h3 {
+    font-size: 20px;
   }
 
 }
@@ -432,31 +493,42 @@ function Header() {
           line-height: 1.8; max-width: 500px; margin-bottom: 44px;
         }
         .hero-actions { display: flex; align-items: center; gap: 14px; flex-wrap: wrap; }
-        .trust-strip {
-          display: flex; align-items: stretch; gap: 14px; flex-wrap: wrap;
-          margin-top: 40px;
+
+        /* ── Trust chips (exporter credibility badges, inside hero) ── */
+        .trust-chips {
+          display: flex; flex-wrap: wrap; gap: 10px;
+          margin-top: 38px;
+          max-width: 620px;
         }
-        .trust-item {
-          display: flex; align-items: center; gap: 13px;
-          background: rgba(13,31,53,0.55);
-          border: 1px solid rgba(200,170,100,0.5);
-          border-radius: 6px;
-          padding: 14px 20px;
+        .trust-chip {
+          display: inline-flex; align-items: center; gap: 9px;
+          background: rgba(255,255,255,0.07);
+          border: 1px solid rgba(200,170,100,0.4);
+          border-radius: 30px;
+          padding: 7px 16px 7px 7px;
           backdrop-filter: blur(8px);
-          box-shadow: 0 8px 24px rgba(0,0,0,0.25);
+          transition: all 0.25s ease;
         }
-        .trust-icon-wrap {
-          width: 38px; height: 38px; flex-shrink: 0;
-          background: rgba(200,170,100,0.18);
-          border: 1px solid rgba(200,170,100,0.6);
+        .trust-chip:hover {
+          background: rgba(200,170,100,0.14);
+          border-color: rgba(200,170,100,0.7);
+        }
+        .trust-chip-icon {
+          width: 28px; height: 28px; flex-shrink: 0;
+          background: rgba(200,170,100,0.2);
           border-radius: 50%;
           display: flex; align-items: center; justify-content: center;
           color: #c8aa64;
         }
-        .trust-item span {
-          font-family: 'Source Sans 3', sans-serif; font-size: 13px; font-weight: 700;
-          color: #fff; letter-spacing: 0.01em; line-height: 1.3;
+        .trust-chip span {
+          font-family: 'Source Sans 3', sans-serif; font-size: 12.5px; font-weight: 600;
+          color: #fff; letter-spacing: 0.01em; white-space: nowrap; padding-right: 4px;
         }
+        @media (max-width: 640px) {
+          .trust-chips { max-width: 100%; }
+          .trust-chip span { white-space: normal; }
+        }
+
         .btn-primary {
           display: inline-flex; align-items: center; gap: 10px;
           font-family: 'Source Sans 3', sans-serif; font-size: 13px;
@@ -579,8 +651,6 @@ function Header() {
           .hero-topbar  { padding: 8px 16px; }
           .hero-content { padding: 20px 20px 72px; }
           .hero-actions { flex-direction: column; align-items: flex-start; }
-          .trust-strip { flex-direction: column; align-items: stretch; gap: 12px; }
-          .trust-item { width: 100%; }
           .services-strip, .about-strip, .cta-banner { padding: 52px 20px; }
           .services-grid { grid-template-columns: 1fr; }
           .cta-title { font-size: 32px; }
@@ -737,18 +807,30 @@ function Header() {
                 </a>
               </div>
 
-              <div className="trust-strip">
-                <div className="trust-item">
-                  <div className="trust-icon-wrap"><ShieldCheck size={18} /></div>
-                  <span>Registered — Pakistan<br />Chamber of Commerce</span>
+              <div className="trust-chips">
+                <div className="trust-chip">
+                  <div className="trust-chip-icon"><FlaskConical size={13} /></div>
+                  <span>Lab-Tested Reports</span>
                 </div>
-                <div className="trust-item">
-                  <div className="trust-icon-wrap"><Clock size={18} /></div>
-                  <span>Years of Proven<br />Export Experience</span>
+                <div className="trust-chip">
+                  <div className="trust-chip-icon"><Package size={13} /></div>
+                  <span>Free Samples</span>
                 </div>
-                <div className="trust-item">
-                  <div className="trust-icon-wrap"><Globe size={18} /></div>
-                  <span>Direct-from-Mine Sourcing<br />Worldwide Export</span>
+                <div className="trust-chip">
+                  <div className="trust-chip-icon"><FileText size={13} /></div>
+                  <span>Export Documentation</span>
+                </div>
+                <div className="trust-chip">
+                  <div className="trust-chip-icon"><ShieldCheck size={13} /></div>
+                  <span>Chamber Registered</span>
+                </div>
+                <div className="trust-chip">
+                  <div className="trust-chip-icon"><Ship size={13} /></div>
+                  <span>Worldwide Shipping</span>
+                </div>
+                <div className="trust-chip">
+                  <div className="trust-chip-icon"><Award size={13} /></div>
+                  <span>Private Label Packaging</span>
                 </div>
               </div>
             </div>
@@ -763,7 +845,7 @@ function Header() {
                 {minerals.map((mineral) => (
 
                   <Link
-                    to={`/product-details/${mineral?.id}`}
+                    to={mineralLink(mineral, catalogedMineralIds)}
                     key={mineral.name}
                     className="mineral-card"
                   >
@@ -772,24 +854,17 @@ function Header() {
                       {mineral.category}
                     </div>
 
-
                     <h3>
                       {mineral.name}
                     </h3>
 
-
-                    <p>
+                    <p className="mineral-desc">
                       {mineral.desc}
                     </p>
 
-
-                    <Link
-                      to={`/product-details/${mineral?.id}`}
-                      className="mineral-btn flex gap-2 items-center mt-2"
-                    >
-                      View Details <ArrowRight size={14} />
-                    </Link>
-
+                    <div className="mineral-arrow">
+                      <ArrowRight size={13} />
+                    </div>
 
                   </Link>
 

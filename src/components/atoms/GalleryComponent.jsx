@@ -2,14 +2,26 @@
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 'use client';
 
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import { X } from "lucide-react"
-import { cn, productsTwo } from "../../lib/utills";
+import { cn } from "../../lib/utills";
+import { getProducts } from "../../lib/products";
 
 
 export function GalleryComponent() {
     const [selectedImage, setSelectedImage] = useState(null)
     const [isLoaded, setIsLoaded] = useState({})
+    const [galleryProducts, setGalleryProducts] = useState([])
+
+    useEffect(() => {
+        let cancelled = false
+        getProducts().then((data) => {
+            if (!cancelled) setGalleryProducts(data)
+        })
+        return () => {
+            cancelled = true
+        }
+    }, [])
 
     const handleImageLoad = (id) => {
         setIsLoaded((prev) => ({ ...prev, [id]: true }))
@@ -22,7 +34,7 @@ export function GalleryComponent() {
     }
 
 
-const productGalleryImages = productsTwo.flatMap((product) =>
+const productGalleryImages = galleryProducts.flatMap((product) =>
   (product.variants ?? []).flatMap((variant) =>
     (variant.images ?? [])
       .filter((img) => img && !img.is_video)
@@ -32,8 +44,6 @@ const productGalleryImages = productsTwo.flatMap((product) =>
       }))
   )
 );
-
-console.log(productGalleryImages, "productGalleryImages");
 
 const existingGallery = [
     {

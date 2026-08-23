@@ -1,9 +1,10 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
 /* eslint-disable no-case-declarations */
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Package, MessageSquare, User, Check, ChevronsUpDown, Truck, ChevronDown, MapPin } from "lucide-react";
 import { Combobox, ComboboxButton, ComboboxInput, ComboboxOption, ComboboxOptions } from "@headlessui/react";
-import { countries, productsTwo } from "../../lib/utills";
+import { countries } from "../../lib/utills";
+import { getProduct } from "../../lib/products";
 import api from "../../api";
 import Loader from "../loader";
 import { useSearchParams } from "react-router-dom";
@@ -39,8 +40,26 @@ export const ContactForm = () => {
   const [countryQuery, setCountryQuery] = useState("");
   const [searchParams] = useSearchParams();
   const productId = searchParams.get("id");
-  const product = productsTwo.find((p) => p.id === productId);
+  const [product, setProduct] = useState(null);
   const [showShipmentDetails, setShowShipmentDetails] = useState(!!productId);
+
+  useEffect(() => {
+    if (!productId) {
+      setProduct(null);
+      return;
+    }
+    let cancelled = false;
+    getProduct(productId)
+      .then((data) => {
+        if (!cancelled) setProduct(data);
+      })
+      .catch(() => {
+        if (!cancelled) setProduct(null);
+      });
+    return () => {
+      cancelled = true;
+    };
+  }, [productId]);
 
   const packagingOptions = product?.packaging?.length ? product.packaging : DEFAULT_PACKAGING_OPTIONS;
 

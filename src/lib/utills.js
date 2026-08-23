@@ -1201,6 +1201,30 @@ export const minerals = [
     category: "Metallic Mineral",
     desc: "Quality copper sourced from Pakistan mineral deposits for industrial, electrical, and manufacturing applications."
   },
+  {
+    id: "bauxite",
+    name: "Bauxite",
+    category: "Industrial Mineral",
+    desc: "Bauxite ore sourced from Pakistan mineral regions, supplied for alumina refining, aluminum production, and refractory applications. Available on request."
+  },
+  {
+    id: "calcium-fluoride",
+    name: "Calcium Fluoride",
+    category: "Industrial Mineral",
+    desc: "Fluorite (Calcium Fluoride) supplied for steel, cement, and chemical manufacturing flux applications. Available on request."
+  },
+  {
+    id: "lead-ore",
+    name: "Lead Ore",
+    category: "Metallic Mineral",
+    desc: "Lead ore sourced on request for smelting and industrial lead production, with grades and documentation confirmed per order."
+  },
+  {
+    id: "chrome-ore",
+    name: "Chrome Ore",
+    category: "Metallic Mineral",
+    desc: "Chrome ore available on inquiry for ferrochrome, stainless steel, and refractory applications, subject to mine availability."
+  },
 //   {
 //   id: "fluorite",
 //   name: "Fluorite",
