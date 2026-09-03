@@ -43,6 +43,12 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://www.luminaearthminerals.com/blog</loc>
+    <lastmod>2026-07-24</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://www.luminaearthminerals.com/product-details/salt</loc>
     <lastmod>2026-07-24</lastmod>
     <changefreq>monthly</changefreq>
@@ -89,5 +95,53 @@
     <lastmod>2026-07-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.luminaearthminerals.com/blog/sodium-vs-calcium-bentonite-which-type-does-your-industry-actually-need</loc>
+    <lastmod>2026-08-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.luminaearthminerals.com/blog/himalayan-pink-salt-wholesale-a-guide-for-bulk-buyers-and-importers</loc>
+    <lastmod>2026-08-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.luminaearthminerals.com/blog/water-grade-bentonite-quality-control-what-to-check-on-a-certificate-of-analysis</loc>
+    <lastmod>2026-08-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.luminaearthminerals.com/blog/how-oil-grade-bentonite-is-processed-differently-from-other-grades</loc>
+    <lastmod>2026-09-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.luminaearthminerals.com/blog/sourcing-bulk-sodium-bentonite-for-piling-contractors-dosage-specs-and-supplier-vetting</loc>
+    <lastmod>2026-08-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.luminaearthminerals.com/blog/bauxite-what-it-is-how-its-mined-and-why-industries-depend-on-it</loc>
+    <lastmod>2026-08-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.luminaearthminerals.com/blog/white-bentonite-oil-grade-vs-water-grade-whats-the-difference-and-which-do-you-need</loc>
+    <lastmod>2026-08-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.luminaearthminerals.com/blog/how-bentonite-is-used-in-piling-and-construction</loc>
+    <lastmod>2026-08-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
   </url>
 </urlset>
