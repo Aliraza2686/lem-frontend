@@ -210,11 +210,11 @@ export default function FAQ({ isHome = false }) {
         }
         .faq-search-icon {
           position: absolute; right: 16px; top: 50%; transform: translateY(-50%);
-          color: #4a5a4a; pointer-events: none;
+          color: #57534e; pointer-events: none;
         }
         .search-count {
           font-family: 'DM Mono', monospace; font-size: 11px;
-          color: #4a5a4a; letter-spacing: 0.08em; margin-top: 10px;
+          color: #57534e; letter-spacing: 0.08em; margin-top: 10px;
         }
 
         /* ── Category tabs ── */
@@ -227,7 +227,7 @@ export default function FAQ({ isHome = false }) {
           font-family: 'Source Sans 3', sans-serif; font-size: 12px; font-weight: 600;
           letter-spacing: 0.04em; padding: 6px 14px; border-radius: 3px;
           border: 1px solid rgba(168,137,64,0.2); background: #fff;
-          color: #4a5a4a; cursor: pointer; transition: all 0.2s ease;
+          color: #57534e; cursor: pointer; transition: all 0.2s ease;
         }
         .faq-tab:hover { border-color: rgba(168,137,64,0.45); color: #a88940; background: rgba(168,137,64,0.04); }
         .faq-tab.active { background: rgba(168,137,64,0.1); border-color: #a88940; color: #a88940; }
@@ -289,7 +289,7 @@ export default function FAQ({ isHome = false }) {
         }
 
         .faq-chevron {
-          flex-shrink: 0; margin-top: 2px; color: #4a5a4a;
+          flex-shrink: 0; margin-top: 2px; color: #57534e;
           transition: transform 0.3s ease, color 0.2s ease;
         }
         .faq-item.open .faq-chevron { transform: rotate(180deg); color: #a88940; }
@@ -305,14 +305,14 @@ export default function FAQ({ isHome = false }) {
           margin: 0 22px 22px 72px;
           padding-top: 16px;
           font-family: 'DM Mono', monospace; font-size: 13px; font-weight: 300;
-          color: #4a5a4a; line-height: 1.75;
+          color: #57534e; line-height: 1.75;
           border-top: 1px solid rgba(168,137,64,0.08);
         }
 
         /* ── Empty state ── */
         .faq-empty {
           text-align: center; padding: 64px 32px;
-          font-family: 'DM Mono', monospace; color: #4a5a4a; font-size: 14px;
+          font-family: 'DM Mono', monospace; color: #57534e; font-size: 14px;
         }
         .faq-empty button {
           margin-top: 14px; background: transparent;
@@ -344,7 +344,7 @@ export default function FAQ({ isHome = false }) {
         }
         .faq-view-count {
           font-family: 'DM Mono', monospace; font-size: 11px;
-          color: #4a5a4a; margin-top: 12px; letter-spacing: 0.08em;
+          color: #57534e; margin-top: 12px; letter-spacing: 0.08em;
         }
 
         /* ── CTA (full page only) ── */
@@ -363,15 +363,15 @@ export default function FAQ({ isHome = false }) {
           content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
           background: linear-gradient(90deg, transparent, #a88940, transparent);
         }
-        .faq-cta-inner h3 {
+        .faq-cta-inner h2 {
           font-family: 'Playfair Display', serif;
           font-size: 24px; font-weight: 800; color: #0d1f35;
           letter-spacing: -0.02em; margin: 0 0 12px;
         }
-        .faq-cta-inner h3 span { color: #a88940; }
+        .faq-cta-inner h2 span { color: #a88940; }
         .faq-cta-inner p {
           font-family: 'DM Mono', monospace; font-size: 13px; font-weight: 300;
-          color: #4a5a4a; margin: 0 0 28px; line-height: 1.7;
+          color: #57534e; margin: 0 0 28px; line-height: 1.7;
         }
         .faq-cta-btn {
           display: inline-flex; align-items: center; gap: 8px;
@@ -399,21 +399,23 @@ export default function FAQ({ isHome = false }) {
 
       <div className="faq-page">
 
-        {/* ── Dark Hero ── */}
-        <section className="faq-hero">
-          <div className="faq-glow" />
-          <div className="faq-hero-inner">
-            <div className="faq-eyebrow">
-              <div className="eyebrow-dot" />
-              Knowledge Base
+        {/* ── Dark Hero (full page only — Home already has its own H1 via Header) ── */}
+        {!isHome && (
+          <section className="faq-hero">
+            <div className="faq-glow" />
+            <div className="faq-hero-inner">
+              <div className="faq-eyebrow">
+                <div className="eyebrow-dot" />
+                Knowledge Base
+              </div>
+              <h1>Frequently Asked <span>Questions</span></h1>
+              <p>
+                Everything you need to know about our Himalayan salt products,
+                bulk ordering, private labeling, and global shipping.
+              </p>
             </div>
-            <h1>Frequently Asked <span>Questions</span></h1>
-            <p>
-              Everything you need to know about our Himalayan salt products,
-              bulk ordering, private labeling, and global shipping.
-            </p>
-          </div>
-        </section>
+          </section>
+        )}
 
         {/* ── Light section ── */}
         <div className="faq-light">
@@ -509,7 +511,7 @@ export default function FAQ({ isHome = false }) {
           {!isHome && (
             <div className="faq-cta">
               <div className="faq-cta-inner">
-                <h3>Still Have <span>Questions?</span></h3>
+                <h2>Still Have <span>Questions?</span></h2>
                 <p>
                   Our team is ready to assist you with your bulk Himalayan salt requirements.
                   Get in touch and we&apos;ll respond within 24 hours.

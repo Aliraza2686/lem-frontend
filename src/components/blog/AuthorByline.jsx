@@ -1,7 +1,7 @@
 import { getAuthorDisplayName, getAuthorInitials } from "../../lib/articles";
 import { cn } from "../../lib/utills";
 
-export function AuthorByline({ author, date, readTime, size = "md", className }) {
+export function AuthorByline({ author, date, modifiedDate, readTime, size = "md", className }) {
   const name = getAuthorDisplayName(author);
   const initials = getAuthorInitials(author);
   const avatarSize = size === "sm" ? "w-8 h-8 text-[11px]" : "w-11 h-11 text-sm";
@@ -9,6 +9,11 @@ export function AuthorByline({ author, date, readTime, size = "md", className })
   const formattedDate = date
     ? new Date(date).toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric" })
     : null;
+
+  const formattedModified =
+    modifiedDate && modifiedDate !== date
+      ? new Date(modifiedDate).toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric" })
+      : null;
 
   return (
     <div className={cn("flex items-center gap-3", className)}>
@@ -26,7 +31,11 @@ export function AuthorByline({ author, date, readTime, size = "md", className })
           {name}
         </p>
         <p className={cn("text-stone-500 leading-tight", size === "sm" ? "text-[11px]" : "text-xs")}>
-          {[formattedDate, readTime ? `${readTime} min read` : null].filter(Boolean).join(" · ")}
+          {[
+            formattedDate ? `Published ${formattedDate}` : null,
+            formattedModified ? `Updated ${formattedModified}` : null,
+            readTime ? `${readTime} min read` : null,
+          ].filter(Boolean).join(" · ")}
         </p>
       </div>
     </div>

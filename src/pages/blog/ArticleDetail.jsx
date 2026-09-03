@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 import { AlertTriangle, ArrowLeft, FileText, Mountain } from "lucide-react";
 import { NavLayoutTwo } from "../../components/layouts/NavLayoutTwo";
 import { SEO } from "../../components/atoms/SEO";
-import { canonicalFor } from "../../lib/seo";
+import { canonicalFor, ORGANIZATION_ID } from "../../lib/seo";
 import { getArticleBySlug, getAuthorDisplayName } from "../../lib/articles";
 import { parseArticleContent } from "../../lib/parseArticleContent";
 import { useArticleSectionObserver } from "../../hooks/useArticleSectionObserver";
@@ -81,7 +81,7 @@ export default function ArticleDetail() {
           <AlertTriangle className="w-10 h-10 text-red-400 mb-4" />
           <p className="text-stone-700 font-semibold mb-2">Couldn&apos;t load this article</p>
           <p className="text-stone-500 text-sm mb-6">{state.error}</p>
-          <Link to="/blog" className="text-sm font-semibold text-[#a88940] hover:underline">
+          <Link to="/blog" className="text-sm font-semibold text-[#8a6f3a] hover:underline">
             Back to Blog
           </Link>
         </div>
@@ -102,9 +102,23 @@ export default function ArticleDetail() {
     datePublished: publishDate,
     dateModified,
     author: { "@type": "Person", name: authorName },
+    publisher: { "@id": ORGANIZATION_ID },
     wordCount: article.wordCount,
-    mainEntityOfPage: canonicalFor(`/blog/${article.slug}`),
+    mainEntityOfPage: {
+      "@type": "WebPage",
+      "@id": canonicalFor(`/blog/${article.slug}`),
+    },
     description: article.excerpt,
+  };
+
+  const breadcrumbJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Home", item: canonicalFor("/") },
+      { "@type": "ListItem", position: 2, name: "Blog", item: canonicalFor("/blog") },
+      { "@type": "ListItem", position: 3, name: article.title, item: canonicalFor(`/blog/${article.slug}`) },
+    ],
   };
 
   return (
@@ -118,7 +132,7 @@ export default function ArticleDetail() {
         publishedTime={publishDate}
         modifiedTime={dateModified}
         authorName={authorName}
-        jsonLd={jsonLd}
+        jsonLd={[jsonLd, breadcrumbJsonLd]}
       />
 
       <ReadingProgressBar targetRef={scrollTargetRef} />
@@ -133,7 +147,7 @@ export default function ArticleDetail() {
         animate={{ opacity: 1 }}
         exit={{ opacity: 0 }}
         transition={{ duration: 0.35, ease: "easeOut" }}
-        className="bg-[#FAF8F4]"
+        className="bg-[#F2EDE3]"
       >
         <div ref={scrollTargetRef}>
           {/* Immersive hero */}
@@ -157,7 +171,7 @@ export default function ArticleDetail() {
 
           <div className="max-w-4xl mx-auto px-6 pt-8">
             <div className="flex flex-wrap items-center justify-between gap-4 pb-8 border-b border-stone-200">
-              <AuthorByline author={article.author} date={publishDate} readTime={article.readTime} />
+              <AuthorByline author={article.author} date={publishDate} modifiedDate={dateModified} readTime={article.readTime} />
               <p className="text-xs font-mono text-stone-400 uppercase tracking-wide">
                 {article.wordCount?.toLocaleString()} words · {article.views} views
               </p>

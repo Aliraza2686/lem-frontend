@@ -103,7 +103,7 @@ export const MiniJumbo = () => {
           border: 1px solid rgba(200,170,100,0.3);
           border-radius: 10px; padding: 18px 24px;
         }
-        .catalog-banner-text h3 {
+        .catalog-banner-text h2 {
           font-family: 'Playfair Display', serif; font-size: 17px; font-weight: 700;
           color: #fff; margin-bottom: 3px;
         }
@@ -143,14 +143,14 @@ export const MiniJumbo = () => {
         .filter-bar { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; margin-bottom: 36px; }
         .filter-label {
           font-family: 'DM Mono', monospace; font-size: 11px;
-          letter-spacing: 0.12em; color: #4a5a4a;
+          letter-spacing: 0.12em; color: #57534e;
           text-transform: uppercase; margin-right: 4px;
         }
         .filter-btn {
           font-family: 'Source Sans 3', sans-serif; font-size: 12px; font-weight: 600;
           letter-spacing: 0.04em; padding: 7px 16px; border-radius: 3px;
           border: 1px solid rgba(168,137,64,0.2); background: #fff;
-          color: #4a5a4a; cursor: pointer; transition: all 0.2s ease;
+          color: #57534e; cursor: pointer; transition: all 0.2s ease;
         }
         .filter-btn:hover { border-color: rgba(168,137,64,0.5); color: #a88940; background: rgba(168,137,64,0.04); }
         .filter-btn.active { background: rgba(168,137,64,0.1); border-color: #a88940; color: #a88940; }
@@ -232,7 +232,7 @@ export const MiniJumbo = () => {
         }
         .card-desc {
           font-family: 'DM Mono', monospace; font-size: 12px; font-weight: 300;
-          color: #4a5a4a; line-height: 1.65; margin: 0 0 14px; flex: 1;
+          color: #57534e; line-height: 1.65; margin: 0 0 14px; flex: 1;
         }
         .card-meta {
           display: flex; align-items: center; justify-content: space-between;
@@ -303,7 +303,7 @@ export const MiniJumbo = () => {
 
             <div className="catalog-banner">
               <div className="catalog-banner-text">
-                <h3>Want the full catalog offline?</h3>
+                <h2>Want the full catalog offline?</h2>
                 <p>Company profile, specifications &amp; packaging — one PDF download.</p>
               </div>
               <a href={CATALOG_URL} download className="catalog-banner-btn">
@@ -315,6 +315,7 @@ export const MiniJumbo = () => {
 
         {/* ── Light section: filters + grid ── */}
         <div className="products-light">
+          <h2 className="sr-only">Our Product Catalog</h2>
 
           {/* Filter bar */}
           <div className="filter-section hidden">
@@ -335,7 +336,7 @@ export const MiniJumbo = () => {
           {/* Products grid */}
           {loading ? (
             <div className="products-grid !mt-20">
-              <p style={{ gridColumn: "1 / -1", textAlign: "center", color: "#4a5a4a" }}>
+              <p style={{ gridColumn: "1 / -1", textAlign: "center", color: "#57534e" }}>
                 Loading products...
               </p>
             </div>

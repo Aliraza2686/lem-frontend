@@ -78,7 +78,7 @@ export const CTA = () => {
 
         .cta-desc {
           font-family: 'DM Mono', monospace; font-size: 14px; font-weight: 300;
-          color: #4a5a4a; line-height: 1.75;
+          color: #57534e; line-height: 1.75;
           max-width: 540px; margin: 0 auto 36px;
         }
 

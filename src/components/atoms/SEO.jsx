@@ -41,7 +41,11 @@ export const SEO = ({
       <meta name="twitter:image" content={image} />
 
       {jsonLd && (
-        <script type="application/ld+json">{JSON.stringify(jsonLd)}</script>
+        Array.isArray(jsonLd)
+          ? jsonLd.filter(Boolean).map((block, i) => (
+              <script key={i} type="application/ld+json">{JSON.stringify(block)}</script>
+            ))
+          : <script type="application/ld+json">{JSON.stringify(jsonLd)}</script>
       )}
     </Helmet>
   );

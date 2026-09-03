@@ -7,13 +7,14 @@ import { NavLayout } from '../components/layouts/NavLayout'
 import FAQ from '../components/Faq'
 import Header from "../components/Header"
 import { SEO } from '../components/atoms/SEO'
+import { LatestBlogPosts } from '../components/blog/LatestBlogPosts'
 
 export const Home = () => {
   return (
     <>
       <SEO
-        title="Himalayan Salt & Mineral Exporter, Pakistan"
-        description="Global supplier of Himalayan Salt, Bentonite, Limestone, Antimony, Nephrite Jade, White Quartz, Silica Sand and Copper from Khewra, Pakistan. Bulk export, private labeling and worldwide logistics for importers, distributors and manufacturers."
+        title="Himalayan Salt & Mineral Exporter"
+        description="Global supplier of Himalayan Salt, Bentonite, Limestone, Antimony, Nephrite Jade, White Quartz, Silica Sand and Copper from Khewra, Pakistan for bulk export."
         path="/"
       />
       <NavLayout>
@@ -21,6 +22,7 @@ export const Home = () => {
       {/* <TopSelling /> */}
       {/* <Features /> */}
       {/* <Story /> */}
+      <LatestBlogPosts />
       <FAQ isHome={true} />
       </NavLayout>
     </>

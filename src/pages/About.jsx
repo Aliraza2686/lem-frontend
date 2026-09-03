@@ -5,6 +5,7 @@ import { NavLayoutTwo } from "../components/layouts/NavLayoutTwo";
 import { SEO } from "../components/atoms/SEO";
 import { CATALOG_URL } from "../lib/utills";
 import { getProducts } from "../lib/products";
+import { canonicalFor, ORGANIZATION_ID } from "../lib/seo";
 
 const portfolioSpec = (product) => {
   const v = product.variants?.[0];
@@ -85,9 +86,17 @@ const values = [
   return (
     <NavLayoutTwo>
       <SEO
-        title="About Us"
-        description="Lumina Earth Minerals is a Pakistan-based mineral export company sourcing Bentonite, Nephrite, Fluorite, Limestone, Silica Sand and Himalayan Salt from the Khewra Salt Range for global B2B buyers."
+        title="About Us — Pakistan Mineral Exporter"
+        description="Lumina Earth Minerals is a Pakistan-based mineral exporter sourcing Bentonite, Nephrite, Limestone, Silica Sand and Himalayan Salt from the Khewra Salt Range."
         path="/about"
+        jsonLd={{
+          "@context": "https://schema.org",
+          "@type": "AboutPage",
+          "@id": `${canonicalFor("/about")}#webpage`,
+          url: canonicalFor("/about"),
+          about: { "@id": ORGANIZATION_ID },
+          mainEntity: { "@id": ORGANIZATION_ID },
+        }}
       />
       <style>{`
         @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400;1,600;1,700&family=Source+Sans+3:wght@300;400;500;600&family=DM+Mono:wght@300;400;500&display=swap');
@@ -267,7 +276,7 @@ const values = [
           font-family: 'DM Mono', monospace;
           font-size: 13px;
           font-weight: 300;
-          color: #4a5a4a;
+          color: #57534e;
           line-height: 1.85;
           margin-bottom: 16px;
         }
@@ -359,7 +368,7 @@ const values = [
         /* ── Product portfolio ── */
         .portfolio-section { padding: 80px 32px 20px; position: relative; z-index: 2; max-width: 1280px; margin: 0 auto; }
         .portfolio-intro { max-width: 720px; margin-bottom: 12px; }
-        .portfolio-intro p { font-size: 13.5px; color: #4a5a4a; line-height: 1.85; margin-bottom: 14px; }
+        .portfolio-intro p { font-size: 13.5px; color: #57534e; line-height: 1.85; margin-bottom: 14px; }
         .portfolio-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; margin-top: 36px; }
         .portfolio-card {
           background: #fff; border: 1px solid rgba(168,137,64,0.18); border-radius: 12px;
@@ -372,7 +381,7 @@ const values = [
         .portfolio-body { padding: 18px 20px; display: flex; flex-direction: column; }
         .portfolio-cat { font-family: 'DM Mono', monospace; font-size: 9.5px; letter-spacing: 0.1em; text-transform: uppercase; color: #a88940; margin-bottom: 4px; }
         .portfolio-body h3 { font-size: 17px; font-weight: 700; color: #0d1f35; margin-bottom: 6px; }
-        .portfolio-body p { font-size: 11.5px; color: #556; line-height: 1.7; margin-bottom: 10px; flex: 1; }
+        .portfolio-body p { font-size: 11.5px; color: #57534e; line-height: 1.7; margin-bottom: 10px; flex: 1; }
         .portfolio-spec {
           display: inline-flex; align-items: center; gap: 6px; width: fit-content;
           font-size: 11px; font-weight: 800; color: #0d1f35;
@@ -387,11 +396,11 @@ const values = [
         .request-section { padding: 60px 32px 20px; max-width: 1280px; margin: 0 auto; position: relative; z-index: 2; }
         .request-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 24px; }
         .request-card { background: #fff; border: 1px solid rgba(168,137,64,0.2); border-radius: 10px; padding: 22px 24px; }
-        .request-card h4 { font-size: 15px; font-weight: 700; color: #0d1f35; margin-bottom: 8px; }
-        .request-card p { font-size: 12px; color: #556; line-height: 1.7; }
+        .request-card h3 { font-size: 15px; font-weight: 700; color: #0d1f35; margin-bottom: 8px; }
+        .request-card p { font-size: 12px; color: #57534e; line-height: 1.7; }
         .request-note {
           margin-top: 22px; border-left: 3px solid #a88940; background: #fff;
-          border-radius: 0 8px 8px 0; padding: 16px 20px; font-size: 12px; color: #556; line-height: 1.7;
+          border-radius: 0 8px 8px 0; padding: 16px 20px; font-size: 12px; color: #57534e; line-height: 1.7;
         }
 
         /* ── Retail range mini ── */
@@ -400,8 +409,8 @@ const values = [
         .retail-mini-card { background: #fff; border: 1px solid rgba(168,137,64,0.18); border-radius: 10px; overflow: hidden; }
         .retail-mini-card img { width: 100%; height: 110px; object-fit: cover; display: block; }
         .retail-mini-card .rb { padding: 12px 14px 16px; }
-        .retail-mini-card h4 { font-size: 12px; font-weight: 700; color: #0d1f35; margin-bottom: 4px; }
-        .retail-mini-card p { font-size: 10px; color: #667; line-height: 1.5; }
+        .retail-mini-card h3 { font-size: 12px; font-weight: 700; color: #0d1f35; margin-bottom: 4px; }
+        .retail-mini-card p { font-size: 10px; color: #57534e; line-height: 1.5; }
 
         .catalog-cta-strip {
           margin-top: 40px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 16px;
@@ -455,7 +464,7 @@ const values = [
         .values-header h2 span { color: #a88940; }
         .values-header p {
           font-family: 'DM Mono', monospace; font-size: 14px;
-          color: #4a5a4a; font-weight: 300;
+          color: #57534e; font-weight: 300;
         }
         /* override eyebrow dot color inside light section */
         .about-light .eyebrow-dot { background: #a88940; }
@@ -508,7 +517,7 @@ const values = [
         }
         .value-card p {
           font-family: 'DM Mono', monospace; font-size: 13px;
-          font-weight: 300; color: #4a5a4a; line-height: 1.7; margin: 0;
+          font-weight: 300; color: #57534e; line-height: 1.7; margin: 0;
         }
 
         /* ── Responsive ── */
@@ -662,6 +671,8 @@ const values = [
       <img
         src="https://res.cloudinary.com/dptmeakuy/image/upload/v1749547014/368171d2-f64c-42c5-9e7d-a4dea0a4b8c0_lk6jrz.jpg"
         alt="Lumina Earth Minerals facility"
+        width={700}
+        height={390}
       />
     </div>
   </div>
@@ -821,7 +832,7 @@ const values = [
             <h2 className="about-title" style={{ marginBottom: "12px" }}>
               Additional Minerals <em>We Can Source</em>
             </h2>
-            <p style={{ fontSize: "13.5px", color: "#4a5a4a", lineHeight: 1.85, maxWidth: "720px" }}>
+            <p style={{ fontSize: "13.5px", color: "#57534e", lineHeight: 1.85, maxWidth: "720px" }}>
               Beyond our standard catalog, our sourcing network across Pakistan&rsquo;s mineral-rich
               regions allows us to arrange supply of additional ores and industrial minerals on
               inquiry. If you need something not listed on this page — including rare or precious
@@ -832,7 +843,7 @@ const values = [
             <div className="request-grid">
               {additionalMinerals.map((m) => (
                 <div className="request-card" key={m.name}>
-                  <h4>{m.name}</h4>
+                  <h3>{m.name}</h3>
                   <p>{m.desc}</p>
                 </div>
               ))}
@@ -856,7 +867,7 @@ const values = [
             <h2 className="about-title" style={{ marginBottom: "12px" }}>
               Salt Home &amp; <em>Wellness Range</em>
             </h2>
-            <p style={{ fontSize: "13.5px", color: "#4a5a4a", lineHeight: 1.85, maxWidth: "720px" }}>
+            <p style={{ fontSize: "13.5px", color: "#57534e", lineHeight: 1.85, maxWidth: "720px" }}>
               Alongside our bulk industrial and natural mineral exports, we also supply a range of
               finished Himalayan salt products for retail, wellness, and animal nutrition markets —
               all available with private label and custom packaging.
@@ -864,24 +875,24 @@ const values = [
 
             <div className="retail-mini-grid">
               <div className="retail-mini-card">
-                <img src="https://res.cloudinary.com/dptmeakuy/image/upload/v1772107986/ChatGPT_Image_Feb_21_2026_11_36_43_AM_i83jd1.png" alt="Pink Salt Grains" />
-                <div className="rb"><h4>Pink Salt Grains</h4><p>Premium culinary grade, retail-ready.</p></div>
+                <img src="https://res.cloudinary.com/dptmeakuy/image/upload/v1772107986/ChatGPT_Image_Feb_21_2026_11_36_43_AM_i83jd1.png" alt="Pink Salt Grains" width={1536} height={1024} />
+                <div className="rb"><h3>Pink Salt Grains</h3><p>Premium culinary grade, retail-ready.</p></div>
               </div>
               <div className="retail-mini-card">
-                <img src="https://res.cloudinary.com/dptmeakuy/image/upload/v1749545593/animal_lick_salt_piece_is_full_of_magniciem_and_uo9qym.jpg" alt="Animal Lick Salt" />
-                <div className="rb"><h4>Animal Lick Salt</h4><p>Magnesium-rich blocks for livestock.</p></div>
+                <img src="https://res.cloudinary.com/dptmeakuy/image/upload/v1749545593/animal_lick_salt_piece_is_full_of_magniciem_and_uo9qym.jpg" alt="Animal Lick Salt" width={736} height={736} />
+                <div className="rb"><h3>Animal Lick Salt</h3><p>Magnesium-rich blocks for livestock.</p></div>
               </div>
               <div className="retail-mini-card">
-                <img src="https://res.cloudinary.com/dptmeakuy/image/upload/v1749546206/14e47b8d-93e8-447f-9f72-81d888aeeb0b_xqcfvo.jpg" alt="Custom Shape Salt Lamps" />
-                <div className="rb"><h4>Custom Shape Lamps</h4><p>Custom manufactured designs.</p></div>
+                <img src="https://res.cloudinary.com/dptmeakuy/image/upload/v1749546206/14e47b8d-93e8-447f-9f72-81d888aeeb0b_xqcfvo.jpg" alt="Custom Shape Salt Lamps" width={675} height={1200} />
+                <div className="rb"><h3>Custom Shape Lamps</h3><p>Custom manufactured designs.</p></div>
               </div>
               <div className="retail-mini-card">
-                <img src="https://res.cloudinary.com/dptmeakuy/image/upload/v1772107992/ChatGPT_Image_Feb_21_2026_11_52_50_AM_vqebh1.png" alt="Natural Himalayan Salt Lamps" />
-                <div className="rb"><h4>Natural Salt Lamps</h4><p>Compact decor for desks &amp; homes.</p></div>
+                <img src="https://res.cloudinary.com/dptmeakuy/image/upload/v1772107992/ChatGPT_Image_Feb_21_2026_11_52_50_AM_vqebh1.png" alt="Natural Himalayan Salt Lamps" width={1536} height={1024} />
+                <div className="rb"><h3>Natural Salt Lamps</h3><p>Compact decor for desks &amp; homes.</p></div>
               </div>
               <div className="retail-mini-card">
-                <img src="https://res.cloudinary.com/dptmeakuy/image/upload/v1749544296/Gourmet_Himalayan_Pink_Salt_-_5_Pound_Brick_by_u3uxbv.jpg" alt="Pink Salt Bricks" />
-                <div className="rb"><h4>Pink Salt Bricks</h4><p>Architectural grade for spa &amp; walls.</p></div>
+                <img src="https://res.cloudinary.com/dptmeakuy/image/upload/v1749544296/Gourmet_Himalayan_Pink_Salt_-_5_Pound_Brick_by_u3uxbv.jpg" alt="Pink Salt Bricks" width={500} height={500} />
+                <div className="rb"><h3>Pink Salt Bricks</h3><p>Architectural grade for spa &amp; walls.</p></div>
               </div>
             </div>
           </section>

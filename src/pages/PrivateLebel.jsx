@@ -91,8 +91,8 @@ export default function PrivateLabelingPage() {
   return (
     <NavLayoutTwo>
       <SEO
-        title="Private Label Himalayan Salt Products"
-        description="Build your own brand with private label Himalayan salt products — edible salts, salt lamps and salt bricks, packed and labeled to your design. Global export, MOQ from 100kg, 7-15 day lead time."
+        title="Private Label Salt Products"
+        description="Build your own brand with private label Himalayan salt products — edible salts, salt lamps and salt bricks, packed and labeled to your design. MOQ from 100kg."
         path="/private-label"
       />
       <style>{`
@@ -196,7 +196,7 @@ export default function PrivateLabelingPage() {
         }
         .pl-product-item:hover { border-color: rgba(168,137,64,0.3); box-shadow: 0 4px 16px rgba(0,0,0,0.07); }
         .pl-product-item span {
-          font-family: 'DM Mono', monospace; font-size: 13px; font-weight: 300; color: #4a5a4a;
+          font-family: 'DM Mono', monospace; font-size: 13px; font-weight: 300; color: #57534e;
         }
 
         /* MOQ / Lead time */
@@ -213,7 +213,7 @@ export default function PrivateLabelingPage() {
         }
         .pl-meta-card-label { font-weight: 700; font-size: 14px; color: #0d1f35; margin: 8px 0 4px; }
         .pl-meta-card-sub {
-          font-family: 'DM Mono', monospace; font-size: 11px; font-weight: 300; color: #4a5a4a;
+          font-family: 'DM Mono', monospace; font-size: 11px; font-weight: 300; color: #57534e;
         }
 
         /* Gallery */
@@ -246,7 +246,7 @@ export default function PrivateLabelingPage() {
         }
         .pl-gallery-hint {
           font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: 0.08em;
-          color: #4a5a4a; margin-top: 8px; text-align: center;
+          color: #57534e; margin-top: 8px; text-align: center;
         }
 
         /* ── Bottom 3-col cards ── */
@@ -285,7 +285,7 @@ export default function PrivateLabelingPage() {
         .pl-custom-item {
           display: flex; align-items: center; gap: 8px;
           font-family: 'DM Mono', monospace; font-size: 12px; font-weight: 300;
-          color: #4a5a4a; margin-bottom: 4px;
+          color: #57534e; margin-bottom: 4px;
         }
         .pl-custom-dot { width: 5px; height: 5px; border-radius: 50%; background: rgba(168,137,64,0.5); flex-shrink: 0; }
 
@@ -302,7 +302,7 @@ export default function PrivateLabelingPage() {
         .pl-step-title { font-size: 13px; font-weight: 700; color: #0d1f35; margin-bottom: 2px; }
         .pl-step-desc {
           font-family: 'DM Mono', monospace; font-size: 11px; font-weight: 300;
-          color: #4a5a4a; line-height: 1.5;
+          color: #57534e; line-height: 1.5;
         }
 
         /* quality */
@@ -315,7 +315,7 @@ export default function PrivateLabelingPage() {
         .pl-quality-item {
           display: flex; align-items: flex-start; gap: 8px;
           font-family: 'DM Mono', monospace; font-size: 12px; font-weight: 300;
-          color: #4a5a4a; margin-bottom: 6px; line-height: 1.4;
+          color: #57534e; margin-bottom: 6px; line-height: 1.4;
         }
 
         /* ── CTA ── */
@@ -356,7 +356,7 @@ export default function PrivateLabelingPage() {
         .pl-cta h2 span { color: #a88940; }
         .pl-cta p {
           font-family: 'DM Mono', monospace; font-size: 14px; font-weight: 300;
-          color: #4a5a4a; margin: 0 0 32px; line-height: 1.7;
+          color: #57534e; margin: 0 0 32px; line-height: 1.7;
         }
         .pl-cta-btn {
           display: inline-flex; align-items: center; gap: 8px;

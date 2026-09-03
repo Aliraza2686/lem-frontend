@@ -187,7 +187,7 @@ function Header() {
 
 .mineral-desc {
   font-size: 12px;
-  color: #667;
+  color: #57534e;
   line-height: 1.6;
   display: -webkit-box;
   -webkit-line-clamp: 2;
@@ -389,7 +389,7 @@ function Header() {
         .drawer-panel {
           position: fixed; top: 0; left: 0; bottom: 0; z-index: 999;
           width: 280px; max-width: 85vw;
-          background: #0a1828;
+          background: #051223;
           border-right: 1px solid rgba(200,170,100,0.2);
           display: flex; flex-direction: column;
           transform: translateX(-100%);
@@ -603,11 +603,11 @@ function Header() {
         .about-strip { background: #f2ede3; padding: 80px 48px; display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; font-family: 'Source Sans 3', sans-serif; }
         .about-overline { font-family: 'DM Mono', monospace; font-size: 11px; color: #8a6f3a; letter-spacing: 0.2em; text-transform: uppercase; display: flex; align-items: center; gap: 10px; margin-bottom: 16px; }
         .about-overline::before { content: ''; width: 28px; height: 1px; background: #8a6f3a; }
-        .about-title { font-family: 'Playfair Display', serif; font-size: 40px; font-weight: 700; color: #1a2a1a; line-height: 1.15; margin-bottom: 20px; }
-        .about-title em { font-style: italic; color: #4a6a28; }
-        .about-body { font-size: 15px; color: #4a5a4a; line-height: 1.85; margin-bottom: 32px; }
+        .about-title { font-family: 'Playfair Display', serif; font-size: 40px; font-weight: 700; color: #0d1f35; line-height: 1.15; margin-bottom: 20px; }
+        .about-title em { font-style: italic; color: #8a6f3a; }
+        .about-body { font-size: 15px; color: #57534e; line-height: 1.85; margin-bottom: 32px; }
         .about-link { display: inline-flex; align-items: center; gap: 10px; font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; color: #0d1f35; text-decoration: none; border-bottom: 1px solid rgba(13,31,53,0.3); padding-bottom: 3px; transition: all 0.2s ease; }
-        .about-link:hover { color: #4a6a28; border-color: #4a6a28; }
+        .about-link:hover { color: #8a6f3a; border-color: #8a6f3a; }
         .about-img-wrap { position: relative; }
         .about-img { width: 100%; aspect-ratio: 4/3; object-fit: cover; border: 5px solid #fff; box-shadow: 14px 14px 0 #c8aa64; display: block; }
         .about-seal { position: absolute; bottom: -22px; right: -22px; width: 104px; height: 104px; background: #0d1f35; border: 3px solid #c8aa64; display: flex; flex-direction: column; align-items: center; justify-content: center; }

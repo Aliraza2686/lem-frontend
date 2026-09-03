@@ -10,7 +10,7 @@ import {
 import { NavLayoutTwo } from '../../components/layouts/NavLayoutTwo';
 import { getProduct } from '../../lib/products';
 import { SEO } from '../../components/atoms/SEO';
-import { canonicalFor } from '../../lib/seo';
+import { canonicalFor, ORGANIZATION_ID } from '../../lib/seo';
 import { ProductImage } from '../../components/ProductImage';
 
 /* ─────────────────────────────────────────────────────────────────────────
@@ -20,7 +20,7 @@ import { ProductImage } from '../../components/ProductImage';
 ───────────────────────────────────────────────────────────────────────── */
 
 
-function Lightbox({ images, index, onClose, _onPrev, onNext }) {
+function Lightbox({ images, index, alt, onClose, _onPrev, onNext }) {
   const item = images[index];
 
   return (
@@ -54,7 +54,7 @@ function Lightbox({ images, index, onClose, _onPrev, onNext }) {
         ) : (
           <img
             src={item.src}
-            alt=""
+            alt={`${alt} — image ${index + 1}`}
             className="w-full max-h-[75vh] object-contain rounded-2xl shadow-2xl"
             onError={(e) => {
               e.target.style.background =
@@ -168,8 +168,23 @@ const PDetails = () => {
     description: product.desc,
     category: product.category,
     image: activeVariant?.images?.filter((img) => !img.is_video).map((img) => img.src),
-    brand: { "@type": "Brand", name: "Lumina Earth Minerals" },
+    brand: { "@id": ORGANIZATION_ID },
     url: canonicalFor(`/product-details/${product.id}`),
+    offers: {
+      "@type": "Offer",
+      url: canonicalFor(`/product-details/${product.id}`),
+      availability: "https://schema.org/InStock",
+    },
+  };
+
+  const breadcrumbJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Home", item: canonicalFor("/") },
+      { "@type": "ListItem", position: 2, name: "Products", item: canonicalFor("/products") },
+      { "@type": "ListItem", position: 3, name: product.name, item: canonicalFor(`/product-details/${product.id}`) },
+    ],
   };
 
   return (
@@ -179,13 +194,13 @@ const PDetails = () => {
         description={`${product.desc} Sourced from ${product.origin}. Request a bulk quotation and export samples from Lumina Earth Minerals.`}
         path={`/product-details/${product.id}`}
         image={activeVariant?.images?.find((img) => !img.is_video)?.src}
-        jsonLd={productJsonLd}
+        jsonLd={[productJsonLd, breadcrumbJsonLd]}
       />
       {lightbox && (
-        <Lightbox images={lightbox.images} index={lightbox.index} onClose={closeLightbox} onPrev={prevImg} onNext={nextImg} />
+        <Lightbox images={lightbox.images} index={lightbox.index} alt={`${product.name} — ${activeVariant.label}`} onClose={closeLightbox} onPrev={prevImg} onNext={nextImg} />
       )}
 
-      <div className="min-h-screen bg-[#FAF8F4]">
+      <div className="min-h-screen bg-[#F2EDE3]">
 
         {/* ── Breadcrumb ── */}
         <div className="max-w-6xl mx-auto px-6 pt-6">
@@ -214,7 +229,7 @@ const PDetails = () => {
               </p>
             </div>
 
-            <div className="bg-[#0d1f35] text-white rounded-2xl px-6 py-5 min-w-[220px]">
+            <div className="bg-[#0d1f35] text-white rounded-2xl px-6 py-5 w-full lg:w-[280px] lg:flex-shrink-0">
               <Mountain className="w-6 h-6 text-amber-400 mb-2" />
               <p className="text-xs text-stone-400 uppercase tracking-wide mb-1">Sourcing Note</p>
               <p className="text-sm font-medium leading-snug">{product.heroNote}</p>
@@ -287,12 +302,13 @@ const PDetails = () => {
                               autoPlay
                               loop
                               muted
-                              src={img.src} alt=""
+                              src={img.src}
+                              aria-label={`${activeVariant.label} — video ${i + 2}`}
                               className="w-full h-full object-cover"
                               onError={(e) => { e.target.style.display = 'none'; e.target.parentElement.style.background = `linear-gradient(135deg, ${activeVariant.swatch}, #d9cdb8)`; }}
                             />
                           </div> :
-                            <ProductImage src={img.src} alt="" />
+                            <ProductImage src={img.src} alt={`${activeVariant.label} — additional view ${i + 2}`} />
                           }
 
                         </button>
