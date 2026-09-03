@@ -185,7 +185,7 @@ const PDetails = () => {
         <Lightbox images={lightbox.images} index={lightbox.index} onClose={closeLightbox} onPrev={prevImg} onNext={nextImg} />
       )}
 
-      <div className="min-h-screen bg-[#FAF8F4]">
+      <div className="min-h-screen bg-[#F2EDE3]">
 
         {/* ── Breadcrumb ── */}
         <div className="max-w-6xl mx-auto px-6 pt-6">
@@ -214,7 +214,7 @@ const PDetails = () => {
               </p>
             </div>
 
-            <div className="bg-[#0d1f35] text-white rounded-2xl px-6 py-5 min-w-[220px]">
+            <div className="bg-[#0d1f35] text-white rounded-2xl px-6 py-5 w-full lg:w-[280px] lg:flex-shrink-0">
               <Mountain className="w-6 h-6 text-amber-400 mb-2" />
               <p className="text-xs text-stone-400 uppercase tracking-wide mb-1">Sourcing Note</p>
               <p className="text-sm font-medium leading-snug">{product.heroNote}</p>

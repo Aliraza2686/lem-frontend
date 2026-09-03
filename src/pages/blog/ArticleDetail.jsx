@@ -81,7 +81,7 @@ export default function ArticleDetail() {
           <AlertTriangle className="w-10 h-10 text-red-400 mb-4" />
           <p className="text-stone-700 font-semibold mb-2">Couldn&apos;t load this article</p>
           <p className="text-stone-500 text-sm mb-6">{state.error}</p>
-          <Link to="/blog" className="text-sm font-semibold text-[#a88940] hover:underline">
+          <Link to="/blog" className="text-sm font-semibold text-[#8a6f3a] hover:underline">
             Back to Blog
           </Link>
         </div>
@@ -133,7 +133,7 @@ export default function ArticleDetail() {
         animate={{ opacity: 1 }}
         exit={{ opacity: 0 }}
         transition={{ duration: 0.35, ease: "easeOut" }}
-        className="bg-[#FAF8F4]"
+        className="bg-[#F2EDE3]"
       >
         <div ref={scrollTargetRef}>
           {/* Immersive hero */}

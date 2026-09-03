@@ -129,7 +129,7 @@ export const Terms = () => {
         }
         .terms-intro {
           font-family: 'DM Mono', monospace; font-size: 12px; font-weight: 300;
-          color: #4a5a4a; margin: 0 0 32px; letter-spacing: 0.02em;
+          color: #57534e; margin: 0 0 32px; letter-spacing: 0.02em;
         }
         .terms-section { margin-bottom: 28px; }
         .terms-section:last-child { margin-bottom: 0; }
@@ -145,7 +145,7 @@ export const Terms = () => {
         .terms-contact {
           margin-top: 40px; padding-top: 28px;
           border-top: 1px solid rgba(200,170,100,0.2);
-          font-family: 'DM Mono', monospace; font-size: 13px; color: #4a5a4a;
+          font-family: 'DM Mono', monospace; font-size: 13px; color: #57534e;
           line-height: 1.9;
         }
         .terms-contact strong { color: #0d1f35; }

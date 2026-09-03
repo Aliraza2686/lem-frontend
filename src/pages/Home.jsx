@@ -7,6 +7,7 @@ import { NavLayout } from '../components/layouts/NavLayout'
 import FAQ from '../components/Faq'
 import Header from "../components/Header"
 import { SEO } from '../components/atoms/SEO'
+import { LatestBlogPosts } from '../components/blog/LatestBlogPosts'
 
 export const Home = () => {
   return (
@@ -21,6 +22,7 @@ export const Home = () => {
       {/* <TopSelling /> */}
       {/* <Features /> */}
       {/* <Story /> */}
+      <LatestBlogPosts />
       <FAQ isHome={true} />
       </NavLayout>
     </>

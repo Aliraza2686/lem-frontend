@@ -162,7 +162,7 @@ export function NavLayoutTwo({ children }) {
         .nl-drawer {
           position: fixed; top: 0; left: 0; bottom: 0; z-index: 999;
           width: 280px; max-width: 85vw;
-          background: #0a1828;
+          background: #051223;
           border-right: 1px solid rgba(200,170,100,0.2);
           display: flex; flex-direction: column;
           transform: translateX(-100%);

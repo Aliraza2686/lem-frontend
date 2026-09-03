@@ -155,7 +155,7 @@ export const Contact = () => {
         .info-primary { font-weight: 700; font-size: 14px; color: #0d1f35; margin-bottom: 4px; }
         .info-secondary {
           font-family: 'DM Mono', monospace; font-size: 12px; font-weight: 300;
-          color: #4a5a4a; line-height: 1.5;
+          color: #57534e; line-height: 1.5;
         }
         .hours-row {
           display: flex; justify-content: space-between; align-items: center;
@@ -163,7 +163,7 @@ export const Contact = () => {
         }
         .hours-row:last-child { border-bottom: none; padding-bottom: 0; }
         .hours-label {
-          font-family: 'DM Mono', monospace; font-size: 11px; color: #4a5a4a;
+          font-family: 'DM Mono', monospace; font-size: 11px; color: #57534e;
         }
         .hours-value {
           font-family: 'DM Mono', monospace; font-size: 11px; font-weight: 500; color: #a88940;
@@ -190,7 +190,7 @@ export const Contact = () => {
         .form-card-title span { color: #a88940; }
         .form-card-desc {
           font-family: 'DM Mono', monospace; font-size: 13px; font-weight: 300;
-          color: #4a5a4a; margin: 0; line-height: 1.6;
+          color: #57534e; margin: 0; line-height: 1.6;
         }
 
         /* ── Form field overrides ── */

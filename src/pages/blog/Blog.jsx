@@ -117,7 +117,7 @@ export const Blog = () => {
                   onClick={() => updateParam("category", category === c ? "" : c)}
                   className={`text-xs font-semibold px-3 py-1.5 rounded-full border transition-colors ${
                     category === c
-                      ? "bg-[#a88940] border-[#a88940] text-white"
+                      ? "bg-[#a88940] border-[#a88940] text-[#0d1f35]"
                       : "bg-white border-stone-200 text-stone-600 hover:border-[#a88940]/50"
                   }`}
                 >
