@@ -170,6 +170,11 @@ const PDetails = () => {
     image: activeVariant?.images?.filter((img) => !img.is_video).map((img) => img.src),
     brand: { "@id": ORGANIZATION_ID },
     url: canonicalFor(`/product-details/${product.id}`),
+    offers: {
+      "@type": "Offer",
+      url: canonicalFor(`/product-details/${product.id}`),
+      availability: "https://schema.org/InStock",
+    },
   };
 
   const breadcrumbJsonLd = {
