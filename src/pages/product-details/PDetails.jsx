@@ -10,7 +10,7 @@ import {
 import { NavLayoutTwo } from '../../components/layouts/NavLayoutTwo';
 import { getProduct } from '../../lib/products';
 import { SEO } from '../../components/atoms/SEO';
-import { canonicalFor } from '../../lib/seo';
+import { canonicalFor, ORGANIZATION_ID } from '../../lib/seo';
 import { ProductImage } from '../../components/ProductImage';
 
 /* ─────────────────────────────────────────────────────────────────────────
@@ -168,8 +168,18 @@ const PDetails = () => {
     description: product.desc,
     category: product.category,
     image: activeVariant?.images?.filter((img) => !img.is_video).map((img) => img.src),
-    brand: { "@type": "Brand", name: "Lumina Earth Minerals" },
+    brand: { "@id": ORGANIZATION_ID },
     url: canonicalFor(`/product-details/${product.id}`),
+  };
+
+  const breadcrumbJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Home", item: canonicalFor("/") },
+      { "@type": "ListItem", position: 2, name: "Products", item: canonicalFor("/products") },
+      { "@type": "ListItem", position: 3, name: product.name, item: canonicalFor(`/product-details/${product.id}`) },
+    ],
   };
 
   return (
@@ -179,7 +189,7 @@ const PDetails = () => {
         description={`${product.desc} Sourced from ${product.origin}. Request a bulk quotation and export samples from Lumina Earth Minerals.`}
         path={`/product-details/${product.id}`}
         image={activeVariant?.images?.find((img) => !img.is_video)?.src}
-        jsonLd={productJsonLd}
+        jsonLd={[productJsonLd, breadcrumbJsonLd]}
       />
       {lightbox && (
         <Lightbox images={lightbox.images} index={lightbox.index} onClose={closeLightbox} onPrev={prevImg} onNext={nextImg} />

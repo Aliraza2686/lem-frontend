@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 import { AlertTriangle, ArrowLeft, FileText, Mountain } from "lucide-react";
 import { NavLayoutTwo } from "../../components/layouts/NavLayoutTwo";
 import { SEO } from "../../components/atoms/SEO";
-import { canonicalFor } from "../../lib/seo";
+import { canonicalFor, ORGANIZATION_ID } from "../../lib/seo";
 import { getArticleBySlug, getAuthorDisplayName } from "../../lib/articles";
 import { parseArticleContent } from "../../lib/parseArticleContent";
 import { useArticleSectionObserver } from "../../hooks/useArticleSectionObserver";
@@ -102,9 +102,23 @@ export default function ArticleDetail() {
     datePublished: publishDate,
     dateModified,
     author: { "@type": "Person", name: authorName },
+    publisher: { "@id": ORGANIZATION_ID },
     wordCount: article.wordCount,
-    mainEntityOfPage: canonicalFor(`/blog/${article.slug}`),
+    mainEntityOfPage: {
+      "@type": "WebPage",
+      "@id": canonicalFor(`/blog/${article.slug}`),
+    },
     description: article.excerpt,
+  };
+
+  const breadcrumbJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Home", item: canonicalFor("/") },
+      { "@type": "ListItem", position: 2, name: "Blog", item: canonicalFor("/blog") },
+      { "@type": "ListItem", position: 3, name: article.title, item: canonicalFor(`/blog/${article.slug}`) },
+    ],
   };
 
   return (
@@ -118,7 +132,7 @@ export default function ArticleDetail() {
         publishedTime={publishDate}
         modifiedTime={dateModified}
         authorName={authorName}
-        jsonLd={jsonLd}
+        jsonLd={[jsonLd, breadcrumbJsonLd]}
       />
 
       <ReadingProgressBar targetRef={scrollTargetRef} />

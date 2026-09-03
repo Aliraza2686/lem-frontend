@@ -5,6 +5,7 @@ import { NavLayoutTwo } from "../components/layouts/NavLayoutTwo";
 import { SEO } from "../components/atoms/SEO";
 import { CATALOG_URL } from "../lib/utills";
 import { getProducts } from "../lib/products";
+import { canonicalFor, ORGANIZATION_ID } from "../lib/seo";
 
 const portfolioSpec = (product) => {
   const v = product.variants?.[0];
@@ -88,6 +89,14 @@ const values = [
         title="About Us"
         description="Lumina Earth Minerals is a Pakistan-based mineral export company sourcing Bentonite, Nephrite, Fluorite, Limestone, Silica Sand and Himalayan Salt from the Khewra Salt Range for global B2B buyers."
         path="/about"
+        jsonLd={{
+          "@context": "https://schema.org",
+          "@type": "AboutPage",
+          "@id": `${canonicalFor("/about")}#webpage`,
+          url: canonicalFor("/about"),
+          about: { "@id": ORGANIZATION_ID },
+          mainEntity: { "@id": ORGANIZATION_ID },
+        }}
       />
       <style>{`
         @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400;1,600;1,700&family=Source+Sans+3:wght@300;400;500;600&family=DM+Mono:wght@300;400;500&display=swap');

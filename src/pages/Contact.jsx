@@ -4,6 +4,7 @@ import { ContactForm } from "../components/forms/Contactform";
 import { ADDRESS, EMAIL, PHONE_NUMBER } from "../lib/utills";
 import { NavLayoutTwo } from "../components/layouts/NavLayoutTwo";
 import { SEO } from "../components/atoms/SEO";
+import { canonicalFor, ORGANIZATION_ID } from "../lib/seo";
 
 export const Contact = () => {
   const infoCards = [
@@ -42,6 +43,13 @@ export const Contact = () => {
         title="Contact Us"
         description="Contact Lumina Earth Minerals for bulk mineral supply, export inquiries and custom quotations. Reliable sourcing of Bentonite, Nephrite, Fluorite, Limestone, Silica Sand and Himalayan Salt. We respond within 24 hours."
         path="/contact"
+        jsonLd={{
+          "@context": "https://schema.org",
+          "@type": "ContactPage",
+          "@id": `${canonicalFor("/contact")}#webpage`,
+          url: canonicalFor("/contact"),
+          mainEntity: { "@id": ORGANIZATION_ID },
+        }}
       />
       <style>{`
         @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400;1,600;1,700&family=Source+Sans+3:wght@300;400;500;600&family=DM+Mono:wght@300;400;500&display=swap');
