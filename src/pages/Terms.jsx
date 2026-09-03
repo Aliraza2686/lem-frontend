@@ -87,8 +87,8 @@ export const Terms = () => {
   return (
     <NavLayoutTwo>
       <SEO
-        title="Terms & Conditions"
-        description="Terms and conditions governing quotations, orders, payment, shipping and claims for Lumina Earth Minerals' bulk mineral export business."
+        title="Terms & Conditions — Export Orders"
+        description="Terms and conditions governing quotations, orders, payment, shipping and claims for Lumina Earth Minerals' international bulk mineral export business."
         path="/terms"
       />
       <style>{`

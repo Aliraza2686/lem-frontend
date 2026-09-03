@@ -18,8 +18,8 @@ export const FaqPage = () => {
   return (
     <>
       <SEO
-        title="FAQs"
-        description="Answers to common questions about bulk mineral orders, private labeling, minimum order quantities, payment methods, quality certifications and export documentation."
+        title="FAQs — Bulk Orders & Export"
+        description="Answers to common questions about bulk mineral orders, private labeling, minimum order quantities, payment methods, certifications and export documentation."
         path="/faq"
         jsonLd={faqJsonLd}
       />

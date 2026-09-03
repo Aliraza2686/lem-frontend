@@ -34,8 +34,8 @@ export function Gallery() {
   return (
     <NavLayoutTwo>
       <SEO
-        title="Gallery"
-        description="Real images of Himalayan salt, industrial minerals, packaging and sourcing activities across Pakistan — authentic products and export preparation from Lumina Earth Minerals."
+        title="Gallery — Mineral Sourcing, Pakistan"
+        description="Real images of Himalayan salt, industrial minerals, packaging and sourcing activities across Pakistan — authentic products from Lumina Earth Minerals."
         path="/workspace-images"
       />
       <style>{`

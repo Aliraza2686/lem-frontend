@@ -86,8 +86,8 @@ const values = [
   return (
     <NavLayoutTwo>
       <SEO
-        title="About Us"
-        description="Lumina Earth Minerals is a Pakistan-based mineral export company sourcing Bentonite, Nephrite, Fluorite, Limestone, Silica Sand and Himalayan Salt from the Khewra Salt Range for global B2B buyers."
+        title="About Us — Pakistan Mineral Exporter"
+        description="Lumina Earth Minerals is a Pakistan-based mineral exporter sourcing Bentonite, Nephrite, Limestone, Silica Sand and Himalayan Salt from the Khewra Salt Range."
         path="/about"
         jsonLd={{
           "@context": "https://schema.org",

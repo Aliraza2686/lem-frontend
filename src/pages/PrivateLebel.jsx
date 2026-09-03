@@ -91,8 +91,8 @@ export default function PrivateLabelingPage() {
   return (
     <NavLayoutTwo>
       <SEO
-        title="Private Label Himalayan Salt Products"
-        description="Build your own brand with private label Himalayan salt products — edible salts, salt lamps and salt bricks, packed and labeled to your design. Global export, MOQ from 100kg, 7-15 day lead time."
+        title="Private Label Salt Products"
+        description="Build your own brand with private label Himalayan salt products — edible salts, salt lamps and salt bricks, packed and labeled to your design. MOQ from 100kg."
         path="/private-label"
       />
       <style>{`

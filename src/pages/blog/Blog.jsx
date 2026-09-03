@@ -90,8 +90,8 @@ export const Blog = () => {
   return (
     <NavLayoutTwo>
       <SEO
-        title="Blog & Insights"
-        description="Guides, sourcing insights, and technical deep-dives on Himalayan salt and industrial minerals from Lumina Earth Minerals."
+        title="Blog — Salt & Mineral Sourcing"
+        description="Guides, sourcing insights, and technical deep-dives on Himalayan salt and industrial minerals from Lumina Earth Minerals, covering sourcing and logistics."
         path="/blog"
       />
 

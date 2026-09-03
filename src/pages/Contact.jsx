@@ -40,8 +40,8 @@ export const Contact = () => {
   return (
     <NavLayoutTwo>
       <SEO
-        title="Contact Us"
-        description="Contact Lumina Earth Minerals for bulk mineral supply, export inquiries and custom quotations. Reliable sourcing of Bentonite, Nephrite, Fluorite, Limestone, Silica Sand and Himalayan Salt. We respond within 24 hours."
+        title="Contact Us — Bulk Mineral Inquiries"
+        description="Contact Lumina Earth Minerals for bulk mineral supply, export inquiries and quotations. Sourcing Bentonite, Nephrite, Limestone, Silica Sand and Himalayan Salt."
         path="/contact"
         jsonLd={{
           "@context": "https://schema.org",

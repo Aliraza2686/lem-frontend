@@ -13,8 +13,8 @@ export const Home = () => {
   return (
     <>
       <SEO
-        title="Himalayan Salt & Mineral Exporter, Pakistan"
-        description="Global supplier of Himalayan Salt, Bentonite, Limestone, Antimony, Nephrite Jade, White Quartz, Silica Sand and Copper from Khewra, Pakistan. Bulk export, private labeling and worldwide logistics for importers, distributors and manufacturers."
+        title="Himalayan Salt & Mineral Exporter"
+        description="Global supplier of Himalayan Salt, Bentonite, Limestone, Antimony, Nephrite Jade, White Quartz, Silica Sand and Copper from Khewra, Pakistan for bulk export."
         path="/"
       />
       <NavLayout>
