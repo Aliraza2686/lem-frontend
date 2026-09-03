@@ -396,7 +396,7 @@ const values = [
         .request-section { padding: 60px 32px 20px; max-width: 1280px; margin: 0 auto; position: relative; z-index: 2; }
         .request-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 24px; }
         .request-card { background: #fff; border: 1px solid rgba(168,137,64,0.2); border-radius: 10px; padding: 22px 24px; }
-        .request-card h4 { font-size: 15px; font-weight: 700; color: #0d1f35; margin-bottom: 8px; }
+        .request-card h3 { font-size: 15px; font-weight: 700; color: #0d1f35; margin-bottom: 8px; }
         .request-card p { font-size: 12px; color: #57534e; line-height: 1.7; }
         .request-note {
           margin-top: 22px; border-left: 3px solid #a88940; background: #fff;
@@ -409,7 +409,7 @@ const values = [
         .retail-mini-card { background: #fff; border: 1px solid rgba(168,137,64,0.18); border-radius: 10px; overflow: hidden; }
         .retail-mini-card img { width: 100%; height: 110px; object-fit: cover; display: block; }
         .retail-mini-card .rb { padding: 12px 14px 16px; }
-        .retail-mini-card h4 { font-size: 12px; font-weight: 700; color: #0d1f35; margin-bottom: 4px; }
+        .retail-mini-card h3 { font-size: 12px; font-weight: 700; color: #0d1f35; margin-bottom: 4px; }
         .retail-mini-card p { font-size: 10px; color: #57534e; line-height: 1.5; }
 
         .catalog-cta-strip {
@@ -843,7 +843,7 @@ const values = [
             <div className="request-grid">
               {additionalMinerals.map((m) => (
                 <div className="request-card" key={m.name}>
-                  <h4>{m.name}</h4>
+                  <h3>{m.name}</h3>
                   <p>{m.desc}</p>
                 </div>
               ))}
@@ -876,23 +876,23 @@ const values = [
             <div className="retail-mini-grid">
               <div className="retail-mini-card">
                 <img src="https://res.cloudinary.com/dptmeakuy/image/upload/v1772107986/ChatGPT_Image_Feb_21_2026_11_36_43_AM_i83jd1.png" alt="Pink Salt Grains" width={1536} height={1024} />
-                <div className="rb"><h4>Pink Salt Grains</h4><p>Premium culinary grade, retail-ready.</p></div>
+                <div className="rb"><h3>Pink Salt Grains</h3><p>Premium culinary grade, retail-ready.</p></div>
               </div>
               <div className="retail-mini-card">
                 <img src="https://res.cloudinary.com/dptmeakuy/image/upload/v1749545593/animal_lick_salt_piece_is_full_of_magniciem_and_uo9qym.jpg" alt="Animal Lick Salt" width={736} height={736} />
-                <div className="rb"><h4>Animal Lick Salt</h4><p>Magnesium-rich blocks for livestock.</p></div>
+                <div className="rb"><h3>Animal Lick Salt</h3><p>Magnesium-rich blocks for livestock.</p></div>
               </div>
               <div className="retail-mini-card">
                 <img src="https://res.cloudinary.com/dptmeakuy/image/upload/v1749546206/14e47b8d-93e8-447f-9f72-81d888aeeb0b_xqcfvo.jpg" alt="Custom Shape Salt Lamps" width={675} height={1200} />
-                <div className="rb"><h4>Custom Shape Lamps</h4><p>Custom manufactured designs.</p></div>
+                <div className="rb"><h3>Custom Shape Lamps</h3><p>Custom manufactured designs.</p></div>
               </div>
               <div className="retail-mini-card">
                 <img src="https://res.cloudinary.com/dptmeakuy/image/upload/v1772107992/ChatGPT_Image_Feb_21_2026_11_52_50_AM_vqebh1.png" alt="Natural Himalayan Salt Lamps" width={1536} height={1024} />
-                <div className="rb"><h4>Natural Salt Lamps</h4><p>Compact decor for desks &amp; homes.</p></div>
+                <div className="rb"><h3>Natural Salt Lamps</h3><p>Compact decor for desks &amp; homes.</p></div>
               </div>
               <div className="retail-mini-card">
                 <img src="https://res.cloudinary.com/dptmeakuy/image/upload/v1749544296/Gourmet_Himalayan_Pink_Salt_-_5_Pound_Brick_by_u3uxbv.jpg" alt="Pink Salt Bricks" width={500} height={500} />
-                <div className="rb"><h4>Pink Salt Bricks</h4><p>Architectural grade for spa &amp; walls.</p></div>
+                <div className="rb"><h3>Pink Salt Bricks</h3><p>Architectural grade for spa &amp; walls.</p></div>
               </div>
             </div>
           </section>

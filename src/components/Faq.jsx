@@ -363,12 +363,12 @@ export default function FAQ({ isHome = false }) {
           content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
           background: linear-gradient(90deg, transparent, #a88940, transparent);
         }
-        .faq-cta-inner h3 {
+        .faq-cta-inner h2 {
           font-family: 'Playfair Display', serif;
           font-size: 24px; font-weight: 800; color: #0d1f35;
           letter-spacing: -0.02em; margin: 0 0 12px;
         }
-        .faq-cta-inner h3 span { color: #a88940; }
+        .faq-cta-inner h2 span { color: #a88940; }
         .faq-cta-inner p {
           font-family: 'DM Mono', monospace; font-size: 13px; font-weight: 300;
           color: #57534e; margin: 0 0 28px; line-height: 1.7;
@@ -399,21 +399,23 @@ export default function FAQ({ isHome = false }) {
 
       <div className="faq-page">
 
-        {/* ── Dark Hero ── */}
-        <section className="faq-hero">
-          <div className="faq-glow" />
-          <div className="faq-hero-inner">
-            <div className="faq-eyebrow">
-              <div className="eyebrow-dot" />
-              Knowledge Base
+        {/* ── Dark Hero (full page only — Home already has its own H1 via Header) ── */}
+        {!isHome && (
+          <section className="faq-hero">
+            <div className="faq-glow" />
+            <div className="faq-hero-inner">
+              <div className="faq-eyebrow">
+                <div className="eyebrow-dot" />
+                Knowledge Base
+              </div>
+              <h1>Frequently Asked <span>Questions</span></h1>
+              <p>
+                Everything you need to know about our Himalayan salt products,
+                bulk ordering, private labeling, and global shipping.
+              </p>
             </div>
-            <h1>Frequently Asked <span>Questions</span></h1>
-            <p>
-              Everything you need to know about our Himalayan salt products,
-              bulk ordering, private labeling, and global shipping.
-            </p>
-          </div>
-        </section>
+          </section>
+        )}
 
         {/* ── Light section ── */}
         <div className="faq-light">
@@ -509,7 +511,7 @@ export default function FAQ({ isHome = false }) {
           {!isHome && (
             <div className="faq-cta">
               <div className="faq-cta-inner">
-                <h3>Still Have <span>Questions?</span></h3>
+                <h2>Still Have <span>Questions?</span></h2>
                 <p>
                   Our team is ready to assist you with your bulk Himalayan salt requirements.
                   Get in touch and we&apos;ll respond within 24 hours.

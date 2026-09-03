@@ -171,7 +171,7 @@ export default function ArticleDetail() {
 
           <div className="max-w-4xl mx-auto px-6 pt-8">
             <div className="flex flex-wrap items-center justify-between gap-4 pb-8 border-b border-stone-200">
-              <AuthorByline author={article.author} date={publishDate} readTime={article.readTime} />
+              <AuthorByline author={article.author} date={publishDate} modifiedDate={dateModified} readTime={article.readTime} />
               <p className="text-xs font-mono text-stone-400 uppercase tracking-wide">
                 {article.wordCount?.toLocaleString()} words · {article.views} views
               </p>

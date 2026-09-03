@@ -103,7 +103,7 @@ export const MiniJumbo = () => {
           border: 1px solid rgba(200,170,100,0.3);
           border-radius: 10px; padding: 18px 24px;
         }
-        .catalog-banner-text h3 {
+        .catalog-banner-text h2 {
           font-family: 'Playfair Display', serif; font-size: 17px; font-weight: 700;
           color: #fff; margin-bottom: 3px;
         }
@@ -303,7 +303,7 @@ export const MiniJumbo = () => {
 
             <div className="catalog-banner">
               <div className="catalog-banner-text">
-                <h3>Want the full catalog offline?</h3>
+                <h2>Want the full catalog offline?</h2>
                 <p>Company profile, specifications &amp; packaging — one PDF download.</p>
               </div>
               <a href={CATALOG_URL} download className="catalog-banner-btn">
@@ -315,6 +315,7 @@ export const MiniJumbo = () => {
 
         {/* ── Light section: filters + grid ── */}
         <div className="products-light">
+          <h2 className="sr-only">Our Product Catalog</h2>
 
           {/* Filter bar */}
           <div className="filter-section hidden">
