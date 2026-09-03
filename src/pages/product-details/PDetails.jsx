@@ -20,7 +20,7 @@ import { ProductImage } from '../../components/ProductImage';
 ───────────────────────────────────────────────────────────────────────── */
 
 
-function Lightbox({ images, index, onClose, _onPrev, onNext }) {
+function Lightbox({ images, index, alt, onClose, _onPrev, onNext }) {
   const item = images[index];
 
   return (
@@ -54,7 +54,7 @@ function Lightbox({ images, index, onClose, _onPrev, onNext }) {
         ) : (
           <img
             src={item.src}
-            alt=""
+            alt={`${alt} — image ${index + 1}`}
             className="w-full max-h-[75vh] object-contain rounded-2xl shadow-2xl"
             onError={(e) => {
               e.target.style.background =
@@ -197,7 +197,7 @@ const PDetails = () => {
         jsonLd={[productJsonLd, breadcrumbJsonLd]}
       />
       {lightbox && (
-        <Lightbox images={lightbox.images} index={lightbox.index} onClose={closeLightbox} onPrev={prevImg} onNext={nextImg} />
+        <Lightbox images={lightbox.images} index={lightbox.index} alt={`${product.name} — ${activeVariant.label}`} onClose={closeLightbox} onPrev={prevImg} onNext={nextImg} />
       )}
 
       <div className="min-h-screen bg-[#F2EDE3]">
@@ -302,12 +302,13 @@ const PDetails = () => {
                               autoPlay
                               loop
                               muted
-                              src={img.src} alt=""
+                              src={img.src}
+                              aria-label={`${activeVariant.label} — video ${i + 2}`}
                               className="w-full h-full object-cover"
                               onError={(e) => { e.target.style.display = 'none'; e.target.parentElement.style.background = `linear-gradient(135deg, ${activeVariant.swatch}, #d9cdb8)`; }}
                             />
                           </div> :
-                            <ProductImage src={img.src} alt="" />
+                            <ProductImage src={img.src} alt={`${activeVariant.label} — additional view ${i + 2}`} />
                           }
 
                         </button>
