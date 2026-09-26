@@ -12,6 +12,7 @@ const NAV_LINKS = [
   { label: "Products",      to: "/products" },
   { label: "Private Label", to: "/private-label" },
   { label: "Gallery",       to: "/workspace-images" },
+  { label: "Certifications", to: "/certifications" },
   { label: "Blog",          to: "/blog" },
   { label: "About",         to: "/about" },
   { label: "FAQ",           to: "/faq" },
@@ -234,6 +235,14 @@ export function NavLayoutTwo({ children }) {
         }
 
         /* ── Responsive ── */
+        @media (max-width: 1400px) {
+          .nl-links { gap: 16px; }
+          .nl-link  { letter-spacing: 0.05em; }
+        }
+        @media (max-width: 1200px) {
+          .nl-links { gap: 12px; }
+          .nl-link  { font-size: 11px; letter-spacing: 0.04em; }
+        }
         @media (max-width: 1024px) {
           .nl-topbar, .nl-nav { padding-left: 28px; padding-right: 28px; }
         }

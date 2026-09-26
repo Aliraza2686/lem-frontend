@@ -17,6 +17,7 @@ const STATIC_URLS = [
   { loc: "/faq", changefreq: "monthly", priority: "0.5" },
   { loc: "/contact", changefreq: "monthly", priority: "0.6" },
   { loc: "/blog", changefreq: "weekly", priority: "0.7" },
+  { loc: "/certifications", changefreq: "monthly", priority: "0.6" },
   { loc: "/product-details/salt", changefreq: "monthly", priority: "0.8" },
   { loc: "/product-details/bentonite", changefreq: "monthly", priority: "0.8" },
   { loc: "/product-details/limestone", changefreq: "monthly", priority: "0.8" },
