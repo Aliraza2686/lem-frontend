@@ -15,6 +15,7 @@ const NAV_LINKS = [
   { label: "Products", to: "/products" },
   { label: "Private Label", to: "/private-label" },
   { label: "Gallery", to: "/workspace-images" },
+  { label: "Certifications", to: "/certifications" },
   { label: "Blog", to: "/blog" },
   { label: "About", to: "/about" },
   { label: "FAQ", to: "/faq" },
