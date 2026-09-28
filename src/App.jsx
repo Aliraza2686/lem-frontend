@@ -17,6 +17,7 @@ import { WhatsAppButton } from "./components/atoms/WhatsAppButton";
 import { Terms } from "./pages/Terms";
 import { Blog } from "./pages/blog/Blog";
 import ArticleDetail from "./pages/blog/ArticleDetail";
+import { Certifications } from "./pages/Certifications";
 
 function AnimatedRoutes() {
   const location = useLocation();
@@ -33,6 +34,7 @@ function AnimatedRoutes() {
         <Route path="/product-details/:id" element={<PDetails />} />
         <Route path="/blog" element={<Blog />} />
         <Route path="/blog/:slug" element={<ArticleDetail />} />
+        <Route path="/certifications" element={<Certifications />} />
         <Route path="/terms" element={<Terms />} />
       </Routes>
     </AnimatePresence>
