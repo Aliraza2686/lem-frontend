@@ -5,7 +5,7 @@ import { useParams, Link } from 'react-router-dom';
 import {
   CheckCircle, Download, FlaskConical, Package, Mountain,
   ChevronLeft, ChevronRight, X, FileText, Truck, ArrowLeft,
-  Layers, Globe2, ZoomIn, Award,
+  Layers, Globe2, ZoomIn, Award, Play,
 } from 'lucide-react';
 import { NavLayoutTwo } from '../../components/layouts/NavLayoutTwo';
 import { getProduct } from '../../lib/products';
@@ -20,7 +20,28 @@ import { ProductImage } from '../../components/ProductImage';
 ───────────────────────────────────────────────────────────────────────── */
 
 
-function Lightbox({ images, index, alt, onClose, _onPrev, onNext }) {
+// Muted autoplay preview for a variant video; the lightbox has the full player.
+function VideoPreview({ src, label, swatch, className = '' }) {
+  return (
+    <>
+      <video
+        autoPlay
+        loop
+        muted
+        playsInline
+        src={src}
+        aria-label={label}
+        className={`w-full h-full object-cover ${className}`}
+        onError={(e) => { e.target.style.display = 'none'; e.target.parentElement.style.background = `linear-gradient(135deg, ${swatch}, #d9cdb8)`; }}
+      />
+      <span className="pointer-events-none absolute bottom-2 left-2 flex items-center justify-center w-7 h-7 rounded-full bg-black/50 text-white">
+        <Play className="w-3.5 h-3.5 fill-current" />
+      </span>
+    </>
+  );
+}
+
+function Lightbox({ images, index, alt, onClose, onPrev, onNext }) {
   const item = images[index];
 
   return (
@@ -30,20 +51,26 @@ function Lightbox({ images, index, alt, onClose, _onPrev, onNext }) {
     >
 
       <button
+        onClick={(e) => {
+          e.stopPropagation();
+          onPrev();
+        }}
         className="absolute left-4 md:left-10 text-white bg-white/10 hover:bg-white/25 rounded-full p-3 transition"
       >
         <ChevronLeft className="w-6 h-6" />
       </button>
 
-      <div className="relative max-w-3xl w-full mx-16">
+      <div className="relative max-w-3xl w-full mx-16" onClick={(e) => e.stopPropagation()}>
         {item?.is_video ? (
           <div>
             <video
+              key={item.src}
               src={item.src}
               controls
               autoPlay
               loop
               muted
+              playsInline
               className="w-full max-h-[75vh] object-contain rounded-2xl shadow-2xl"
               onError={(e) => {
                 e.target.style.background =
@@ -54,7 +81,7 @@ function Lightbox({ images, index, alt, onClose, _onPrev, onNext }) {
         ) : (
           <img
             src={item.src}
-            alt={`${alt} — image ${index + 1}`}
+            alt={`${alt} — view ${index + 1}`}
             className="w-full max-h-[75vh] object-contain rounded-2xl shadow-2xl"
             onError={(e) => {
               e.target.style.background =
@@ -280,11 +307,19 @@ const PDetails = () => {
                     onClick={() => openLightbox(activeVariant.images, 0)}
                   >
 
-                    <ProductImage
-                      src={activeVariant.images[0]?.src}
-                      alt={activeVariant.label}
-                      className="transition-transform duration-500 group-hover:scale-105"
-                    />
+                    {activeVariant.images[0]?.is_video ? (
+                      <VideoPreview
+                        src={activeVariant.images[0].src}
+                        label={`${activeVariant.label} — video`}
+                        swatch={activeVariant.swatch}
+                      />
+                    ) : (
+                      <ProductImage
+                        src={activeVariant.images[0]?.src}
+                        alt={activeVariant.label}
+                        className="transition-transform duration-500 group-hover:scale-105"
+                      />
+                    )}
                     <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 bg-black/20 transition-opacity">
                       <ZoomIn className="w-8 h-8 text-white" />
                     </div>
@@ -297,19 +332,15 @@ const PDetails = () => {
                           onClick={() => openLightbox(activeVariant.images, i + 1)}
                           className="relative rounded-lg overflow-hidden aspect-square bg-stone-100"
                         >
-                          {img?.is_video ? <div>
-                            <video
-                              autoPlay
-                              loop
-                              muted
+                          {img?.is_video ? (
+                            <VideoPreview
                               src={img.src}
-                              aria-label={`${activeVariant.label} — video ${i + 2}`}
-                              className="w-full h-full object-cover"
-                              onError={(e) => { e.target.style.display = 'none'; e.target.parentElement.style.background = `linear-gradient(135deg, ${activeVariant.swatch}, #d9cdb8)`; }}
+                              label={`${activeVariant.label} — video ${i + 2}`}
+                              swatch={activeVariant.swatch}
                             />
-                          </div> :
+                          ) : (
                             <ProductImage src={img.src} alt={`${activeVariant.label} — additional view ${i + 2}`} />
-                          }
+                          )}
 
                         </button>
                       ))}
