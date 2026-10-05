@@ -49,7 +49,7 @@ export const Certifications = () => {
   }, [fetchCertifications]);
 
   const openImage = useCallback(
-    (cert) => setLightboxImage({ src: cert.fileUrl, title: cert.title, description: cert.description, eyebrow: "Certificate" }),
+    (cert) => setLightboxImage({ src: cert.fileUrl, title: cert.title, description: cert.description }),
     []
   );
   const closeLightbox = useCallback(() => setLightboxImage(null), []);
@@ -115,7 +115,7 @@ export const Certifications = () => {
               </motion.p>
               <motion.div variants={heroItem} custom={3} className="mt-8 flex flex-wrap gap-2 text-xs text-white/60">
                 <span className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-3 py-1.5">
-                  <Maximize2 className="size-3.5 text-white/80" /> Certificates open in a viewer
+                  <Maximize2 className="size-3.5 text-white/80" /> Images open in a viewer
                 </span>
                 <span className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-3 py-1.5">
                   <ArrowDown className="size-3.5 text-[#e2c98a]" /> Documents download directly
@@ -126,7 +126,7 @@ export const Certifications = () => {
             <motion.div variants={heroItem} custom={4} className="grid grid-cols-3 gap-px overflow-hidden rounded-2xl border border-white/10 bg-white/10 backdrop-blur-sm">
               {[
                 { label: "On record", value: status === "success" ? items.length : "—" },
-                { label: "Certificates", value: status === "success" ? imageCount : "—" },
+                { label: "Images", value: status === "success" ? imageCount : "—" },
                 { label: "Documents", value: status === "success" ? fileCount : "—" },
               ].map((stat) => (
                 <div key={stat.label} className="bg-[#0d1f35]/80 px-4 py-5 text-center">

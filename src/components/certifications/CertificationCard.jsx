@@ -80,7 +80,7 @@ export function CertificationCard({ cert, onOpenImage, onDownload }) {
       <button
         type="button"
         onClick={handleClick}
-        aria-label={isImage ? `View certificate: ${cert.title}` : `Download ${format} certificate: ${cert.title}`}
+        aria-label={isImage ? `View ${cert.title}` : `Download ${format}: ${cert.title}`}
         className="group relative flex h-full w-full flex-col overflow-hidden rounded-2xl border border-stone-200/80 bg-white text-left shadow-[0_1px_2px_rgba(13,31,53,0.04)] outline-none transition-[transform,box-shadow,border-color] duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] hover:-translate-y-1.5 hover:border-[#c8aa64]/50 hover:shadow-[0_28px_50px_-24px_rgba(13,31,53,0.4)] focus-visible:ring-2 focus-visible:ring-[#c8aa64] focus-visible:ring-offset-2 focus-visible:ring-offset-[#f2ede3]"
       >
         {/* gold hairline that draws in on hover */}
@@ -132,7 +132,7 @@ export function CertificationCard({ cert, onOpenImage, onDownload }) {
               }`}
             >
               {isImage ? <ImageIcon className="size-3" /> : <FileText className="size-3" />}
-              {isImage ? "Certificate" : `${format} document`}
+              {isImage ? "View" : "Download"}
             </span>
             {cert.createdAt && (
               <span className="font-['DM_Mono',monospace] text-[10px] uppercase tracking-[0.14em] text-stone-400">
@@ -149,7 +149,7 @@ export function CertificationCard({ cert, onOpenImage, onDownload }) {
           )}
 
           <div className="mt-auto flex items-center gap-1.5 pt-5 text-xs font-semibold uppercase tracking-[0.14em] text-[#a88940]">
-            {isImage ? "View certificate" : `Download ${format}`}
+            {isImage ? "View" : `Download ${format}`}
             {isImage ? (
               <ArrowUpRight className="size-3.5 transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
             ) : (
