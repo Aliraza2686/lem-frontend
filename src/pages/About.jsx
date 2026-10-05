@@ -78,8 +78,8 @@ const values = [
 
   const stats = [
     { number: "2015", label: "Established In Export Business" },
-    { number: "250+", label: "Tons Bentonite & Minerals Supplied" },
-    { number: "8", label: "Minerals In Export Catalog" },
+    { number: "Global", label: "Bulk Export Supply" },
+    { number: "8+", label: "Minerals In Export Catalog" },
     { number: "100%", label: "Direct-From-Source Sourcing" },
   ];
 
@@ -773,7 +773,7 @@ const values = [
             </h2>
             <div className="portfolio-intro">
               <p>
-                Lumina Earth Minerals supplies eight core minerals as our primary export catalog,
+                Lumina Earth Minerals supplies a core range of 8+ minerals as our primary export catalog,
                 each sourced directly from a specific mining region in Pakistan and supplied in
                 bulk with full documentation support. Every shipment — whether a natural mineral
                 like Himalayan Salt or a metallic ore like Antimony or Copper — passes through the
